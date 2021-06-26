@@ -1,0 +1,1 @@
+# sekolahskullers-frontend
