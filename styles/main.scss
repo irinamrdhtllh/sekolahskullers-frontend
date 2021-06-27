@@ -1,2 +1,9 @@
 @use "base" as *;
 @use "vendor" as *;
+@use "abstracts" as *;
+@use "layout" as *;
+
+body {
+  background-color: var(--clr-light);
+  font-family: var(--ff-windlass);
+}
