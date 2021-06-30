@@ -1,0 +1,23 @@
+$clr-accent-1: #244C4C;
+$fs-paragraph: 1rem;
+
+.button {
+  display: inline-block;
+  background-color: $clr-accent-1;
+  padding: 1rem 2rem;
+  font-size: $fs-paragraph;
+  text-align: center;
+  font-family: Windlass;
+  font-size: 12px;
+  margin: 1rem;
+
+  &:hover {
+    background-color: rgba($clr-accent-1, 0.95);
+    text-decoration: underline;
+  }
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+}

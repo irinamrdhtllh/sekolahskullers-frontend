@@ -1,8 +1,10 @@
 import styles from '../styles/components/FormField.module.scss'
 
 export default function FormField({ label, type }) {
-  <div>
-    <p>{label}</p>
-    <input type={type}>
-  </div>
+  return (
+    <div className={styles.form}>
+      <p>{label}</p>
+      <input type={type} className={styles.input}/>
+    </div>
+  );
 }

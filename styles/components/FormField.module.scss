@@ -1,0 +1,26 @@
+$clr-accent-1: #244C4C;
+$clr-accent-2: #80D5AD;
+$clr-gray: #E5E5E5;
+
+.form {
+  font-family: PragRoman;
+  font-size: 12px;
+  margin: 1rem;
+}
+
+.input {
+  background-color: $clr-gray;
+  width: 25rem;
+  padding: 0.5rem 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid $clr-accent-1;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    border-bottom: 3px solid $clr-accent-2;
+  }
+}

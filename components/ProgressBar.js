@@ -1,12 +1,12 @@
 import styles from '../styles/components/ProgressBar.module.scss';
 
-export default function ProgressBar( name, progress ) {
+export default function ProgressBar({ progress, bar }) {
   return (
-    <div>
-      <p>{name}</p>
-      <div class='bar_holder'>
-        <div class='bar'>{progress}</div>
+    <div className={styles.progress_bar}>
+      <p>{progress}</p>
+      <div className={styles.bar_holder}>
+        <div className={styles.bar}>{bar}</div>
       </div>
     </div>
-  )
+  );
 }

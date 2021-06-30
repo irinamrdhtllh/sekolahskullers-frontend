@@ -1,0 +1,24 @@
+$clr-health: #E90909;
+$clr-gray: #E5E5E5;
+
+.progress_bar {
+  margin: 1rem;
+  font-family: PragRoman;
+  font-size: 12px;
+}
+
+.bar_holder {
+  width: 25rem;
+  background-color: $clr-gray;
+  border-radius: 5px;
+}
+
+.bar {
+  width: 60%;
+  height: 30px;
+  background-color: $clr-health;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  border-radius: 5px;
+}

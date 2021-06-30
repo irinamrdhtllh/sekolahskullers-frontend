@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 export default function Button({ href, name }) {
   return (
-    <div>
-      <Link href={href}>{name}</Link>
+    <div className={styles.button}>
+      <a href={href} className={styles.link}>{name}</a>
     </div>
-  )
+  );
 }
