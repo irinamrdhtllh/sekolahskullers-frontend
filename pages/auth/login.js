@@ -2,8 +2,8 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
-import { useAuth } from '../../contexts/auth';
 import camelCase from '../../helper/camelCase';
+import { useAuth } from '../../hooks/useAuth';
 import Header from '../../layout/Header';
 
 export default function Login() {
@@ -12,18 +12,19 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   const { setStudent, setToken } = useAuth();
-
   const router = useRouter();
 
   const onLogin = async (data) => {
     const url = 'http://127.0.0.1:8000/api/login/';
-    const response = await axios.post(url, data);
-    // console.log(response);
 
-    setStudent(camelCase(response.data.student));
-    setToken(response.data.token);
+    try {
+      const response = await axios.post(url, data);
+      setStudent(camelCase(response.data.student));
+      setToken(response.data.token);
+    } catch (error) {
+      console.error(error);
+    }
 
     router.push('/profile');
   };

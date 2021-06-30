@@ -1,4 +1,4 @@
-import { useAuth } from '../contexts/auth';
+import { useAuth } from '../hooks/useAuth';
 import Header from '../layout/Header';
 
 export default function Profile() {

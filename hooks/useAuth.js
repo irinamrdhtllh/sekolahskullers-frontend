@@ -6,24 +6,32 @@ import {
   useState,
 } from 'react';
 
-export const AuthContext = createContext(null);
-
 const reducer = (user, newUser) => {
   if (newUser === null) {
-    localStorage.removeItem('user');
+    localStorage.removeItem('student');
+    localStorage.removeItem('token');
     return null;
   }
   return { ...user, ...newUser };
 };
+
+const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [student, setStudent] = useReducer(reducer, null);
   const [token, setToken] = useState('');
 
   useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(student));
-    localStorage.setItem('token', token);
+    if (student !== null && token !== '') {
+      localStorage.setItem('student', JSON.stringify(student));
+      localStorage.setItem('token', token);
+    }
   }, [student, token]);
+
+  useEffect(() => {
+    setStudent(JSON.parse(localStorage.getItem('student')));
+    setToken(localStorage.getItem('token'));
+  }, []);
 
   const value = { student, setStudent, token, setToken };
 

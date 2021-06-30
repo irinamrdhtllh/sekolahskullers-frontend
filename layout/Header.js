@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { useAuth } from '../contexts/auth';
+import { useAuth } from '../hooks/useAuth';
 
 export default function Header() {
   const { student } = useAuth();
@@ -15,15 +15,19 @@ export default function Header() {
           <Link href="/profile">Profile</Link>
         </li>
       ) : null}
+      {student === null ? (
+        <li>
+          <Link href="/auth/register">Register</Link>
+        </li>
+      ) : null}
       <li>
-        <Link href="/auth/register/">Register</Link>
+        <Link href="/auth/login">Login</Link>
       </li>
-      <li>
-        <Link href="/auth/login/">Login</Link>
-      </li>
-      <li>
-        <Link href="/auth/logout/">Logout</Link>
-      </li>
+      {student ? (
+        <li>
+          <Link href="/auth/logout">Logout</Link>
+        </li>
+      ) : null}
     </ul>
   );
 }
