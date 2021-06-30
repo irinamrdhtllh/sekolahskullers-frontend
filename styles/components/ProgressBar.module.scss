@@ -1,24 +1,34 @@
-$clr-health: #E90909;
-$clr-gray: #E5E5E5;
+@import "../abstracts/variables";
 
 .progress_bar {
-  margin: 1rem;
-  font-family: PragRoman;
-  font-size: 12px;
+  margin: 0.5rem 1rem;
+
+  p {
+    float: left;
+    margin: 0;
+  }
+
+  .bar_holder {
+    width: 15rem;
+    background-color: $clr-gray;
+    border-radius: 5px;
+    float: left;
+    margin-left: 1rem;
+  }
+
+  .bar {
+    width: 60%;
+    height: 1rem;
+    background-color: $clr-health;
+    text-align: center;
+    line-height: 1rem;
+    color: white;
+    border-radius: 5px;
+  }
 }
 
-.bar_holder {
-  width: 25rem;
-  background-color: $clr-gray;
-  border-radius: 5px;
-}
-
-.bar {
-  width: 60%;
-  height: 30px;
-  background-color: $clr-health;
-  text-align: center;
-  line-height: 30px;
-  color: white;
-  border-radius: 5px;
+.progress_bar::after {
+  content: "";
+  clear: both;
+  display: table;
 }

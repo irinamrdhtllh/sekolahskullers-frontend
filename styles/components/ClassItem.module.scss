@@ -1,4 +1,4 @@
-$clr-accent-1: #244C4C;
+@import "../abstracts/variables";
 
 .classitem {
   display: flex;
@@ -7,46 +7,45 @@ $clr-accent-1: #244C4C;
   width: auto;
   height: 4rem;
   background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: $box-shadow;
   margin: 1rem 8rem;
-  font-family: PragRoman;
-  font-size: 12px;
 
   p {
     margin: 0;
   }
-}
 
-.image {
-  height: 100%;
-}
-
-.number {
-  background-color: $clr-accent-1;
-  color: white;
-  text-align: center;
-  width: 4rem;
-}
-
-.class {
-  display: flex;
-
-  p {
-    margin: 1.5rem 1rem;
+  .image {
+    height: 100%;
   }
-}
 
-.level {
-  display: flex;
-  width: auto;
-  height: 2rem;
-  margin: 1rem;
+  .class {
+    display: flex;
 
-  p {
-    margin: 0.5rem 1rem;
+    .number {
+      background-color: $clr-accent-1;
+      color: white;
+      text-align: center;
+      width: 4rem;
+    }
+
+    p {
+      margin: 1.5rem 1rem;
+    }
   }
-}
 
-.bar {
-  margin: 1rem 1.5rem;
+  .level {
+    display: flex;
+
+    p {
+      margin: 0.5rem 1rem;
+    }
+  }
+
+  .bars {
+    margin: 0.25rem 1.5rem;
+
+    .bar {
+      margin: 0;
+    }
+  }
 }

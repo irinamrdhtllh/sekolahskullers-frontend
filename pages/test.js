@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../components/Button.js';
 import ProgressBar from '../components/ProgressBar.js';
 import FormField from '../components/FormField.js';
+import Level from '../components/Level.js';
 import StudentItem from '../components/StudentItem.js';
 import ClassItem from '../components/ClassItem.js';
 
@@ -29,14 +30,13 @@ export default function Test() {
       <Button href={href} name={name}/>
       <ProgressBar progress={progress} bar={bar}/>
       <FormField label={label} type={type}/>
+      <Level level={level}/>
       <StudentItem student={student}/>
       <ClassItem
         number={number}
         class_name={class_name}
         class_name={class_name}
         level={level}
-        health={health}
-        exp={exp}
       />
     </div>
   );

@@ -1,15 +1,17 @@
+@import "../abstracts/variables";
+
 .level {
   display: flex;
   flex-direction: row;
   width: auto;
   height: 2rem;
   margin: 1rem;
-}
 
-img {
-  height: 100%;
-}
+  img {
+    height: 100%;
+  }
 
-p {
-  margin: 0.5rem 1rem;
+  p {
+    margin: 0.5rem 1rem;
+  }
 }

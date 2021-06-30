@@ -1,6 +1,15 @@
 import styles from '../styles/components/ClassItem.module.scss';
+import ProgressBar from './ProgressBar.js';
+import Level from './Level.js';
 
-export default function ClassItem({ number, class_logo, class_name, level_logo, level, health, exp }) {
+export default function ClassItem({ number, class_logo, class_name }) {
+  const health = "HP";
+  const health_bar = "60%";
+  const exp = "XP";
+  const exp_bar = "60%";
+
+  const level = "First Mate";
+
   return (
     <div className={styles.classitem}>
       <div className={styles.class}>
@@ -13,12 +22,11 @@ export default function ClassItem({ number, class_logo, class_name, level_logo, 
         </div>
       </div>
       <div className={styles.level}>
-        <img src={level_logo} alt="image" className={styles.image}/>
-        <p>{level}</p>
+        <Level level={level}/>
       </div>
-      <div className={styles.bar}>
-        <p>HP: {health}</p>
-        <p>XP: {exp}</p>
+      <div className={styles.bars}>
+        <ProgressBar progress={health} bar={health_bar}/>
+        <ProgressBar progress={exp} bar={exp_bar}/>
       </div>
     </div>
   );
