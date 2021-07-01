@@ -1,10 +1,21 @@
-import styles from '../styles/components/Button.module.scss';
+import React from 'react';
+
 import Link from 'next/link';
 
-export default function Button({ href, name }) {
+import styles from '../styles/components/Button.module.scss';
+
+const Button = React.forwardRef(({ onClick, href, name }, ref) => {
   return (
     <div className={styles.button}>
-      <a href={href} className={styles.link}>{name}</a>
+      <Link href={href} passHref>
+        <a className={styles.link} onClick={onClick} ref={ref}>
+          {name}
+        </a>
+      </Link>
     </div>
   );
-}
+});
+
+Button.displayName = 'Button';
+
+export default Button;

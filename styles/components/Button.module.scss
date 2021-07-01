@@ -1,11 +1,11 @@
-@import "../abstracts/variables";
+@use "../abstracts/variables" as *;
 
 .button {
   display: inline-block;
   background-color: $clr-accent-1;
   padding: 1rem 3rem;
   text-align: center;
-  font-family: Windlass;
+  font-family: $ff-pragroman;
   margin: 1rem;
 
   &:hover {
