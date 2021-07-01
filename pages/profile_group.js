@@ -6,32 +6,32 @@ import camelCase from '../helper/camelCase';
 import { useAuth } from '../hooks/useAuth';
 import Header from '../layout/Header';
 
-export default function Profile() {
-  const { student, setStudent, token } = useAuth();
+export default function ProfileGroup() {
+  const { group, setGroup, token } = useAuth();
 
   useEffect(() => {
-    const getStudent = async () => {
-      const url = 'http://127.0.0.1:8000/api/auth/profile/';
+    const getGroup = async () => {
+      const url = 'http://127.0.0.1:8000/api/auth/profile/group/';
 
       try {
         const response = await axios.get(url, {
           headers: { Authorization: 'Token ' + token.key },
         });
-        setStudent(camelCase(response.data));
+        setGroup(camelCase(response.data));
       } catch (error) {
         console.error(error);
       }
     };
 
-    if (student === null) {
-      getStudent();
+    if (group === null) {
+      getGroup();
     }
-  }, [student, setStudent, token]);
+  }, [group, setGroup, token]);
 
   return (
     <>
       <Header />
-      <pre>{JSON.stringify(student, null, 2)}</pre>
+      <pre>{JSON.stringify(group, null, 2)}</pre>
     </>
   );
 }

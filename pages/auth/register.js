@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
-import camelCase from '../../helper/camelCase';
 import { useAuth } from '../../hooks/useAuth';
 import Header from '../../layout/Header';
 
@@ -12,7 +11,7 @@ export default function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { setStudent, setToken } = useAuth();
+  const { setToken } = useAuth();
   const router = useRouter();
 
   const onRegister = async (data) => {
@@ -20,13 +19,12 @@ export default function Register() {
 
     try {
       const response = await axios.post(url, data);
-      setStudent(camelCase(response.data.student));
-      setToken(response.data.token);
+      setToken({key: response.data.token});
+      router.push('/');
     } catch (error) {
       console.error(error);
     }
 
-    router.push('/profile');
   };
   // console.log(errors);
 
