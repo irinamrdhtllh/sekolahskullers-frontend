@@ -15,14 +15,14 @@ export default function Register() {
   const router = useRouter();
 
   const onRegister = async (data) => {
-    const url = 'http://127.0.0.1:8000/api/register/';
+    const url = process.env.API_URL + 'api/register/';
 
     try {
       const response = await axios.post(url, data);
-      setToken({key: response.data.token});
+      setToken(response.data);
       router.push('/');
     } catch (error) {
-      console.error(error);
+      console.error(error.response);
     }
 
   };

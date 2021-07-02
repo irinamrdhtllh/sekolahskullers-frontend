@@ -2,31 +2,41 @@ import { useEffect } from 'react';
 
 import axios from 'axios';
 
-import camelCase from '../helper/camelCase';
 import { useAuth } from '../hooks/useAuth';
 import Header from '../layout/Header';
+
+async function trycatch(api) {
+  try {
+    const response = await api;
+    return [response, null];
+  } catch (error) {
+    console.error(error);
+    return [null, error];
+  }
+}
 
 export default function Profile() {
   const { student, setStudent, token } = useAuth();
 
   useEffect(() => {
     const getStudent = async () => {
-      const url = 'http://127.0.0.1:8000/api/auth/profile/';
+      const url = process.env.API_URL + 'api/auth/profile/';
 
-      try {
-        const response = await axios.get(url, {
-          headers: { Authorization: 'Token ' + token.key },
-        });
-        setStudent(camelCase(response.data));
-      } catch (error) {
-        console.error(error);
+      const [response, error] = await trycatch(
+        axios.get(url, {
+          headers: { Authorization: 'Bearer ' + token.access },
+        })
+      );
+      
+      if (error) {
+        // TODO: implementasi refresh token baru
+      } else {
+        setStudent(response.data);
       }
     };
 
-    if (student === null) {
-      getStudent();
-    }
-  }, [student, setStudent, token]);
+    getStudent();
+  }, [setStudent, token]);
 
   return (
     <>

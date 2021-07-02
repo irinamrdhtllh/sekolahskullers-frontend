@@ -15,16 +15,15 @@ export default function Login() {
   const router = useRouter();
 
   const onLogin = async (data) => {
-    const url = 'http://127.0.0.1:8000/api/login/';
+    const url = process.env.API_URL + 'api/token/';
 
     try {
       const response = await axios.post(url, data);
-      setToken({ key: response.data.token });
+      setToken(response.data);
       router.push('/');
     } catch (error) {
-      console.error(error);
+      console.error(error.response);
     }
-
   };
   // console.log(errors);
 

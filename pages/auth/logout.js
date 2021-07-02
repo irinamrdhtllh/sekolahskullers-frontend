@@ -9,21 +9,10 @@ export default function Login() {
   const router = useRouter();
 
   const onLogout = async () => {
-    const url = 'http://127.0.0.1:8000/api/logout/';
-
-    try {
-      await axios.post(
-        url,
-        {},
-        { headers: { Authorization: 'Token ' + token.key } }
-      );
-      setStudent(null);
-      setGroup(null);
-      setToken(null);
-      router.push('/');
-    } catch (error) {
-      console.error(error);
-    }
+    setStudent(null);
+    setGroup(null);
+    setToken(null);
+    router.push('/');
   };
 
   return (
