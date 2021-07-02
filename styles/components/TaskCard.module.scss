@@ -1,1 +1,79 @@
 @use "abstracts" as *;
+
+.task_card {
+  width: 450px;
+  height: 70px;
+  background-color: white;
+  box-shadow: $box-shadow;
+  border: 2px solid $clr-accent-1;
+  margin-bottom: 25px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.task {
+  float: left;
+  width: 68%;
+  padding: 1rem;
+  border-right: 2px solid $clr-accent-1;
+}
+
+.score {
+  position: relative;
+  float: right;
+}
+
+.date {
+  margin-top: 0.5rem;
+  font-size: 10px;
+
+  p {
+    float: left;
+    color: $clr-accent-1;
+  }
+
+  a {
+    float: right;
+    right: 0;
+    text-decoration: none;
+    color: $clr-accent-1;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.triangle1 {
+    float: left;
+    border-bottom: 70px solid transparent;
+    border-left: 110px solid white;
+    width: 0;
+    height: 0;
+
+    .triangle1_text {
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: -90px;
+        margin-top: 10px;
+    }
+}
+
+.triangle2 {
+    position: absolute;
+    border-top: 70px solid transparent;
+    border-right: 110px solid $clr-accent-1;
+    width: 0;
+    height: 0;
+
+    .triangle2_text {
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 60px;
+        margin-top: -35px;
+    }
+}

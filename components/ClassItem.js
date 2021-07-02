@@ -2,7 +2,7 @@ import styles from '../styles/components/ClassItem.module.scss';
 import ProgressBar from './ProgressBar.js';
 import Level from './Level.js';
 
-export default function ClassItem({ number, class_logo, class_name, level, health_bar, health_style, exp_bar, exp_style }) {
+export default function ClassItem({ number, class_logo, class_name, level_logo, level, health_bar, health_style, exp_bar, exp_style }) {
   const health = "HP";
   const exp = "XP";
 

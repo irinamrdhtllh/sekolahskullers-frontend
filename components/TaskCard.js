@@ -1,13 +1,24 @@
 import styles from '../styles/components/TaskCard.module.scss';
 import Link from 'next/link';
 
-export default function TaskCard( task, max_exp, exp, deadline, href ) {
+export default function TaskCard({ task_name, max_exp, exp, deadline, href }) {
   return (
-    <div className={styles.task_card}>
-      <h1>{task}</h1>
-      <p>{exp}/{max_exp}</p>
-      <p>{deadline}</p>
-      <Link href={href}>Classroom</Link>
+    <div class={styles.task_card}>
+      <div class={styles.task}>
+        <p>{task_name}</p>
+        <div class={styles.date}>
+          <p>{deadline}</p>
+          <a href={href}>Classroom</a>
+        </div>
+      </div>
+      <div class={styles.score}>
+        <div class={styles.triangle1}>
+          <div class={styles.triangle1_text}>{exp}</div>
+        </div>
+        <div class={styles.triangle2}>
+          <div class={styles.triangle2_text}>{max_exp}</div>
+        </div>
+      </div>
     </div>
   );
 }
