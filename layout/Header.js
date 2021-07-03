@@ -3,14 +3,14 @@ import Link from 'next/link';
 import { useAuth } from '../hooks/useAuth';
 
 export default function Header() {
-  const { token } = useAuth();
+  const { state } = useAuth();
 
   return (
     <ul>
       <li>
         <Link href="/">Home</Link>
       </li>
-      {token ? (
+      {state.isAuthenticated ? (
         <>
           <li>
             <Link href="/profile">Profile</Link>
@@ -20,7 +20,7 @@ export default function Header() {
           </li>
         </>
       ) : null}
-      {token === null ? (
+      {!state.isAuthenticated ? (
         <>
           <li>
             <Link href="/auth/register">Register</Link>
@@ -31,7 +31,7 @@ export default function Header() {
         </>
       ) : null}
 
-      {token ? (
+      {state.isAuthenticated ? (
         <li>
           <Link href="/auth/logout">Logout</Link>
         </li>

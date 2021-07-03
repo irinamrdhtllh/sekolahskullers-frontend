@@ -11,15 +11,18 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { setToken } = useAuth();
+  const { dispatch } = useAuth();
   const router = useRouter();
 
   const onLogin = async (data) => {
-    const url = process.env.API_URL + 'api/token/';
+    const url = process.env.API_HOST + '/api/token/';
 
     try {
       const response = await axios.post(url, data);
-      setToken(response.data);
+      dispatch({
+        type: 'login',
+        payload: response.data
+      });
       router.push('/');
     } catch (error) {
       console.error(error.response);

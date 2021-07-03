@@ -6,6 +6,6 @@ module.exports = {
     includePaths: [path.join(__dirname, 'styles')],
   },
   env: {
-    API_URL: "http://localhost:8000/"
+    API_HOST: "http://localhost:8000"
   }
 }

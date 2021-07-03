@@ -1,29 +1,43 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import axios from 'axios';
 
 import { useAuth } from '../hooks/useAuth';
 import Header from '../layout/Header';
 
-export default function ProfileGroup() {
-  const { group, setGroup, token } = useAuth();
+async function trycatch(api) {
+  try {
+    const response = await api;
+    return [response, null];
+  } catch (error) {
+    console.error(error);
+    return [null, error];
+  }
+}
+
+export default function Profile() {
+  const { state } = useAuth();
+  const [group, setGroup] = useState({});
 
   useEffect(() => {
     const getGroup = async () => {
-      const url = process.env.API_URL + 'api/auth/profile/group/';
+      const url = process.env.API_HOST + '/api/auth/profile/group/';
 
-      try {
-        const response = await axios.get(url, {
-          headers: { Authorization: 'Bearer ' + token.access },
-        });
+      const [response, error] = await trycatch(
+        axios.get(url, {
+          headers: { Authorization: 'Bearer ' + state.token.access },
+        })
+      );
+      
+      if (error) {
+        // TODO: implementasi refresh token baru
+      } else {
         setGroup(response.data);
-      } catch (error) {
-        console.error(error);
       }
     };
 
     getGroup();
-  }, [setGroup, token]);
+  }, [state.token.access]);
 
   return (
     <>

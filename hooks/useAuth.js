@@ -1,42 +1,40 @@
 import { createContext, useContext, useEffect, useReducer } from 'react';
 
-const reducer = (data, newData) => {
-  // clear storage on logout
-  if (newData === null) {
-    localStorage.removeItem('student');
-    localStorage.removeItem('group');
-    localStorage.removeItem('token');
-    return null;
-  }
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'login':
+      const newState = { isAuthenticated: true, token: action.payload };
+      localStorage.setItem('state', JSON.stringify(newState));
+      return newState;
 
-  return { ...data, ...newData };
+    case 'retrieve':
+      const storage = JSON.parse(localStorage.getItem('state'));
+      if (storage) {
+        return storage;
+      }
+
+    case 'logout':
+      localStorage.removeItem('state');
+      return initialState;
+  }
 };
 
-const AuthContext = createContext(null);
+const AuthContext = createContext({});
+
+const initialState = {
+  isAuthenticated: false,
+  token: { access: '', refresh: '' },
+};
 
 export function AuthProvider({ children }) {
-  const [student, setStudent] = useReducer(reducer, null);
-  const [group, setGroup] = useReducer(reducer, null);
-  const [token, setToken] = useReducer(reducer, null);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  // get data from local storage on every first load
+  // get state from local storage on every first load
   useEffect(() => {
-    setStudent(JSON.parse(localStorage.getItem('student')));
-    setGroup(JSON.parse(localStorage.getItem('group')));
-    setToken(JSON.parse(localStorage.getItem('token')));
+    dispatch({ type: 'retrieve' });
   }, []);
 
-  useEffect(() => {
-    // don't store data on local storage during logout
-    if (!student && !group && !token) {
-      return;
-    }
-    localStorage.setItem('student', JSON.stringify(student));
-    localStorage.setItem('group', JSON.stringify(group));
-    localStorage.setItem('token', JSON.stringify(token));
-  }, [student, group, token]);
-
-  const value = { student, setStudent, group, setGroup, token, setToken };
+  const value = { state, dispatch };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

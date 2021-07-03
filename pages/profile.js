@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import axios from 'axios';
 
@@ -16,15 +16,16 @@ async function trycatch(api) {
 }
 
 export default function Profile() {
-  const { student, setStudent, token } = useAuth();
+  const { state } = useAuth();
+  const [student, setStudent] = useState({});
 
   useEffect(() => {
     const getStudent = async () => {
-      const url = process.env.API_URL + 'api/auth/profile/';
+      const url = process.env.API_HOST + '/api/auth/profile/';
 
       const [response, error] = await trycatch(
         axios.get(url, {
-          headers: { Authorization: 'Bearer ' + token.access },
+          headers: { Authorization: 'Bearer ' + state.token.access },
         })
       );
       
@@ -36,7 +37,7 @@ export default function Profile() {
     };
 
     getStudent();
-  }, [setStudent, token]);
+  }, [state.token.access]);
 
   return (
     <>

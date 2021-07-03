@@ -11,20 +11,19 @@ export default function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { setToken } = useAuth();
+  const { dispatch } = useAuth();
   const router = useRouter();
 
   const onRegister = async (data) => {
-    const url = process.env.API_URL + 'api/register/';
+    const url = process.env.API_HOST + '/api/register/';
 
     try {
       const response = await axios.post(url, data);
-      setToken(response.data);
+      dispatch({ type: 'login', payload: response.data });
       router.push('/');
     } catch (error) {
       console.error(error.response);
     }
-
   };
   // console.log(errors);
 
