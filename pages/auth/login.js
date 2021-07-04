@@ -11,24 +11,22 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { dispatch } = useAuth();
+  const { loading, isAuthenticated, login } = useAuth();
   const router = useRouter();
 
-  const onLogin = async (data) => {
-    const url = process.env.API_HOST + '/api/token/';
-
+  const onLogin = async ({ username, password }) => {
     try {
-      const response = await axios.post(url, data);
-      dispatch({
-        type: 'login',
-        payload: response.data
-      });
-      router.push('/');
+      const resp = await login(username, password);
+      // TODO: handle 401 error
     } catch (error) {
-      console.error(error.response);
+      console.error(error);
     }
   };
   // console.log(errors);
+
+  if (!loading && isAuthenticated) {
+    router.push('/');
+  }
 
   return (
     <>

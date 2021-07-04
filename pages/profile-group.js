@@ -7,22 +7,22 @@ export default function Profile() {
   const { response, loading } = useFetch(
     {
       method: 'GET',
-      url: 'profile/',
+      url: 'profile/group/',
     },
     true
   );
-  const [student, setStudent] = useState({});
+  const [group, setGroup] = useState({});
 
   useEffect(() => {
     if (!loading) {
-      setStudent(response.data);
+      setGroup(response.data);
     }
   }, [loading]);
 
   return (
     <>
       <Header />
-      {loading ? <p>Loading</p> : <pre>{JSON.stringify(student, null, 2)}</pre>}
+      {loading ? <p>Loading</p> : <pre>{JSON.stringify(group, null, 2)}</pre>}
     </>
   );
 }

@@ -4,18 +4,18 @@ import { useAuth } from '../../hooks/useAuth';
 import Header from '../../layout/Header';
 
 export default function Login() {
-  const { state, dispatch } = useAuth();
+  const { isAuthenticated, logout } = useAuth();
   const router = useRouter();
 
   const onLogout = async () => {
-    dispatch({type: 'logout'})
+    logout();
     router.push('/');
   };
 
   return (
     <>
       <Header />
-      {state.isAuthenticated ? (
+      {isAuthenticated ? (
         <button onClick={() => onLogout()}>Logout</button>
       ) : (
         <p>You have been logged out.</p>
