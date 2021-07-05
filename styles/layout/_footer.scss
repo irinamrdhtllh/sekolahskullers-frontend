@@ -1,11 +1,14 @@
+@use "abstracts" as *;
+
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     text-align: center;
-    background-color: #244C4C;
+    background-color: $clr-accent-1;
     padding: 2rem 0;
     color: white;
+    margin-top: auto;
 
     .sosmed {
         margin-bottom: 0.5rem;
