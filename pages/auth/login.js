@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
 import { useAuth } from '../../hooks/useAuth';
+import Footer from '../../layout/Footer';
 import Header from '../../layout/Header';
 
 export default function Login() {
@@ -53,6 +54,7 @@ export default function Login() {
 
         <button>Submit</button>
       </form>
+      <Footer />
     </>
   );
 }

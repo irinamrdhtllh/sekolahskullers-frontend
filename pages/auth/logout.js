@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 
 import { useAuth } from '../../hooks/useAuth';
+import Footer from '../../layout/Footer';
 import Header from '../../layout/Header';
 
 export default function Login() {
@@ -20,6 +21,7 @@ export default function Login() {
       ) : (
         <p>You have been logged out.</p>
       )}
+      <Footer />
     </>
   );
 }

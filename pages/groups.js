@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import useFetch from '../hooks/useFetch';
+import Footer from '../layout/Footer';
 import Header from '../layout/Header';
 
 export default function Groups() {
@@ -24,6 +25,7 @@ export default function Groups() {
       ) : (
         <pre>{JSON.stringify(groups, null, 2)}</pre>
       )}
+      <Footer />
     </>
   );
 }

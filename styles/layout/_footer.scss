@@ -1,0 +1,23 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #244C4C;
+    padding: 2rem 0;
+    color: white;
+
+    .sosmed {
+        margin-bottom: 0.5rem;
+    }
+
+    .sosmed a {
+        color: white;
+        padding: 1rem;
+        text-decoration: none;
+    }
+
+    .sosmed a:hover {
+        text-decoration: underline;
+    }
+}

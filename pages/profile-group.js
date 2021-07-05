@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import useFetch from '../hooks/useFetch';
+import Footer from '../layout/Footer';
 import Header from '../layout/Header';
 
 export default function Profile() {
@@ -23,6 +24,7 @@ export default function Profile() {
     <>
       <Header />
       {loading ? <p>Loading</p> : <pre>{JSON.stringify(group, null, 2)}</pre>}
+      <Footer />
     </>
   );
 }

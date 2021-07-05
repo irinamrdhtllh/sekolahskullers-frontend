@@ -1,36 +1,27 @@
 @use "abstracts" as *;
 
 .progress_bar {
+  display: flex;
+  justify-content: space-between;
   margin: 0.5rem 1rem;
   max-width: 25rem;
 
-  p {
-    float: left;
+  * {
     margin: 0;
   }
 
   .bar_holder {
-    float: right;
     width: 15rem;
     background-color: $clr-gray;
     border-radius: 5px;
-    right: 0;
     margin-left: 1rem;
   }
 
   .bar {
-    //width: 60%;
-    height: 1rem;
-    //background-color: $clr-health;
+    height: 100%;
     text-align: center;
-    line-height: 1rem;
+    line-height: inherit;
     color: white;
     border-radius: 5px;
   }
-}
-
-.progress_bar::after {
-  content: "";
-  clear: both;
-  display: table;
 }

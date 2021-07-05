@@ -1,3 +1,4 @@
+import Footer from '../layout/Footer';
 import Header from '../layout/Header';
 
 export default function Home() {
@@ -5,7 +6,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      <h1>Sekolah Skullers</h1>
+      <h2>Sekolah Skullers</h2>
+      <Footer />
     </>
   );
 }

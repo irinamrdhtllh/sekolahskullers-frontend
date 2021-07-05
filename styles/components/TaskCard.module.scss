@@ -47,33 +47,33 @@
 }
 
 .triangle1 {
-    float: left;
-    border-bottom: 70px solid transparent;
-    border-left: 110px solid white;
-    width: 0;
-    height: 0;
+  float: left;
+  border-bottom: 70px solid transparent;
+  border-left: 110px solid white;
+  width: 0;
+  height: 0;
 
-    .triangle1_text {
-        color: black;
-        font-size: 18px;
-        font-weight: bold;
-        margin-left: -90px;
-        margin-top: 10px;
-    }
+  .triangle1_text {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: -90px;
+    margin-top: 10px;
+  }
 }
 
 .triangle2 {
-    position: absolute;
-    border-top: 70px solid transparent;
-    border-right: 110px solid $clr-accent-1;
-    width: 0;
-    height: 0;
+  position: absolute;
+  border-top: 70px solid transparent;
+  border-right: 110px solid $clr-accent-1;
+  width: 0;
+  height: 0;
 
-    .triangle2_text {
-        color: white;
-        font-size: 18px;
-        font-weight: bold;
-        margin-left: 60px;
-        margin-top: -35px;
-    }
+  .triangle2_text {
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      margin-left: 60px;
+      margin-top: -35px;
+  }
 }

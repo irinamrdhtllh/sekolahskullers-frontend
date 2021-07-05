@@ -1,10 +1,12 @@
+import Image from 'next/image';
+
 import styles from '../styles/components/StudentItem.module.scss';
 
-export default function StudentItem({ image, student }) {
+export default function StudentItem({ src, student }) {
   return (
-    <div class={styles.card}>
-      <img src={image} alt="image" className={styles.img}/>
-      <div class={styles.student}>
+    <div className={styles.card}>
+      <Image className={styles.img} src={src} width="200" height="200" alt="image" />
+      <div className={styles.student}>
         <p>{student}</p>
       </div>
     </div>

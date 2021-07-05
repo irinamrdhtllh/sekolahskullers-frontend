@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import useFetch from '../hooks/useFetch';
+import Footer from '../layout/Footer';
 import Header from '../layout/Header';
 
 export default function ClassYear() {
@@ -24,6 +25,7 @@ export default function ClassYear() {
       ) : (
         <pre>{JSON.stringify(classYear, null, 2)}</pre>
       )}
+      <Footer />
     </>
   );
 }

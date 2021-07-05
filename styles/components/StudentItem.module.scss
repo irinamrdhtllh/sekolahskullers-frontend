@@ -3,18 +3,12 @@
 .card {
   display: inline-block;
   width: 200px;
-  height: 230px;
+  height: 250px;
   background-color: white;
   box-shadow: $box-shadow;
   margin: 25px;
 
-  .img {
-    width: 100%;
-  }
-
   .student {
     text-align: center;
-    padding: 10px 20px;
-    margin-top: auto;
   }
 }

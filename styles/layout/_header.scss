@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+    background-color: white;
+    color: #244C4C;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+    h1 {
+        font-family: Windlass;
+        margin-left: 2rem;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav a {
+        padding: 1rem;
+        color: #272727;
+        text-decoration: none;
+    }
+
+    .nav a:hover {
+        color: #244C4C;
+        text-decoration: underline;
+    }
+}

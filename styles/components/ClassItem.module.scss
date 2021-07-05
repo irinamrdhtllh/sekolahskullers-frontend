@@ -4,19 +4,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: auto;
   height: 4rem;
   background-color: white;
   box-shadow: $box-shadow;
   margin: 1rem 8rem;
-
-  p {
-    margin: 0;
-  }
-
-  .image {
-    height: 100%;
-  }
 
   .class {
     display: flex;
@@ -31,18 +24,22 @@
     p {
       margin: 1.5rem 1rem;
     }
+
+    .class_name {
+      width: 12rem;
+    }
   }
 
   .level {
-    display: flex;
 
     p {
-      margin: 0.5rem 1rem;
+      margin: auto 1rem;
     }
   }
 
   .bars {
     margin: 0.25rem 1.5rem;
+    width: auto;
 
     .bar {
       margin: 0;

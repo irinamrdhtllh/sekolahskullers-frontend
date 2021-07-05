@@ -1,4 +1,5 @@
 import ClassItem from '../../components/ClassItem.js';
+import image from '../../public/images/image.jpg';
 
 export default function ClassItemTest() {
   const number1 = "1";
@@ -33,7 +34,9 @@ export default function ClassItemTest() {
     <>
       <ClassItem
         number={number1}
+        class_logo={image}
         class_name={class_name1}
+        level_logo={image}
         level={level1}
         health_bar={health_bar1}
         health_style={health_style1}
@@ -42,12 +45,25 @@ export default function ClassItemTest() {
       />
       <ClassItem
         number={number2}
+        class_logo={image}
         class_name={class_name2}
+        level_logo={image}
         level={level2}
         health_bar={health_bar2}
         health_style={health_style2}
         exp_bar={exp_bar2}
         exp_style={exp_style2}
+      />
+      <ClassItem
+        number={3}
+        class_logo={image}
+        class_name={class_name1}
+        level_logo={image}
+        level={level1}
+        health_bar={health_bar1}
+        health_style={health_style1}
+        exp_bar={exp_bar1}
+        exp_style={exp_style1}
       />
     </>
   );
