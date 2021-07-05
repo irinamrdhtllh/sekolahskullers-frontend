@@ -37,7 +37,7 @@
     .dropdown {
         display: inline-block;
 
-        .dropdown-content {
+        .dropdown_content {
             display: none;
             position: absolute;
             background-color: white;
@@ -46,7 +46,7 @@
             z-index: 1;
         }
     
-        .dropdown-content a {
+        .dropdown_content a {
             color: black;
             padding: 1rem;
             text-decoration: none;
@@ -61,7 +61,7 @@
         }
     }
       
-    .dropdown:hover .dropdown-content {
+    .dropdown:hover .dropdown_content {
         display: block;
     }
 }

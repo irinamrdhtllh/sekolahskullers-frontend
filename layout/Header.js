@@ -2,15 +2,16 @@ import Link from 'next/link';
 
 import Button from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
+import styles from '../styles/layout/Header.module.scss';
 
 export default function Header() {
   const { isAuthenticated } = useAuth();
 
   return (
-    <div className="header">
+    <div className={styles.header}>
       <h1>Sekolah Skullers</h1>
-      <div className="menu">
-        <div className="nav">
+      <div className={styles.menu}>
+        <div className={styles.nav}>
           <Link href="/">Home</Link>
           <Link href="/students">Students</Link>
           <Link href="/groups">Groups</Link>
@@ -18,17 +19,17 @@ export default function Header() {
         </div>
 
         {!isAuthenticated ? (
-          <div className="Button">
+          <div className={styles.button}>
             <Button href="/auth/login" name="Login" />
             <Button href="/auth/register" name="Register" />
           </div>
         ) : null}
         
         {isAuthenticated ? (
-          <div className="Button">
-            <div className="dropdown">
+          <div className={styles.button}>
+            <div className={styles.dropdown}>
               <Button href="/#" name="User" />
-              <div className="dropdown-content">
+              <div className={styles.dropdown_content}>
                 <Link href="/profile">Profile</Link>
                 <Link href="/profile-group">Group Profile</Link>
               </div>
