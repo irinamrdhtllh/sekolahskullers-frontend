@@ -1,4 +1,5 @@
-import axios from 'axios';
+import { useState } from 'react';
+
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
@@ -13,14 +14,17 @@ export default function Login() {
     formState: { errors },
   } = useForm();
   const { loading, isAuthenticated, login } = useAuth();
+  const [error, setError] = useState(false);
   const router = useRouter();
 
   const onLogin = async ({ username, password }) => {
+    setError(false);
     try {
-      const resp = await login(username, password);
-      // TODO: handle 401 error
+      await login(username, password);
     } catch (error) {
       console.error(error);
+      // TODO: handle 401 error
+      setError(true);
     }
   };
   // console.log(errors);
@@ -54,6 +58,7 @@ export default function Login() {
 
         <button>Submit</button>
       </form>
+      {error && <p>NIM or password incorrect</p>}
       <Footer />
     </>
   );
