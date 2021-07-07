@@ -3,8 +3,7 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
 import { useAuth } from '../../hooks/useAuth';
-import Footer from '../../layout/Footer';
-import Header from '../../layout/Header';
+import Layout from '../../layout/Layout';
 
 export default function Login() {
   const {
@@ -31,7 +30,7 @@ export default function Login() {
 
   return (
     <>
-      <Header />
+      <Layout>
       <form onSubmit={handleSubmit(onLogin)}>
         <p>
           <label htmlFor="username">NIM</label>
@@ -54,7 +53,7 @@ export default function Login() {
 
         <button>Submit</button>
       </form>
-      <Footer />
+      </Layout>
     </>
   );
 }

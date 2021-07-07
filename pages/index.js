@@ -1,13 +1,12 @@
-import Footer from '../layout/Footer';
-import Header from '../layout/Header';
+import Layout from '../layout/Layout';
 
 export default function Home() {
 
   return (
     <>
-      <Header />
-      <h2>Sekolah Skullers</h2>
-      <Footer />
+      <Layout>
+        <h2>Sekolah Skullers</h2>
+      </Layout>
     </>
   );
 }

@@ -3,8 +3,7 @@ import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
 import { useAuth } from '../../hooks/useAuth';
-import Footer from '../../layout/Footer';
-import Header from '../../layout/Header';
+import Layout from '../../layout/Layout';
 
 export default function Register() {
   const {
@@ -30,7 +29,7 @@ export default function Register() {
 
   return (
     <>
-      <Header />
+      <Layout>
       <form onSubmit={handleSubmit(onRegister)}>
         <p>
           <label htmlFor="firstName">First name</label>
@@ -89,7 +88,7 @@ export default function Register() {
 
         <button>Submit</button>
       </form>
-      <Footer />
+      </Layout>
     </>
   );
 }

@@ -1,4 +1,4 @@
-@use "../abstracts/variables" as *;
+@use "abstracts" as *;
 
 .button {
   display: inline-block;
@@ -6,12 +6,10 @@
   color: white;
   text-decoration: none;
   text-align: center;
-  padding: 1.35rem 0;
-  width: 12ch;
+  padding: 1.35rem;
   font-family: $ff-pragroman;
 
   &:hover {
     background-color: rgba($clr-accent-1, 0.95);
-    text-decoration: underline;
   }
 }

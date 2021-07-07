@@ -1,8 +1,6 @@
 @use "abstracts" as *;
 
 .footer {
-    position: fixed;
-    bottom: 0;
     width: 100%;
     text-align: center;
     background-color: $clr-accent-1;
