@@ -17,7 +17,7 @@ export default function Profile() {
     if (!loading) {
       setStudent(response.data);
     }
-  }, [loading]);
+  }, [loading]); // eslint-disable-line
 
   return (
     <>

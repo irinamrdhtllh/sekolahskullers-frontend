@@ -8,6 +8,6 @@ export const fetchToken = (username, password) => {
   return axios.post('token/', { username, password });
 };
 
-export const fetchNewToken = () => {
-  return axios.post('token/refresh/', {}, { withCredentials: true });
+export const fetchNewToken = (refresh) => {
+  return axios.post('token/refresh/', { refresh });
 };

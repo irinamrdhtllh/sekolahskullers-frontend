@@ -21,9 +21,17 @@ export function AuthProvider({ children }) {
     if (state.token === '') {
       return false;
     }
-    const expiry = new Date(state.expiry);
-    console.log('Checking token expiry:', expiry);
-    return expiry.getTime() > Date.now();
+
+    const refresh_expires = localStorage.getItem('refresh_expires');
+    const refresh_expiry = new Date(refresh_expires * 1000);
+    if (refresh_expiry < Date.now()) {
+      console.log('Refresh token expired:', refresh_expiry);
+      return false;
+    }
+
+    const access_expiry = new Date(state.expiry);
+    console.log('Checking token expiry:', access_expiry);
+    return access_expiry.getTime() > Date.now();
   };
 
   useEffect(() => {
@@ -31,8 +39,14 @@ export function AuthProvider({ children }) {
       dispatch({ type: 'loading' });
 
       if (!tokenIsValid()) {
-        console.log('Invalid access token so refetching');
-        await refreshToken();
+        if (localStorage.getItem('refresh')) {
+          console.log('Invalid access token so refetching');
+          await refreshToken();
+          return;
+        }
+
+        console.log('Not logged in, unauthenticated');
+        dispatch({ type: 'unauthenticated' })
 
       } else {
         console.log('Access token still valid');
@@ -47,7 +61,13 @@ export function AuthProvider({ children }) {
     dispatch({ type: 'loading' });
 
     try {
-      const resp = await fetchNewToken();
+      const refresh = localStorage.getItem('refresh');
+
+      if (!refresh) {
+        throw new Error('Refresh token not available in storage');
+      }
+
+      const resp = await fetchNewToken(refresh);
       const tokenData = resp.data;
 
       console.log('Acquired new token');
@@ -67,6 +87,9 @@ export function AuthProvider({ children }) {
     try {
       const resp = await fetchToken(username, password);
       const tokenData = resp.data;
+
+      localStorage.setItem('refresh', tokenData.refresh);
+      localStorage.setItem('refresh_expires', tokenData.refresh_expires);
 
       dispatch({ type: 'updateToken', payload: tokenData });
       
@@ -121,6 +144,9 @@ export function AuthProvider({ children }) {
   const logout = () => {
     dispatch({ type: 'logout' });
     axios.post('token/logout/', {});
+
+    localStorage.removeItem('refresh');
+    localStorage.removeItem('refresh_expires');
   };
 
   const value = {

@@ -17,7 +17,7 @@ export default function Profile() {
     if (!loading) {
       setGroup(response.data);
     }
-  }, [loading]);
+  }, [loading]); // eslint-disable-line
 
   return (
     <>
