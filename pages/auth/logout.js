@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router';
 
 import { useAuth } from '../../hooks/useAuth';
-import Footer from '../../layout/Footer';
-import Header from '../../layout/Header';
+import Layout from '../../layout/Layout';
 
 export default function Login() {
   const { isAuthenticated, logout } = useAuth();
@@ -15,13 +14,13 @@ export default function Login() {
 
   return (
     <>
-      <Header />
+      <Layout>
       {isAuthenticated ? (
         <button onClick={() => onLogout()}>Logout</button>
       ) : (
         <p>You have been logged out.</p>
       )}
-      <Footer />
+      </Layout>
     </>
   );
 }

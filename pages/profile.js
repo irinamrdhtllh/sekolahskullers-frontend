@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import useFetch from '../hooks/useFetch';
-import Footer from '../layout/Footer';
-import Header from '../layout/Header';
+import Layout from '../layout/Layout';
 
 export default function Profile() {
   const { response, loading } = useFetch(
@@ -22,9 +21,9 @@ export default function Profile() {
 
   return (
     <>
-      <Header />
+      <Layout>
       {loading ? <p>Loading</p> : <pre>{JSON.stringify(student, null, 2)}</pre>}
-      <Footer />
+      </Layout>
     </>
   );
 }

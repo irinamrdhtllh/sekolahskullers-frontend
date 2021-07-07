@@ -9,8 +9,6 @@
     background-color: white;
     color: $clr-accent-1;
     box-shadow: $box-shadow;
-    overflow: hidden;
-    margin-bottom: 2rem;
 
     h1 {
         font-family: $ff-windlass;
@@ -22,16 +20,35 @@
         align-items: center;
     }
 
+    .nav {
+        margin-right: 1rem;
+    }
+
     .nav a {
-        padding: 1rem;
+        padding: 1rem ;
         color: $clr-dark;
         text-decoration: none;
-        margin-right: 1rem;
+        overflow: hidden;
 
         &:hover {
             color: $clr-accent-1;
-            text-decoration: underline;
+            border-bottom: 4px solid $clr-accent-1;
         }
+    }
+
+    .menu .icon {
+        //display: none;
+        padding: 1.2rem 2rem;
+        color: $clr-dark;
+
+        &:hover {
+            color: $clr-accent-1;
+            background-color: #F1F1F1;
+        }
+    }
+
+    .menu input {
+        display: none;
     }
 
     .dropdown {
@@ -44,24 +61,48 @@
             min-width: 10rem;
             box-shadow: $box-shadow;
             z-index: 1;
+            top: 3.5rem;
         }
     
         .dropdown_content a {
-            color: black;
+            color: $clr-dark;
             padding: 1rem;
             text-decoration: none;
             display: block;
             text-align: left;
     
             &:hover {
-                //background-color: #F1F1F1;
+                background-color: #F1F1F1;
                 color: $clr-accent-1;
-                text-decoration: underline;
             }
         }
+
+        &:hover .dropdown_content {
+            display: block;
+        }
     }
-      
-    .dropdown:hover .dropdown_content {
-        display: block;
+}
+
+@media screen and (max-width: 900px) {
+    .menu .icon {
+        //display: block;
+    }
+
+    .nav {
+        position: absolute;
+        width: 100%;
+        background-color: white;
+        top: 3.5rem;
+        left: 0;
+        display: none;
+    }
+
+    .nav a:hover {
+        background-color: #F1F1F1;
+    }
+
+    .menu input:checked ~ .nav {
+        display: flex;
+        flex-direction: column;
     }
 }
