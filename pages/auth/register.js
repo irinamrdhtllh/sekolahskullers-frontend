@@ -1,4 +1,5 @@
-import axios from 'axios';
+import { useState } from 'react';
+
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
@@ -12,23 +13,27 @@ export default function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { dispatch } = useAuth();
+  const { loading, isAuthenticated, registerUser } = useAuth();
+  const [error, setError] = useState(false);
   const router = useRouter();
 
   const onRegister = async (data) => {
-    const url = process.env.API_HOST + '/api/register/';
-
+    setError(false);
     try {
-      const response = await axios.post(url, data);
-      dispatch({ type: 'login', payload: response.data });
-      router.push('/');
+      await registerUser(data);
     } catch (error) {
-      console.error(error.response);
+      console.error(error);
+      // TODO: handle 401 error
+      setError(true);
     }
   };
   // console.log(errors);
 
-  return (
+  if (!loading && isAuthenticated) {
+    router.push('/');
+  }
+
+    return (
     <>
       <Header />
       <form onSubmit={handleSubmit(onRegister)}>
