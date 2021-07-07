@@ -1,62 +1,61 @@
-import { useState } from 'react';
-
+import { useFormik } from 'formik';
 import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
 
 import { useAuth } from '../../hooks/useAuth';
 import Layout from '../../layout/Layout';
+import { validateLogin } from '../../utils/validateForm';
 
 export default function Login() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const { loading, isAuthenticated, login } = useAuth();
-  const [error, setError] = useState(false);
+  const formik = useFormik({
+    initialValues: { username: '', password: '' },
+    validate: validateLogin,
+    onSubmit: onLogin,
+  });
+  const { login } = useAuth();
   const router = useRouter();
 
-  const onLogin = async ({ username, password }) => {
-    setError(false);
+  async function onLogin({ username, password }) {
     try {
       await login(username, password);
+      router.push('/');
     } catch (error) {
       console.error(error);
       // TODO: handle 401 error
-      setError(true);
     }
-  };
-  // console.log(errors);
-
-  if (!loading && isAuthenticated) {
-    router.push('/');
   }
 
   return (
     <>
       <Layout>
-      <form onSubmit={handleSubmit(onLogin)}>
-        <p>
-          <label htmlFor="username">NIM</label>
-          <br />
-          <input
-            type="text"
-            id="username"
-            {...register('username', { required: true, maxLength: 8 })}
-          />
-        </p>
-        <p>
-          <label htmlFor="password">Password</label>
-          <br />
-          <input
-            type="password"
-            id="password"
-            {...register('password', { required: true })}
-          />
-        </p>
-
-        <button>Submit</button>
-      </form>
+        <form onSubmit={formik.handleSubmit}>
+          <p>
+            <label htmlFor="username">NIM</label>
+            <br />
+            <input
+              type="text"
+              id="username"
+              name="username"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.username}
+            />
+            {formik.errors.username && <span>{formik.errors.username}</span>}
+          </p>
+          <p>
+            <label htmlFor="password">Password</label>
+            <br />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
+            />
+            {formik.errors.password && <span>{formik.errors.password}</span>}
+          </p>
+          <button type="submit">Submit</button>
+        </form>
       </Layout>
     </>
   );

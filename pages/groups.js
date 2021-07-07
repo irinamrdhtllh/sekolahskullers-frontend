@@ -14,7 +14,7 @@ export default function Groups() {
     if (!loading) {
       setGroups(response.data.results);
     }
-  }, [loading]);
+  }, [loading]); // eslint-disable-line
 
   return (
     <>

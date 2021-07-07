@@ -14,7 +14,7 @@ export default function Students() {
     if (!loading) {
       setStudents(response.data.results);
     }
-  }, [loading]);
+  }, [loading]); // eslint-disable-line
 
   return (
     <>

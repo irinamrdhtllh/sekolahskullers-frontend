@@ -1,10 +1,9 @@
 import { createContext, useContext, useEffect, useReducer } from 'react';
 
 import axios from 'axios';
-import { useRouter } from 'next/router';
 
-import { fetchRegister, fetchToken, fetchNewToken } from './utils/fetch';
-import authReducer from './utils/reducer';
+import { fetchRegister, fetchToken, fetchNewToken } from '../utils/fetch';
+import authReducer from '../utils/reducer';
 
 axios.defaults.baseURL = process.env.API_HOST + '/api/';
 
@@ -17,7 +16,6 @@ export function AuthProvider({ children }) {
     token: '',
     expiry: null,
   });
-  const router = useRouter();
 
   const tokenIsValid = () => {
     if (state.token === '') {
@@ -60,7 +58,6 @@ export function AuthProvider({ children }) {
     } catch (error) {
       console.log('Not logged in, unauthenticated');
       logout();
-      router.push('/');
       
       return;
     }
@@ -82,9 +79,9 @@ export function AuthProvider({ children }) {
     }
   };
 
-  const registerUser = async (data) => {
+  const registerUser = async (values) => {
     try {
-      const resp = await fetchRegister(data);
+      const resp = await fetchRegister(values);
       const tokenData = resp.data;
 
       dispatch({ type: 'updateToken', payload: tokenData });

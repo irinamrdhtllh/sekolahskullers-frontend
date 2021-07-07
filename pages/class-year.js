@@ -14,7 +14,7 @@ export default function ClassYear() {
     if (!loading) {
       setClassYear(response.data);
     }
-  }, [loading]);
+  }, [loading]); // eslint-disable-line
 
   return (
     <>

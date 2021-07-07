@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const fetchRegister = (data) => {
-  return axios.post('register/', data);
+export const fetchRegister = (values) => {
+  return axios.post('register/', values);
 };
 
 export const fetchToken = (username, password) => {

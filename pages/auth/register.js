@@ -1,98 +1,122 @@
-import { useState } from 'react';
-
+import { useFormik } from 'formik';
 import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
 
 import { useAuth } from '../../hooks/useAuth';
 import Layout from '../../layout/Layout';
+import { validateRegister } from '../../utils/validateForm';
 
-export default function Register() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const { loading, isAuthenticated, registerUser } = useAuth();
-  const [error, setError] = useState(false);
+export default function Login() {
+  const formik = useFormik({
+    initialValues: {
+      first_name: '',
+      last_name: '',
+      username: '',
+      email: '',
+      password: '',
+      password2: '',
+    },
+    validate: validateRegister,
+    onSubmit: onRegister,
+  });
+  const { registerUser } = useAuth();
   const router = useRouter();
 
-  const onRegister = async (data) => {
-    setError(false);
+  async function onRegister(values) {
     try {
-      await registerUser(data);
+      await registerUser(values);
+      router.push('/');
     } catch (error) {
       console.error(error);
       // TODO: handle 401 error
-      setError(true);
     }
-  };
-  // console.log(errors);
-
-  if (!loading && isAuthenticated) {
-    router.push('/');
   }
 
-    return (
+  return (
     <>
       <Layout>
-      <form onSubmit={handleSubmit(onRegister)}>
-        <p>
-          <label htmlFor="firstName">First name</label>
-          <br />
-          <input
-            type="text"
-            id="firstName"
-            {...register('first_name', { required: true, maxLength: 80 })}
-          />
-        </p>
-        <p>
-          <label htmlFor="lastName">Last name</label>
-          <br />
-          <input
-            type="text"
-            id="lastName"
-            {...register('last_name', { required: true, maxLength: 100 })}
-          />
-        </p>
-        <p>
-          <label htmlFor="username">NIM</label>
-          <br />
-          <input
-            type="text"
-            id="username"
-            {...register('username', { required: true, maxLength: 8 })}
-          />
-        </p>
-        <p>
-          <label htmlFor="email">Email</label>
-          <br />
-          <input
-            type="email"
-            id="Email"
-            {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-          />
-        </p>
-        <p>
-          <label htmlFor="password">Password</label>
-          <br />
-          <input
-            type="password"
-            id="password"
-            {...register('password', { required: true })}
-          />
-        </p>
-        <p>
-          <label htmlFor="password2">Confirm password</label>
-          <br />
-          <input
-            type="password"
-            id="password2"
-            {...register('password2', { required: true })}
-          />
-        </p>
-
-        <button>Submit</button>
-      </form>
+        <form onSubmit={formik.handleSubmit}>
+          <p>
+            <label htmlFor="first_name">First name</label>
+            <br />
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.first_name}
+            />
+            {formik.errors.first_name && (
+              <span>{formik.errors.first_name}</span>
+            )}
+          </p>
+          <p>
+            <label htmlFor="last_name">Last name</label>
+            <br />
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.last_name}
+            />
+            {formik.errors.last_name && <span>{formik.errors.last_name}</span>}
+          </p>
+          <p>
+            <label htmlFor="username">NIM</label>
+            <br />
+            <input
+              type="text"
+              id="username"
+              name="username"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.username}
+            />
+            {formik.errors.username && <span>{formik.errors.username}</span>}
+          </p>
+          <p>
+            <label htmlFor="email">Email</label>
+            <br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+            />
+            {formik.errors.email && <span>{formik.errors.email}</span>}
+          </p>
+          <p>
+            <label htmlFor="password">Password</label>
+            <br />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
+            />
+            {formik.errors.password && <span>{formik.errors.password}</span>}
+          </p>
+          <p>
+            <label htmlFor="password2">Confirm password</label>
+            <br />
+            <input
+              type="password"
+              id="password2"
+              name="password2"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password2}
+            />
+            {formik.errors.password2 && <span>{formik.errors.password2}</span>}
+          </p>
+          <button type="submit">Submit</button>
+        </form>
       </Layout>
     </>
   );
