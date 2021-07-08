@@ -1,0 +1,71 @@
+@use 'abstracts' as *;
+
+.container {
+    display: flex;
+    background-color: white;
+    height: 100vh;
+
+    .leftContent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        margin: auto 0;
+
+        h1 {
+            font-family: $ff-windlass;
+            color: $clr-accent-1;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .form {
+                display: flex;
+                gap: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .formField {
+                margin-bottom: 1rem;
+
+                input {
+                    width: 10rem;
+                }
+            }
+        }
+
+        .question {
+            text-align: center;
+            margin-top: 0.5rem;
+
+            a {
+                text-decoration: none;
+                color: $clr-accent-1;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .rightContent {
+        width: 60%;
+        background-color: $clr-accent-1;
+
+        h1 {
+            font-family: $ff-windlass;
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+            margin-top: 7rem;
+        }
+    }
+}

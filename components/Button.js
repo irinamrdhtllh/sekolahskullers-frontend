@@ -7,11 +7,7 @@ import styles from '../styles/components/Button.module.scss';
 const Button = React.forwardRef(({ onClick, href, name }, ref) => {
   return (
     <Link href={href} passHref>
-      <a
-        className={styles.button}
-        onClick={onClick}
-        ref={ref}
-      >
+      <a className={styles.button} onClick={onClick} ref={ref}>
         {name}
       </a>
     </Link>

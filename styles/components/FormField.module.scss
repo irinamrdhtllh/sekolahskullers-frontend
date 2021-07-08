@@ -1,27 +1,29 @@
 @use "abstracts" as *;
 
 .form {
-  margin: 1rem;
-
-  * {
-    margin: 0;
+  .formLabel {
+    display: block;
+    margin-bottom: 0.5rem;
   }
 
   .input {
     background-color: $clr-gray;
-    width: 15rem;
-    padding: 0.4rem 1rem;
-    margin-top: 0.25rem;
-    margin-bottom: 1rem;
+    max-width: 18rem;
+    padding: 0.5rem 1rem 0.2rem 1rem;
     box-sizing: border-box;
     border: none;
     border-bottom: 3px solid $clr-accent-1;
     font-family: inherit;
     font-size: inherit;
+    margin-bottom: 0.25rem;
 
     &:focus {
       outline: none;
       border-bottom: 3px solid $clr-accent-2;
     }
+  }
+
+  .error {
+    font-size: 0.6rem;
   }
 }

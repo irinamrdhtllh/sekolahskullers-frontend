@@ -1,8 +1,10 @@
 import { useFormik } from 'formik';
 import { useRouter } from 'next/router';
 
+import FormField from '../../components/FormField';
+import SubmitButton from '../../components/SubmitButton';
 import { useAuth } from '../../hooks/useAuth';
-import Layout from '../../layout/Layout';
+import styles from '../../styles/pages/Login.module.scss';
 import { validateLogin } from '../../utils/validateForm';
 
 export default function Login() {
@@ -25,38 +27,47 @@ export default function Login() {
   }
 
   return (
-    <>
-      <Layout>
-        <form onSubmit={formik.handleSubmit}>
-          <p>
-            <label htmlFor="username">NIM</label>
-            <br />
-            <input
-              type="text"
-              id="username"
-              name="username"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.username}
-            />
-            {formik.errors.username && <span>{formik.errors.username}</span>}
+    <div className={styles.container}>
+      <div className={styles.leftContent}>
+        <h1>Sekolah Skullers</h1>
+      </div>
+      <div className={styles.rightContent}>
+        <div className={styles.login}>
+          <h1>Login</h1>
+          <form className={styles.loginForm} onSubmit={formik.handleSubmit}>
+            <div className={styles.formField}>
+              <FormField
+                label="NIM"
+                type="text"
+                id="username"
+                name="username"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.username}
+                error={formik.errors.username}
+              />
+            </div>
+            <div className={styles.formField}>
+              <FormField
+                className={styles.formField}
+                label="Password"
+                type="password"
+                id="password"
+                name="password"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
+                error={formik.errors.password}
+              />
+            </div>
+            <a href="#">Lupa password?</a>
+            <SubmitButton />
+          </form>
+          <p className={styles.question}>
+            Belum punya akun? <a href="#">Register</a>
           </p>
-          <p>
-            <label htmlFor="password">Password</label>
-            <br />
-            <input
-              type="password"
-              id="password"
-              name="password"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password}
-            />
-            {formik.errors.password && <span>{formik.errors.password}</span>}
-          </p>
-          <button type="submit">Submit</button>
-        </form>
-      </Layout>
-    </>
+        </div>
+      </div>
+    </div>
   );
 }
