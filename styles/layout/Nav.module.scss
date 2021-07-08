@@ -1,0 +1,71 @@
+@use 'variables' as *;
+
+.nav {
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  background-color: white;
+}
+
+.links a {
+  display: block;
+  text-align: center;
+  padding: 1.2rem;
+  color: $clr-dark;
+  text-decoration: none;
+
+  &:hover {
+    color: $clr-accent-1;
+  }
+}
+
+.container {
+  display: flex;
+
+  a {
+    width: 100%;
+  }
+}
+
+.container1 {
+  flex-direction: column;
+}
+
+.container2 {
+  flex-direction: row;
+}
+
+.button {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    position: static;
+    display: flex;
+    align-items: center;
+  }
+
+  .links a {
+    display: inline-block;
+  }
+
+  .container {
+    flex-direction: row;
+    margin-left: 2.5rem;
+  }
+
+  .button {
+    display: block;
+  }
+
+  .dropdown {
+    position: absolute;
+    background-color: white;
+
+    a::after {
+      border: none;
+    }
+  }
+}

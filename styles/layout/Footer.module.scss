@@ -1,28 +1,28 @@
-@use "abstracts" as *;
+@use 'variables' as *;
 
 .footer {
-    width: 100%;
-    text-align: center;
-    background-color: $clr-accent-1;
-    padding: 2rem 0;
+  width: 100%;
+  text-align: center;
+  background-color: $clr-accent-1;
+  padding: 2rem 0;
+  color: white;
+  margin-top: auto;
+
+  .sosmed {
+    margin-bottom: 1rem;
+
+    .icon {
+      color: white;
+    }
+  }
+
+  .sosmed a {
     color: white;
-    margin-top: auto;
+    padding: 1rem;
+    text-decoration: none;
 
-    .sosmed {
-        margin-bottom: 1rem;
-
-        .icon {
-            color: white;
-        }
+    &:hover {
+      text-decoration: underline;
     }
-
-    .sosmed a {
-        color: white;
-        padding: 1rem;
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
+  }
 }

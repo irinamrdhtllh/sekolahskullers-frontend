@@ -1,16 +1,16 @@
-@use 'abstracts' as *;
+@use 'variables' as *;
 
 .button {
-    display: inline-block;
-    background-color: $clr-accent-1;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    padding: 1rem 4.5rem;
-    font-family: $ff-pragroman;
-    border: none;
-  
-    &:hover {
-      background-color: rgba($clr-accent-1, 0.95);
-    }
+  display: inline-block;
+  background-color: $clr-accent-1;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem 4.5rem;
+  font-family: $ff-pragroman;
+  border: none;
+
+  &:hover {
+    background-color: rgba($clr-accent-1, 0.95);
   }
+}

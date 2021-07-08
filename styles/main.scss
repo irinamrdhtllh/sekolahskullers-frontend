@@ -1,10 +1,18 @@
-@use "base" as *;
-@use "vendor" as *;
-@use "abstracts" as *;
+@use 'reset' as *;
+@use 'variables' as *;
+
+@font-face {
+  font-family: 'Windlass';
+  src: url('../public/fonts/Windlass.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'PragRoman';
+  src: url('../public/fonts/PragRoman.woff') format('woff');
+}
 
 body {
   background-color: $clr-light;
   font-family: $ff-pragroman;
-  font-size: $fs-paragraph;
   color: $clr-font;
 }
