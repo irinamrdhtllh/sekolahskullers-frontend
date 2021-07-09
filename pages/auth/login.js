@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import FormField from '../../components/FormField';
@@ -64,7 +65,7 @@ export default function Login() {
             <SubmitButton />
           </form>
           <p className={styles.question}>
-            Belum punya akun? <a href="#">Register</a>
+            Belum punya akun? <Link href="/auth/register">Register</Link>
           </p>
         </div>
       </div>
