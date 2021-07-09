@@ -20,13 +20,8 @@
     width: 100%;
   }
 
-  .container {
-    margin-left: auto;
-  }
-
   .profileButton {
     display: block;
-    margin-left: auto;
   }
 
   .dropdown {
@@ -36,7 +31,7 @@
 
 @media (min-width: $md) {
   .nav {
-    justify-content: space-between;
+    justify-content: right;
   }
 }
 
