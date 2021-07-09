@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Menu, Popover } from '@headlessui/react';
-import Link from 'next/link';
+import { Popover } from '@headlessui/react';
 
 import { useAuth } from '../hooks/useAuth';
 import useWindowDimensions from '../hooks/useWindowDimensions';
@@ -14,13 +13,13 @@ export default function Header() {
   return (
     <header className={styles.container}>
       <h1>Sekolah Skullers</h1>
-      <Popover>
+      <Popover as="div" className={styles.navbar}>
         {({ open }) => (
           <>
             <Popover.Button as="div" className={styles.toggle}>
               <FontAwesomeIcon icon="bars" size="lg" />
             </Popover.Button>
-            {(open || width >= 768) && (
+            {(open || width >= 640) && (
               <Nav>
                 {isAuthenticated ? (
                   <AuthNav toggleOpen={open} />
