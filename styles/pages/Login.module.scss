@@ -13,7 +13,7 @@
   h1 {
     font-family: $ff-windlass;
     color: white;
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: center;
     margin-top: 8rem;
   }
@@ -29,9 +29,9 @@
   h1 {
     font-family: $ff-windlass;
     color: $clr-accent-1;
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem;
   }
 
   form {
@@ -41,11 +41,11 @@
     align-items: center;
 
     .formField input {
-      width: 18rem;
+      width: 25rem;
     }
 
     .formField:first-child {
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
 
     a {
@@ -54,7 +54,7 @@
       text-align: right;
       text-decoration: none;
       color: $clr-accent-1;
-      margin-bottom: 3rem;
+      margin-bottom: 5rem;
 
       &:hover {
         text-decoration: underline;
@@ -64,7 +64,7 @@
 
   .question {
     text-align: center;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 
     a {
       text-decoration: none;

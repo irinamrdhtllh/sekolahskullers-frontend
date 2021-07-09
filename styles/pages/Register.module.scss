@@ -15,9 +15,9 @@
     h1 {
       font-family: $ff-windlass;
       color: $clr-accent-1;
-      font-size: 2rem;
+      font-size: 3rem;
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 5rem;
     }
 
     form {
@@ -28,22 +28,22 @@
 
       .form {
         display: flex;
-        gap: 2rem;
-        margin-bottom: 2rem;
+        gap: 3rem;
+        margin-bottom: 4rem;
       }
 
       .formField {
         margin-bottom: 1rem;
 
         input {
-          width: 10rem;
+          width: 15rem;
         }
       }
     }
 
     .question {
       text-align: center;
-      margin-top: 0.5rem;
+      margin-top: 1rem;
 
       a {
         text-decoration: none;
@@ -63,7 +63,7 @@
     h1 {
       font-family: $ff-windlass;
       color: white;
-      font-size: 2rem;
+      font-size: 3rem;
       text-align: center;
       margin-top: 7rem;
     }
