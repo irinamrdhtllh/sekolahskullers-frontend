@@ -3,11 +3,13 @@ import styles from '../styles/components/TaskCard.module.scss';
 export default function TaskCard({ task_name, max_exp, exp, deadline, href }) {
   return (
     <div className={styles.task_card}>
-      <div className={styles.task}>
-        <p>{task_name}</p>
-        <div className={styles.date}>
-          <p>{deadline}</p>
-          <a href={href}>Classroom</a>
+      <div className={styles.wrapper}>
+        <div className={styles.task}>
+          <p>{task_name}</p>
+          <div className={styles.date}>
+            <p>{deadline}</p>
+            <a href={href} target="_blank" rel="noreferrer">Classroom</a>
+          </div>
         </div>
       </div>
       <div className={styles.score}>

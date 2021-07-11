@@ -36,7 +36,7 @@ export function AuthNav({ toggleOpen }) {
             {((toggleOpen && width <= 640) || open) && (
               <Popover.Panel static as="div" className={styles.dropdown}>
                 <NavLink name="Profil" href="/profile" custom />
-                <NavLink name="Profil Kelas" href="/profile/group" custom />
+                <NavLink name="Profil Kelas" href="/profile-group" custom />
               </Popover.Panel>
             )}
           </>

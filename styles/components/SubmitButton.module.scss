@@ -6,9 +6,10 @@
   color: white;
   text-decoration: none;
   text-align: center;
-  padding: 1rem 6rem;
+  padding: 1.25rem 6.5rem;
   font-family: $ff-pragroman;
   border: none;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba($clr-accent-1, 0.95);
