@@ -43,37 +43,83 @@
 
     .score {
         display: flex;
-    }
-    .triangle1 {
-        border-bottom: 73px solid transparent;
-        border-left: 124px solid white;
-        width: 0;
-        height: 0;
 
-        .triangle1_text {
-            text-align: center;
-            color: black;
-            font-size: 18px;
-            font-weight: bold;
-            margin-left: -170px;
-            margin-top: 15px;
-          }
-    }
-
-    .triangle2 {
-        position: absolute;
-        border-top: 73.5px solid transparent;
-        border-right: 124px solid $clr-accent-1;
-        width: 0;
-        height: 0;
-      
-        .triangle2_text {
-          text-align: center;
-          color: white;
-          font-size: 18px;
-          font-weight: bold;
-          margin-left: 70px;
-          margin-top: -35px;
+        .triangle1 {
+            border-bottom: 73px solid transparent;
+            border-left: 124px solid white;
+            width: 0;
+            height: 0;
+    
+            .triangle1_text {
+                text-align: center;
+                color: $clr-dark;
+                font-size: 18px;
+                font-weight: bold;
+                margin-left: -170px;
+                margin-top: 15px;
+              }
         }
-      }
+    
+        .triangle2 {
+            position: absolute;
+            border-top: 73.5px solid transparent;
+            border-right: 124px solid $clr-accent-1;
+            width: 0;
+            height: 0;
+          
+            .triangle2_text {
+              text-align: center;
+              color: white;
+              font-size: 18px;
+              font-weight: bold;
+              margin-left: 70px;
+              margin-top: -35px;
+            }
+        }
+    }
+}
+
+@media (max-width: 520px) {
+
+    .task_card {
+        flex-direction: column;
+
+        .wrapper {
+            border-right: none;
+            border-bottom: 3px solid $clr-accent-1;
+            width: 100%;
+        }
+    }
+
+    .score {
+        width: 100%;
+
+        .triangle1 {
+            border-bottom: none !important;
+            border-left: none !important;
+            width: 50% !important;
+            height: revert !important;
+
+            .triangle1_text {
+                margin-left: 0 !important;
+                margin-top: 0 !important;
+                line-height: 3rem;
+            }
+        }
+
+        .triangle2 {
+            position: revert !important;
+            border-top: none !important;
+            border-right: none !important;
+            width: 50% !important;
+            height: revert !important;
+            background-color: $clr-accent-1;
+
+            .triangle2_text {
+                margin-left: 0 !important;
+                margin-top: 0 !important;
+                line-height: 3rem;
+            }
+        }
+    }
 }
