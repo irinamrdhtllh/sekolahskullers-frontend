@@ -57,6 +57,9 @@
   }
 
   .rightContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 60%;
     background-color: $clr-accent-1;
 

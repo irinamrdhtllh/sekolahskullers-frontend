@@ -1,10 +1,12 @@
 import { useFormik } from 'formik';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import FormField from '../../components/FormField';
 import SubmitButton from '../../components/SubmitButton';
 import { useAuth } from '../../hooks/useAuth';
+import image from '../../public/SVG/igrave.svg';
 import styles from '../../styles/pages/Login.module.scss';
 import { validateLogin } from '../../utils/validateForm';
 
@@ -31,6 +33,7 @@ export default function Login() {
     <div className={styles.container}>
       <div className={styles.leftContent}>
         <h1>Sekolah Skullers</h1>
+        <Image src={image} width="713" height="556" alt="svg" className={styles.svg}/>
       </div>
       <div className={styles.rightContent}>
         <div className={styles.login}>

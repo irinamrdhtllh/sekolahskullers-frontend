@@ -7,6 +7,9 @@
 }
 
 .leftContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 60%;
   background-color: $clr-accent-1;
 
@@ -15,7 +18,7 @@
     color: white;
     font-size: 3rem;
     text-align: center;
-    margin-top: 8rem;
+    margin-top: 9rem;
   }
 }
 
