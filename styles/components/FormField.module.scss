@@ -1,6 +1,7 @@
 @use 'variables' as *;
 
 .form {
+  
   .formLabel {
     display: block;
     margin-bottom: 0.5rem;
@@ -30,6 +31,9 @@
 
 .required::after {
   content: '*';
+  position: relative;
   color: red;
   margin-left: 0.25rem;
+  top: -0.35rem;
+  font-size: 1.25rem;
 }

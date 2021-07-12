@@ -1,0 +1,20 @@
+@use 'variables' as *;
+
+.alert {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #f8d7da;
+    border: 2px solid #f5c6cb;
+    border-radius: 0.5rem;
+    color: #721c24;
+    margin-bottom: 2rem;
+
+    .closebtn {
+        font-weight: bold;
+        font-size: 1.5rem;
+        line-height: 1rem;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+}
