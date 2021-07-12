@@ -1,8 +1,11 @@
+import { useState } from 'react';
+
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import Alert from '../../components/Alert';
 import FormField from '../../components/FormField';
 import SubmitButton from '../../components/SubmitButton';
 import { useAuth } from '../../hooks/useAuth';
@@ -25,14 +28,16 @@ export default function Login() {
   });
   const { registerUser } = useAuth();
   const router = useRouter();
+  const [error, setError] = useState(null);
 
   async function onRegister(values) {
+    setError(null);
     try {
       await registerUser(values);
       router.push('/');
     } catch (error) {
-      console.error(error);
-      // TODO: handle 401 error
+      console.error(error.response.data);
+      setError(error.response.data);
     }
   }
 
@@ -41,6 +46,7 @@ export default function Login() {
       <div className={styles.leftContent}>
         <div className={styles.register}>
           <h1>Register</h1>
+          {error && <Alert msg={error} />}
           <form className={styles.registerForm} onSubmit={formik.handleSubmit}>
             <div className={styles.form}>
               <div className={styles.rightForm}>
@@ -129,7 +135,13 @@ export default function Login() {
       </div>
       <div className={styles.rightContent}>
         <h1>Sekolah Skullers</h1>
-        <Image src={image} width="713" height="556" alt="svg" className={styles.svg}/>
+        <Image
+          src={image}
+          width="713"
+          height="556"
+          alt="svg"
+          className={styles.svg}
+        />
       </div>
     </div>
   );

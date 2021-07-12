@@ -1,8 +1,11 @@
+import { useState } from 'react';
+
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import Alert from '../../components/Alert';
 import FormField from '../../components/FormField';
 import SubmitButton from '../../components/SubmitButton';
 import { useAuth } from '../../hooks/useAuth';
@@ -18,14 +21,16 @@ export default function Login() {
   });
   const { login } = useAuth();
   const router = useRouter();
+  const [error, setError] = useState(null);
 
   async function onLogin({ username, password }) {
+    setError(null);
     try {
       await login(username, password);
       router.push('/');
     } catch (error) {
-      console.error(error);
-      // TODO: handle 401 error
+      console.log(error.response.data);
+      setError(error.response.data);
     }
   }
 
@@ -33,11 +38,18 @@ export default function Login() {
     <div className={styles.container}>
       <div className={styles.leftContent}>
         <h1>Sekolah Skullers</h1>
-        <Image src={image} width="713" height="556" alt="svg" className={styles.svg}/>
+        <Image
+          src={image}
+          width="713"
+          height="556"
+          alt="svg"
+          className={styles.svg}
+        />
       </div>
       <div className={styles.rightContent}>
         <div className={styles.login}>
           <h1>Login</h1>
+          {error && <Alert msg={error} />}
           <form className={styles.loginForm} onSubmit={formik.handleSubmit}>
             <div className={styles.formField}>
               <FormField
