@@ -79,3 +79,40 @@
     }
   }
 }
+
+@media (max-width: 920px) {
+  .container {
+    flex-direction: column;
+
+    .leftContent {
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 2rem;
+
+      h1 {
+        text-align: left;
+        margin: 0;
+      }
+    }
+
+    .rightContent {
+      width: 100%;
+      padding: 5rem 0;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .leftContent {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .rightContent {
+    .formField input {
+      width: 20rem !important;
+    }
+  }
+}
