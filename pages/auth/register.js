@@ -9,7 +9,7 @@ import Alert from '../../components/Alert';
 import FormField from '../../components/FormField';
 import SubmitButton from '../../components/SubmitButton';
 import { useAuth } from '../../hooks/useAuth';
-import image from '../../public/SVG/idieresis.svg';
+import image from '../../public/SVG/acute.svg';
 import styles from '../../styles/pages/Register.module.scss';
 import { validateRegister } from '../../utils/validateForm';
 
