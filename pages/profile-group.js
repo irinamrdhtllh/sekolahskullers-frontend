@@ -15,7 +15,7 @@ export default function Profile() {
   const { response, loading } = useFetch(
     {
       method: 'GET',
-      url: 'profile/group/',
+      url: 'api/profile-group/',
     },
     true
   );
