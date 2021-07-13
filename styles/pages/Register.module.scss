@@ -104,10 +104,15 @@
   .leftContent {
     .form {
       gap: 2rem !important;
+
+      .row {
+          flex-direction: column;
+          gap: 0 !important;
+      }
     }
 
     .formField input {
-      width: 11rem !important;
+      width: 20rem !important;
     }
   }
 
