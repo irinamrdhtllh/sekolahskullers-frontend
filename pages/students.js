@@ -1,30 +1,29 @@
-import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-import useFetch from '../hooks/useFetch';
 import Layout from '../layout/Layout';
 
-export default function Students() {
-  const { response, loading } = useFetch({
-    method: 'GET',
-    url: 'students/',
-  });
-  const [students, setStudents] = useState([]);
-
-  useEffect(() => {
-    if (!loading) {
-      setStudents(response.data.results);
-    }
-  }, [loading]); // eslint-disable-line
-
+export default function Students({ students }) {
   return (
-    <>
-      <Layout>
-      {loading ? (
-        <p>Loading</p>
-      ) : (
-        <pre>{JSON.stringify(students, null, 2)}</pre>
-      )}
-      </Layout>
-    </>
+    <Layout>
+      <pre>{JSON.stringify(students, null, 2)}</pre>
+    </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const response = await axios.get('api/students/');
+  const students = response.data.results;
+
+  if (!students) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: {
+      students,
+    },
+    revalidate: 10,
+  };
 }
