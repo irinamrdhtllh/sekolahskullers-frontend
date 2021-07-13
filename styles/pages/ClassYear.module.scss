@@ -25,7 +25,9 @@
 
             h1 {
                 font-family: $ff-windlass;
-                border-bottom: 4px solid $clr-accent-3;
+                //border-bottom: 4px solid $clr-accent-3;
+                text-decoration: underline $clr-accent-3 solid;
+                text-decoration-thickness: 4px;
             }
         }
 
@@ -34,7 +36,9 @@
 
             h1 {
                 font-family: $ff-windlass;
-                border-bottom: 4px solid $clr-accent-3;
+                //border-bottom: 4px solid $clr-accent-3;
+                text-decoration: underline $clr-accent-3 solid;
+                text-decoration-thickness: 4px;
             }
 
             ul li {
@@ -52,7 +56,9 @@
 
         h1 {
             font-family: $ff-windlass;
-            border-bottom: 4px solid $clr-accent-3;
+            //border-bottom: 4px solid $clr-accent-3;
+            text-decoration: underline $clr-accent-3 solid;
+            text-decoration-thickness: 4px;
         }
     }
 }
