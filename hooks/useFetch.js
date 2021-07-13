@@ -6,8 +6,8 @@ import { useAuth } from './useAuth';
 
 export default function useFetch(config, auth = false) {
   const { getToken, loading: authLoading } = useAuth();
-  const [response, setResponse] = useState(null);
-  const [error, setError] = useState(null);
+  const [response, setResponse] = useState({});
+  const [error, setError] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,10 +29,15 @@ export default function useFetch(config, auth = false) {
         };
       }
 
-      axios(newConfig)
-        .then((response) => setResponse(response))
-        .catch((error) => setError(error))
-        .finally(() => setLoading(false));
+      try {
+        const response = await axios(newConfig);
+        console.log(response);
+        setResponse(response);
+
+      } catch (error) {
+        setError(error);
+      }
+      setLoading(false);
     };
 
     call();

@@ -11,7 +11,7 @@ export default function Login() {
   useEffect(() => {
     logout();
     router.push('/');
-  }, []);
+  }, []); // eslint-disable-line
 
   return <></>;
 }

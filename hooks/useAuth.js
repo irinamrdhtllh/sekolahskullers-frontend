@@ -5,7 +5,7 @@ import axios from 'axios';
 import { fetchRegister, fetchToken, fetchNewToken } from '../utils/fetch';
 import authReducer from '../utils/reducer';
 
-axios.defaults.baseURL = process.env.API_HOST + '/api/';
+axios.defaults.baseURL = process.env.API_HOST;
 
 const AuthContext = createContext({});
 
@@ -46,8 +46,7 @@ export function AuthProvider({ children }) {
         }
 
         console.log('Not logged in, unauthenticated');
-        dispatch({ type: 'unauthenticated' })
-
+        dispatch({ type: 'unauthenticated' });
       } else {
         console.log('Access token still valid');
         dispatch({ type: 'init' });
@@ -72,13 +71,12 @@ export function AuthProvider({ children }) {
 
       console.log('Acquired new token');
       dispatch({ type: 'updateToken', payload: tokenData });
-      
-      return tokenData.access;
 
+      return tokenData.access;
     } catch (error) {
       console.log('Not logged in, unauthenticated');
       logout();
-      
+
       return;
     }
   };
@@ -92,12 +90,11 @@ export function AuthProvider({ children }) {
       localStorage.setItem('refresh_expires', tokenData.refresh_expires);
 
       dispatch({ type: 'updateToken', payload: tokenData });
-      
-      return Promise.resolve(resp);
 
+      return Promise.resolve(resp);
     } catch (error) {
       dispatch({ type: 'unauthenticated' });
-      
+
       return Promise.reject(error);
     }
   };
@@ -108,12 +105,11 @@ export function AuthProvider({ children }) {
       const tokenData = resp.data;
 
       dispatch({ type: 'updateToken', payload: tokenData });
-      
-      return Promise.resolve(resp);
 
+      return Promise.resolve(resp);
     } catch (error) {
       dispatch({ type: 'unauthenticated' });
-      
+
       return Promise.reject(error);
     }
   };
@@ -132,7 +128,6 @@ export function AuthProvider({ children }) {
 
       // Assume this means the token is in the middle of refreshing
       return Promise.resolve(state.token);
-
     } else {
       console.log('Getting access token.. getting a new token');
       const token = await refreshToken();
@@ -143,7 +138,6 @@ export function AuthProvider({ children }) {
 
   const logout = () => {
     dispatch({ type: 'logout' });
-    axios.post('token/logout/', {});
 
     localStorage.removeItem('refresh');
     localStorage.removeItem('refresh_expires');
