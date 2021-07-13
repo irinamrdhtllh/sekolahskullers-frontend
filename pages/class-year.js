@@ -50,7 +50,10 @@ export default function ClassYear() {
                 />
                 <div className={styles.details}>
                   <h1>{classYear.name}</h1>
-                  <Level level_logo={image} level={classYear.level?.display} />
+                  <Level
+                    level_logo={`/level/angkatan/${classYear.level?.display}.png`}
+                    level={classYear.level?.display}
+                  />
                   <ProgressBar
                     progress="HP"
                     bar="100%"
@@ -83,7 +86,7 @@ export default function ClassYear() {
                   task_name={task.name}
                   max_exp={task.max_score}
                   exp={task.score}
-                  deadline={(new Date(task.deadline)).toDateString()}
+                  deadline={new Date(task.deadline).toDateString()}
                   href={task.link}
                 />
               ))}

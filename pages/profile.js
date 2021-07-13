@@ -36,38 +36,38 @@ export default function Profile() {
   };
 
   const bar_style1 = {
-    background: "#EBBA78",
-    width: "50%",
-  }
+    background: '#EBBA78',
+    width: '50%',
+  };
 
   const bar_style2 = {
-    background: "#80D5AD",
-    width: "70%",
-  }
+    background: '#80D5AD',
+    width: '70%',
+  };
 
   const bar_style3 = {
-    background: "#CDCDC2",
-    width: "60%",
-  }
+    background: '#CDCDC2',
+    width: '60%',
+  };
 
   const bar_style4 = {
-    background: "#888888",
-    width: "80%",
-  }
+    background: '#888888',
+    width: '80%',
+  };
 
   const bar_style5 = {
-    background: "#8CD3FF",
-    width: "70%",
-  }
+    background: '#8CD3FF',
+    width: '70%',
+  };
 
   const bar_style6 = {
-    background: "#A5A6F6",
-    width: "90%",
-  }
+    background: '#A5A6F6',
+    width: '90%',
+  };
   const bar_style7 = {
-    background: "#FFC0C0",
-    width: "80%",
-  }
+    background: '#FFC0C0',
+    width: '80%',
+  };
 
   return (
     <>
@@ -86,13 +86,14 @@ export default function Profile() {
                   alt="image"
                 />
                 <div className={styles.details}>
-                  <h1>{student.first_name} {student.last_name}</h1>
-                  <Level level_logo={image} level={student.level?.display} />
-                  <ProgressBar
-                    progress="HP"
-                    bar="100%"
-                    bar_style={bar_hp}
+                  <h1>
+                    {student.first_name} {student.last_name}
+                  </h1>
+                  <Level
+                    level_logo={`/level/peserta/${student.level?.display}.png`}
+                    level={student.level?.display}
                   />
+                  <ProgressBar progress="HP" bar="100%" bar_style={bar_hp} />
                   <ProgressBar progress="XP" bar="70%" bar_style={bar_xp} />
                 </div>
               </div>
@@ -144,7 +145,7 @@ export default function Profile() {
                   task_name={task_status.task}
                   max_exp={task_status.max_score}
                   exp={task_status.score}
-                  deadline={(new Date(task_status.deadline)).toDateString()}
+                  deadline={new Date(task_status.deadline).toDateString()}
                   href={task_status.link}
                 />
               ))}

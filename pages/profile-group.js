@@ -45,7 +45,7 @@ export default function Profile() {
           <div className={styles.container}>
             <div className={styles.leftContent}>
               <div className={styles.profile}>
-                <Image 
+                <Image
                   className={styles.image}
                   src={image}
                   height="160"
@@ -54,19 +54,22 @@ export default function Profile() {
                 />
                 <div className={styles.details}>
                   <h1>{group.name}</h1>
-                  <Level level_logo={image} level={group.level?.display} />
-                  <ProgressBar
-                    progress="HP"
-                    bar="100%"
-                    bar_style={bar_hp}
+                  <Level
+                    level_logo={`/level/kelas/${group.level?.display}.png`}
+                    level={group.level?.display}
                   />
+                  <ProgressBar progress="HP" bar="100%" bar_style={bar_hp} />
                   <ProgressBar progress="XP" bar="70%" bar_style={bar_xp} />
                 </div>
               </div>
               <div className={styles.groupParticipant}>
                 <h1>Anggota Kelas</h1>
                 {group.students?.map((student, index) => (
-                  <StudentItem key={index} src={image} student={student.first_name}/>
+                  <StudentItem
+                    key={index}
+                    src={image}
+                    student={student.first_name}
+                  />
                 ))}
               </div>
             </div>
@@ -79,7 +82,7 @@ export default function Profile() {
                   task_name={task_status.task}
                   max_exp={task_status.max_score}
                   exp={task_status.score}
-                  deadline={(new Date(task_status.deadline)).toDateString()}
+                  deadline={new Date(task_status.deadline).toDateString()}
                   href={task_status.link}
                 />
               ))}
