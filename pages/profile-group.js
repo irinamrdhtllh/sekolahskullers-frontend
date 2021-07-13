@@ -15,7 +15,7 @@ export default function Profile() {
   const { response, loading } = useFetch(
     {
       method: 'GET',
-      url: 'profile/group/',
+      url: 'api/profile-group/',
     },
     true
   );
@@ -37,59 +37,57 @@ export default function Profile() {
   };
 
   return (
-    <>
-      <Layout>
-        {loading ? (
-          <p>Loading</p>
-        ) : (
-          <div className={styles.container}>
-            <div className={styles.leftContent}>
-              <div className={styles.profile}>
-                <Image
-                  className={styles.image}
-                  src={image}
-                  height="160"
-                  width="160"
-                  alt="image"
+    <Layout>
+      {loading ? (
+        <p>Loading</p>
+      ) : (
+        <div className={styles.container}>
+          <div className={styles.leftContent}>
+            <div className={styles.profile}>
+              <Image
+                className={styles.image}
+                src={image}
+                height="160"
+                width="160"
+                alt="image"
+              />
+              <div className={styles.details}>
+                <h1>{group.name}</h1>
+                <Level
+                  level_logo={`/level/kelas/${group.level?.display}.png`}
+                  level={group.level?.display}
                 />
-                <div className={styles.details}>
-                  <h1>{group.name}</h1>
-                  <Level
-                    level_logo={`/level/kelas/${group.level?.display}.png`}
-                    level={group.level?.display}
-                  />
-                  <ProgressBar progress="HP" bar="100%" bar_style={bar_hp} />
-                  <ProgressBar progress="XP" bar="70%" bar_style={bar_xp} />
-                </div>
-              </div>
-              <div className={styles.groupParticipant}>
-                <h1>Anggota Kelas</h1>
-                {group.students?.map((student, index) => (
-                  <StudentItem
-                    key={index}
-                    src={image}
-                    student={student.first_name}
-                  />
-                ))}
+                <ProgressBar progress="HP" bar="100%" bar_style={bar_hp} />
+                <ProgressBar progress="XP" bar="70%" bar_style={bar_xp} />
               </div>
             </div>
-
-            <div className={styles.rightContent}>
-              <h1>Tugas Kelas</h1>
-              {group.task_statuses?.map((task_status, index) => (
-                <TaskCard
+            <div className={styles.groupParticipant}>
+              <h1>Anggota Kelas</h1>
+              {group.students?.map((student, index) => (
+                <StudentItem
                   key={index}
-                  task_name={task_status.task}
-                  max_exp={task_status.max_score}
-                  exp={task_status.score}
-                  deadline={new Date(task_status.deadline).toDateString()}
-                  href={task_status.link}
+                  src={image}
+                  student={student.first_name}
                 />
               ))}
             </div>
           </div>
-        )}
-      </Layout>
-    </>
+
+          <div className={styles.rightContent}>
+            <h1>Tugas Kelas</h1>
+            {group.task_statuses?.map((task_status, index) => (
+              <TaskCard
+                key={index}
+                task_name={task_status.task}
+                max_exp={task_status.max_score}
+                exp={task_status.score}
+                deadline={new Date(task_status.deadline).toDateString()}
+                href={task_status.link}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </Layout>
   );
 }

@@ -1,30 +1,29 @@
-import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-import useFetch from '../hooks/useFetch';
 import Layout from '../layout/Layout';
 
-export default function Groups() {
-  const { response, loading } = useFetch({
-    method: 'GET',
-    url: 'groups/',
-  });
-  const [groups, setGroups] = useState([]);
-
-  useEffect(() => {
-    if (!loading) {
-      setGroups(response.data.results);
-    }
-  }, [loading]); // eslint-disable-line
-
+export default function Groups({ groups }) {
   return (
-    <>
-      <Layout>
-      {loading ? (
-        <p>Loading</p>
-      ) : (
-        <pre>{JSON.stringify(groups, null, 2)}</pre>
-      )}
-      </Layout>
-    </>
+    <Layout>
+      <pre>{JSON.stringify(groups, null, 2)}</pre>
+    </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const response = await axios.get('api/groups/');
+  const groups = response.data.results;
+
+  if (!groups) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: {
+      groups,
+    },
+    revalidate: 10,
+  };
 }
