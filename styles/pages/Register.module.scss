@@ -27,9 +27,12 @@
       align-items: center;
 
       .form {
-        display: flex;
-        gap: 3rem;
         margin-bottom: 4rem;
+
+        .row {
+          display: flex;
+          gap: 3rem;
+        }
       }
 
       .formField {

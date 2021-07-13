@@ -49,7 +49,7 @@ export default function Login() {
           {error && <Alert msg={error} />}
           <form className={styles.registerForm} onSubmit={formik.handleSubmit}>
             <div className={styles.form}>
-              <div className={styles.rightForm}>
+              <div className={styles.row}>
                 <div className={styles.formField}>
                   <FormField
                     label="First name"
@@ -64,6 +64,20 @@ export default function Login() {
                 </div>
                 <div className={styles.formField}>
                   <FormField
+                    label="Last name"
+                    type="text"
+                    id="last_name"
+                    name="last_name"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.last_name}
+                    error={formik.errors.last_name}
+                  />
+                </div>
+              </div>
+              <div className={styles.row}>
+                <div className={styles.formField}>
+                  <FormField
                     label="NIM"
                     type="text"
                     id="username"
@@ -76,32 +90,6 @@ export default function Login() {
                 </div>
                 <div className={styles.formField}>
                   <FormField
-                    label="Password"
-                    type="password"
-                    id="password"
-                    name="password"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.password}
-                    error={formik.errors.password}
-                  />
-                </div>
-              </div>
-              <div className={styles.leftForm}>
-                <div className={styles.formField}>
-                  <FormField
-                    label="Last name"
-                    type="text"
-                    id="last_name"
-                    name="last_name"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.last_name}
-                    error={formik.errors.last_name}
-                  />
-                </div>
-                <div className={styles.formField}>
-                  <FormField
                     label="Email"
                     type="email"
                     id="email"
@@ -110,6 +98,20 @@ export default function Login() {
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
                     error={formik.errors.email}
+                  />
+                </div>
+              </div>
+              <div className={styles.row}>
+                <div className={styles.formField}>
+                  <FormField
+                    label="Password"
+                    type="password"
+                    id="password"
+                    name="password"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.password}
+                    error={formik.errors.password}
                   />
                 </div>
                 <div className={styles.formField}>
