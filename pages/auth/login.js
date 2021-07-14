@@ -78,7 +78,7 @@ export default function Login() {
                   error={formik.errors.password}
                 />
               </div>
-              <a href="#">Lupa password?</a>
+              <Link href="/auth/password/reset">Lupa password?</Link>
               <SubmitButton />
             </form>
             <p className={styles.question}>
