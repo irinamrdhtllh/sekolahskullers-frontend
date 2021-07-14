@@ -1,20 +1,45 @@
 @use 'variables' as *;
 
 .alert {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    background-color: #f8d7da;
-    border: 2px solid #f5c6cb;
-    border-radius: 0.5rem;
-    color: #721c24;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  width: 25rem;
 
-    .closebtn {
-        font-weight: bold;
-        font-size: 1.5rem;
-        line-height: 1rem;
-        transition: 0.3s;
-        cursor: pointer;
+  span a {
+    margin-left: 0.5rem;
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
     }
+  }
+
+  @media (max-width: 480px) {
+    width: 20rem;
+  }
+
+  .closebtn {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1rem;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+}
+
+.danger {
+  background-color: #f8d7da;
+  border: 2px solid #f5c6cb;
+  color: #721c24;
+}
+
+.success {
+  background-color: #d7f8dd;
+  border: 2px solid #cbf5c6;
+  color: #23721c;
 }
