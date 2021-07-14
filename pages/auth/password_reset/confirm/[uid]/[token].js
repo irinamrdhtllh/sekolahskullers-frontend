@@ -5,18 +5,19 @@ import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import Alert from '../../../../../../components/Alert';
-import FormField from '../../../../../../components/FormField';
-import SubmitButton from '../../../../../../components/SubmitButton';
-import Layout from '../../../../../../layout/Layout';
-import image from '../../../../../../public/svg/eth.svg';
-import styles from '../../../../../../styles/pages/PasswordResetConfirm.module.scss';
-import { validateConfirm } from '../../../../../../utils/validateForm';
+import Alert from '../../../../../components/Alert';
+import FormField from '../../../../../components/FormField';
+import SubmitButton from '../../../../../components/SubmitButton';
+import Layout from '../../../../../layout/Layout';
+import image from '../../../../../public/svg/eth.svg';
+import styles from '../../../../../styles/pages/PasswordResetConfirm.module.scss';
+import { validateConfirm } from '../../../../../utils/validateForm';
 
 export default function PasswordResetConfirm() {
   const router = useRouter();
   const { uid, token } = router.query;
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: { newPassword1: '', newPassword1: '' },
     validate: validateConfirm,
@@ -24,11 +25,13 @@ export default function PasswordResetConfirm() {
   });
 
   async function onSubmit({ newPassword1, newPassword2 }) {
+    setLoading(true);
     try {
-      await axios.post(`auth/password/reset/confirm/${uid}/${token}/`, {
+      await axios.post(`auth/password_reset/confirm/${uid}/${token}/`, {
         new_password1: newPassword1,
         new_password2: newPassword2,
       });
+      setLoading(false);
       setSuccess(true);
     } catch (error) {
       console.error(error);
@@ -40,6 +43,7 @@ export default function PasswordResetConfirm() {
       <div className={styles.container}>
         <div className={styles.leftContent}>
           <h1>Reset Password</h1>
+          {loading && <p style={{ textAlign: 'center' }}>Tunggu...</p>}
           {success && (
             <Alert
               msg="Password berhasil diubah."

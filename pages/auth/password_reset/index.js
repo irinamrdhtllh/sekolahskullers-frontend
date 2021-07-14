@@ -4,16 +4,17 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 
-import Alert from '../../../../components/Alert';
-import FormField from '../../../../components/FormField';
-import SubmitButton from '../../../../components/SubmitButton';
-import Layout from '../../../../layout/Layout';
-import image from '../../../../public/svg/icircumflex.svg';
-import styles from '../../../../styles/pages/PasswordReset.module.scss';
-import { validateReset } from '../../../../utils/validateForm';
+import Alert from '../../../components/Alert';
+import FormField from '../../../components/FormField';
+import SubmitButton from '../../../components/SubmitButton';
+import Layout from '../../../layout/Layout';
+import image from '../../../public/svg/icircumflex.svg';
+import styles from '../../../styles/pages/PasswordReset.module.scss';
+import { validateReset } from '../../../utils/validateForm';
 
 export default function PasswordReset() {
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: { email: '' },
     validate: validateReset,
@@ -21,9 +22,11 @@ export default function PasswordReset() {
   });
 
   async function onSubmit({ email }) {
+    setLoading(true);
     try {
-      await axios.post('auth/password/reset/', { email });
+      await axios.post('auth/password_reset/', { email });
       setSuccess(true);
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -43,6 +46,7 @@ export default function PasswordReset() {
         </div>
         <div className={styles.rightContent}>
           <h1>Reset Password</h1>
+          {loading && <p style={{ textAlign: 'center' }}>Tunggu...</p>}
           {success && (
             <Alert
               msg="Email reset password telah dikirim. Jika tidak muncul dalam beberapa menit, cek folder spam"

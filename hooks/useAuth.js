@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useReducer } from 'react';
 
 import axios from 'axios';
 
-import { fetchRegister, fetchToken, fetchNewToken } from '../utils/fetch';
+import { fetchRegister, fetchLogin, fetchRefresh } from '../utils/fetch';
 import authReducer from '../utils/reducer';
 
 axios.defaults.baseURL = process.env.API_HOST;
@@ -66,7 +66,7 @@ export function AuthProvider({ children }) {
         throw new Error('Refresh token not available in storage');
       }
 
-      const resp = await fetchNewToken(refresh);
+      const resp = await fetchRefresh(refresh);
       const tokenData = resp.data;
 
       console.log('Acquired new token');
@@ -83,7 +83,7 @@ export function AuthProvider({ children }) {
 
   const login = async (username, password) => {
     try {
-      const resp = await fetchToken(username, password);
+      const resp = await fetchLogin(username, password);
       const tokenData = resp.data;
 
       localStorage.setItem('refresh', tokenData.refresh);

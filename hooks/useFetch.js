@@ -31,7 +31,6 @@ export default function useFetch(config, auth = false) {
 
       try {
         const response = await axios(newConfig);
-        console.log(response);
         setResponse(response);
 
       } catch (error) {
