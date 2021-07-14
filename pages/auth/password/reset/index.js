@@ -8,7 +8,7 @@ import Alert from '../../../../components/Alert';
 import FormField from '../../../../components/FormField';
 import SubmitButton from '../../../../components/SubmitButton';
 import Layout from '../../../../layout/Layout';
-import image from '../../../../public/SVG/icircumflex.svg';
+import image from '../../../../public/svg/icircumflex.svg';
 import styles from '../../../../styles/pages/PasswordReset.module.scss';
 import { validateReset } from '../../../../utils/validateForm';
 
@@ -36,10 +36,9 @@ export default function PasswordReset() {
           <h1>Sekolah Skullers</h1>
           <Image
             src={image}
-            width="713"
-            height="556"
+            width="600"
+            height="450"
             alt="svg"
-            className={styles.svg}
           />
         </div>
         <div className={styles.rightContent}>
@@ -54,7 +53,7 @@ export default function PasswordReset() {
             Masukkan email yang terdaftar di akunmu agar memperoleh link reset
             password.
           </p>
-          <form className={styles.loginForm} onSubmit={formik.handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <div className={styles.formField}>
               <FormField
                 label="Email"

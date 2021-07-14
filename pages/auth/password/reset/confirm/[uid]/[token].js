@@ -9,7 +9,7 @@ import Alert from '../../../../../../components/Alert';
 import FormField from '../../../../../../components/FormField';
 import SubmitButton from '../../../../../../components/SubmitButton';
 import Layout from '../../../../../../layout/Layout';
-import image from '../../../../../../public/SVG/eth.svg';
+import image from '../../../../../../public/svg/eth.svg';
 import styles from '../../../../../../styles/pages/PasswordResetConfirm.module.scss';
 import { validateConfirm } from '../../../../../../utils/validateForm';
 
@@ -39,16 +39,6 @@ export default function PasswordResetConfirm() {
     <Layout title="Reset Password" plain>
       <div className={styles.container}>
         <div className={styles.leftContent}>
-          <h1>Sekolah Skullers</h1>
-          <Image
-            src={image}
-            width="713"
-            height="556"
-            alt="svg"
-            className={styles.svg}
-          />
-        </div>
-        <div className={styles.rightContent}>
           <h1>Reset Password</h1>
           {success && (
             <Alert
@@ -59,7 +49,7 @@ export default function PasswordResetConfirm() {
             />
           )}
           <p>Masukkan password baru.</p>
-          <form className={styles.loginForm} onSubmit={formik.handleSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <div className={styles.formField}>
               <FormField
                 label="Password"
@@ -86,6 +76,15 @@ export default function PasswordResetConfirm() {
             </div>
             <SubmitButton />
           </form>
+        </div>
+        <div className={styles.rightContent}>
+          <h1>Sekolah Skullers</h1>
+          <Image
+            src={image}
+            width="600"
+            height="450"
+            alt="svg"
+          />
         </div>
       </div>
     </Layout>

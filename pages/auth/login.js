@@ -10,7 +10,7 @@ import FormField from '../../components/FormField';
 import SubmitButton from '../../components/SubmitButton';
 import { useAuth } from '../../hooks/useAuth';
 import Layout from '../../layout/Layout';
-import image from '../../public/SVG/igrave.svg';
+import image from '../../public/svg/igrave.svg';
 import styles from '../../styles/pages/Login.module.scss';
 import { validateLogin } from '../../utils/validateForm';
 
@@ -40,51 +40,43 @@ export default function Login() {
       <div className={styles.container}>
         <div className={styles.leftContent}>
           <h1>Sekolah Skullers</h1>
-          <Image
-            src={image}
-            width="713"
-            height="556"
-            alt="svg"
-            className={styles.svg}
-          />
+          <Image src={image} width="700" height="550" alt="svg" />
         </div>
         <div className={styles.rightContent}>
-          <div className={styles.login}>
-            <h1>Login</h1>
-            {error && <Alert msg={error} danger />}
-            <form className={styles.loginForm} onSubmit={formik.handleSubmit}>
-              <div className={styles.formField}>
-                <FormField
-                  label="NIM"
-                  type="text"
-                  id="username"
-                  name="username"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.username}
-                  error={formik.errors.username}
-                />
-              </div>
-              <div className={styles.formField}>
-                <FormField
-                  className={styles.formField}
-                  label="Password"
-                  type="password"
-                  id="password"
-                  name="password"
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.password}
-                  error={formik.errors.password}
-                />
-              </div>
-              <a href="#">Lupa password?</a>
-              <SubmitButton />
-            </form>
-            <p className={styles.question}>
-              Belum punya akun? <Link href="/auth/register">Register</Link>
-            </p>
-          </div>
+          <h1>Login</h1>
+          {error && <Alert msg={error} danger />}
+          <form onSubmit={formik.handleSubmit}>
+            <div className={styles.formField}>
+              <FormField
+                label="NIM"
+                type="text"
+                id="username"
+                name="username"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.username}
+                error={formik.errors.username}
+              />
+            </div>
+            <div className={styles.formField}>
+              <FormField
+                className={styles.formField}
+                label="Password"
+                type="password"
+                id="password"
+                name="password"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
+                error={formik.errors.password}
+              />
+            </div>
+            <Link href="password/reset/">Lupa password?</Link>
+            <SubmitButton />
+          </form>
+          <p className={styles.question}>
+            Belum punya akun? <Link href="/auth/register">Register</Link>
+          </p>
         </div>
       </div>
     </Layout>

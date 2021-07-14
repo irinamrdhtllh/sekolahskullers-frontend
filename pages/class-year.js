@@ -32,9 +32,11 @@ export default function ClassYear({ classYear }) {
             />
             <div className={styles.details}>
               <h1>{classYear.name}</h1>
-              <Level
-                level_logo={`/level/angkatan/${classYear.level?.display.toLowerCase()}.png`}
-                level={classYear.level?.display}
+              <Image 
+                src={`/level/angkatan/${classYear.level?.display.toLowerCase()}.png`}
+                height="50"
+                width="150"
+                alt={classYear.level?.display}
               />
               <ProgressBar progress="HP" bar="100%" bar_style={bar_style1} />
               <ProgressBar progress="XP" bar="70%" bar_style={bar_style2} />
