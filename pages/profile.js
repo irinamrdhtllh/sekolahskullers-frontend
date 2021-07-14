@@ -70,7 +70,7 @@ export default function Profile() {
   };
 
   return (
-    <Layout>
+    <Layout title="Profil">
       {loading ? (
         <p>Loading</p>
       ) : (

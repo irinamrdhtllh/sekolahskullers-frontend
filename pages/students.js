@@ -4,7 +4,7 @@ import Layout from '../layout/Layout';
 
 export default function Students({ students }) {
   return (
-    <Layout>
+    <Layout title="Dashboard Peserta">
       <pre>{JSON.stringify(students, null, 2)}</pre>
     </Layout>
   );

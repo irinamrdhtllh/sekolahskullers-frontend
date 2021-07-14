@@ -4,7 +4,7 @@ import Layout from '../layout/Layout';
 
 export default function Groups({ groups }) {
   return (
-    <Layout>
+    <Layout title="Dashboard Kelas">
       <pre>{JSON.stringify(groups, null, 2)}</pre>
     </Layout>
   );

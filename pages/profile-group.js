@@ -37,7 +37,7 @@ export default function Profile() {
   };
 
   return (
-    <Layout>
+    <Layout title="Profil Kelas">
       {loading ? (
         <p>Loading</p>
       ) : (

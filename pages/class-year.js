@@ -19,7 +19,7 @@ export default function ClassYear({ classYear }) {
   };
 
   return (
-    <Layout>
+    <Layout title="Dashboard Angkatan">
       <div className={styles.container}>
         <div className={styles.leftContent}>
           <div className={styles.profile}>
@@ -33,7 +33,7 @@ export default function ClassYear({ classYear }) {
             <div className={styles.details}>
               <h1>{classYear.name}</h1>
               <Level
-                level_logo={`/level/kelas/${classYear.level?.display}.png`}
+                level_logo={`/level/angkatan/${classYear.level?.display.toLowerCase()}.png`}
                 level={classYear.level?.display}
               />
               <ProgressBar progress="HP" bar="100%" bar_style={bar_style1} />
