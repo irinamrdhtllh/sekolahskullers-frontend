@@ -13,10 +13,21 @@ export default function Alert({ msg, danger, success, link, linkTitle }) {
       setMessage(msg);
     } else {
       for (const key of Object.keys(msg)) {
-        if (key === 'detail') {
-          setMessage('NIM atau password salah');
-        } else if (key === 'email') {
-          setMessage('Email telah digunakan');
+        switch (key) {
+          case 'username':
+            setMessage('NIM telah digunakan');
+            break;
+
+          case 'detail':
+            setMessage('NIM atau password salah');
+            break;
+
+          case 'email':
+            setMessage('Email telah digunakan');
+            break;
+
+          default:
+            throw new Error('Key not recognized');
         }
       }
     }
