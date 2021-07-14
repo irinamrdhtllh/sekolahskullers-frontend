@@ -13,8 +13,8 @@ export function validateRegister(values) {
     errors.username = 'Required';
   } else if (values.username.length !== 8) {
     errors.username = 'Must be 8 characters';
-  } else if (!/^13320/i.test(values.username)) {
-    errors.username = "Must start with '13320'";
+  } else if (!/^133/i.test(values.username)) {
+    errors.username = "Must start with '133'";
   } else if (!/^[0-9]+$/i.test(values.username)) {
     errors.username = 'Must only contain numbers';
   }
@@ -47,14 +47,42 @@ export function validateLogin(values) {
     errors.username = 'Required';
   } else if (values.username.length !== 8) {
     errors.username = 'Must be 8 characters';
-  } else if (!/^13320/i.test(values.username)) {
-    errors.username = "Must start with '13320'";
+  } else if (!/^133/i.test(values.username)) {
+    errors.username = "Must start with '133'";
   } else if (!/^[0-9]+$/i.test(values.username)) {
     errors.username = 'Must only contain numbers';
   }
 
   if (!values.password) {
     errors.password = 'Required';
+  }
+
+  return errors;
+}
+
+export function validateReset({ email }) {
+  const errors = {};
+
+  if (!email) {
+    errors.email = 'Required';
+  }
+
+  return errors;
+}
+
+export function validateConfirm({ newPassword1, newPassword2 }) {
+  const errors = {};
+
+  if (!newPassword1) {
+    errors.newPassword1 = 'Required';
+  }
+
+  if (!newPassword2) {
+    errors.newPassword2 = 'Required';
+  }
+
+  if (newPassword1 !== newPassword2 && newPassword2) {
+    errors.newPassword2 = 'Kedua password harus sama';
   }
 
   return errors;
