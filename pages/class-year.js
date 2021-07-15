@@ -32,7 +32,7 @@ export default function ClassYear({ classYear }) {
             />
             <div className={styles.details}>
               <h1>{classYear.name}</h1>
-              <Image 
+              <Image
                 src={`/level/angkatan/${classYear.level?.display.toLowerCase()}.png`}
                 height="50"
                 width="150"
@@ -61,14 +61,7 @@ export default function ClassYear({ classYear }) {
         <div className={styles.rightContent}>
           <h1>Tugas Angkatan</h1>
           {classYear.tasks?.map((task, index) => (
-            <TaskCard
-              key={index}
-              task_name={task.name}
-              max_exp={task.max_score}
-              exp={task.score}
-              deadline={new Date(task.deadline).toDateString()}
-              href={task.link}
-            />
+            <TaskCard key={index} status={task} />
           ))}
         </div>
       </div>

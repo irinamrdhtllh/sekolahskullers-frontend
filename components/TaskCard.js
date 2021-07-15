@@ -1,24 +1,54 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import styles from '../styles/components/TaskCard.module.scss';
 
-export default function TaskCard({ task_name, max_exp, exp, deadline, href }) {
+export default function TaskCard({ status }) {
+  const deadline = new Date(status.deadline);
+
+  const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+  const months = [
+    'Januari',
+    'Februari',
+    'Maret',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'November',
+    'Desember',
+  ];
+
+  const day = days[deadline.getDay()];
+  const date = deadline.getDate();
+  const month = months[deadline.getMonth()];
+  const year = deadline.getFullYear();
+  const hours = deadline.getHours();
+  const minutes = deadline.getMinutes();
+
+  const dateString = `${day}, ${date} ${month} ${year}`;
+  const timeString = `${hours}:${minutes}`;
+
   return (
-    <div className={styles.task_card}>
-      <div className={styles.wrapper}>
-        <div className={styles.task}>
-          <p>{task_name}</p>
-          <div className={styles.date}>
-            <p>{deadline}</p>
-            <a href={href} target="_blank" rel="noreferrer">Classroom</a>
+    <div className={styles.container}>
+      <div className={styles.body}>
+        <h3>{status.name}</h3>
+        <div className={styles.info}>
+          <div>
+            <div>{dateString}</div>
+            <div>{timeString}</div>
           </div>
+          <a href={status.link}>
+            <FontAwesomeIcon icon="school" size="1x" />
+            <span>Classroom</span>
+          </a>
         </div>
       </div>
       <div className={styles.score}>
-        <div className={styles.triangle1}>
-          <div className={styles.triangle1_text}>{exp}</div>
-        </div>
-        <div className={styles.triangle2}>
-          <div className={styles.triangle2_text}>{max_exp}</div>
-        </div>
+        <div>{status.score}</div>
+        <div>{status.max_score}</div>
       </div>
     </div>
   );

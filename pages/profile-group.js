@@ -76,14 +76,7 @@ export default function Profile() {
           <div className={styles.rightContent}>
             <h1>Tugas Kelas</h1>
             {group.task_statuses?.map((task_status, index) => (
-              <TaskCard
-                key={index}
-                task_name={task_status.task}
-                max_exp={task_status.max_score}
-                exp={task_status.score}
-                deadline={new Date(task_status.deadline).toDateString()}
-                href={task_status.link}
-              />
+              <TaskCard key={index} status={task_status} />
             ))}
           </div>
         </div>
