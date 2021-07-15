@@ -89,7 +89,7 @@ export default function Profile() {
                   {student.first_name} {student.last_name}
                 </h1>
                 <Level
-                  level_logo={`/level/peserta/${student.level?.display}.png`}
+                  level_logo={`/level/peserta/${student.level?.display.toLowerCase()}.png`}
                   level={student.level?.display}
                 />
                 <ProgressBar progress="HP" bar="100%" bar_style={bar_hp} />
