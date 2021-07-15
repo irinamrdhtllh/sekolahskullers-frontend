@@ -9,10 +9,10 @@ import styles from '../styles/layout/Nav.module.scss';
 export default function Nav({ children }) {
   return (
     <Popover.Panel static as="nav" className={styles.nav}>
-      <NavLink name="Home" href="/" first />
+      <NavLink name="Home" href="/" />
       <NavLink name="Angkatan" href="/class-year" />
       <NavLink name="Kelas" href="/groups" />
-      <NavLink name="Peserta" href="/students" last />
+      <NavLink name="Peserta" href="/students" />
       {children}
     </Popover.Panel>
   );
