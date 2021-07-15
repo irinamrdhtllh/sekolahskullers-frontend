@@ -8,8 +8,8 @@ export default function Layout({ children, title, plain }) {
   return (
     <>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title} - Sekolah Skullers</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       {!plain && <Header />}
       <main className={styles.main}>{children}</main>
