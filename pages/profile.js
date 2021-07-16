@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { capitalCase } from 'capital-case';
 import Image from 'next/image';
 
 import Level from '../components/Level.js';
@@ -25,49 +26,6 @@ export default function Profile() {
       setStudent(response.data);
     }
   }, [loading]); // eslint-disable-line
-
-  const bar_hp = {
-    background: '#E90909',
-    width: '100%',
-  };
-  const bar_xp = {
-    background: '#46D322',
-    width: '70%',
-  };
-
-  const bar_style1 = {
-    background: '#EBBA78',
-    width: '50%',
-  };
-
-  const bar_style2 = {
-    background: '#80D5AD',
-    width: '70%',
-  };
-
-  const bar_style3 = {
-    background: '#CDCDC2',
-    width: '60%',
-  };
-
-  const bar_style4 = {
-    background: '#888888',
-    width: '80%',
-  };
-
-  const bar_style5 = {
-    background: '#8CD3FF',
-    width: '70%',
-  };
-
-  const bar_style6 = {
-    background: '#A5A6F6',
-    width: '90%',
-  };
-  const bar_style7 = {
-    background: '#FFC0C0',
-    width: '80%',
-  };
 
   return (
     <Layout title="Profil">
@@ -119,7 +77,7 @@ export default function Profile() {
                   <ProgressBar
                     key={index}
                     assessment={assessment.key}
-                    progress={assessment.key}
+                    progress={capitalCase(assessment.key)}
                     bar={assessment.value}
                     width={{ width: '80%' }}
                   />
