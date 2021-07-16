@@ -11,7 +11,7 @@
 
   h3 {
     margin-top: 0;
-    font-weight: normal;
+    font-weight: 400;
   }
 }
 
@@ -25,6 +25,9 @@
   align-items: flex-end;
   justify-content: space-between;
   color: $clr-accent-1;
+  font-family: $ff-montserrat;
+  font-size: 1.1rem;
+  font-weight: 500;
 
   a {
     display: flex;
@@ -42,10 +45,16 @@
   }
 }
 
+.time {
+  font-weight: 600;
+}
+
 .score {
   display: flex;
   flex-direction: column;
-  font-size: 1.2rem;
+  font-size: 1.33rem;
+  font-family: $ff-montserrat;
+  font-weight: 700;
   min-width: 6ch;
   outline: 2px solid $clr-accent-1;
 

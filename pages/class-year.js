@@ -42,7 +42,7 @@ export default function ClassYear({ classYear }) {
               <ProgressBar progress="XP" bar="70%" bar_style={bar_style2} />
             </div>
           </div>
-          <div className="visionMission">
+          <div className={styles.visionMission}>
             <div className={styles.vision}>
               <h1>Visi</h1>
               <p>{classYear.vision}</p>

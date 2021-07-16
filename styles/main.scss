@@ -1,6 +1,8 @@
 @use 'reset' as *;
 @use 'variables' as *;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 @font-face {
   font-family: 'Windlass';
   src: url('../public/fonts/Windlass.woff') format('woff');

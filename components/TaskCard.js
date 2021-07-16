@@ -38,7 +38,7 @@ export default function TaskCard({ status }) {
         <div className={styles.info}>
           <div>
             <div>{dateString}</div>
-            <div>{timeString}</div>
+            <div className={styles.time}>{timeString}</div>
           </div>
           <a href={status.link}>
             <FontAwesomeIcon icon="school" size="1x" />

@@ -54,7 +54,7 @@ export default function Profile() {
               <div className={styles.details}>
                 <h1>{group.name}</h1>
                 <Level
-                  level_logo={`/level/kelas/${group.level?.display}.png`}
+                  level_logo={`/level/kelas/${group.level?.display.toLowerCase()}.png`}
                   level={group.level?.display}
                 />
                 <ProgressBar progress="HP" bar="100%" bar_style={bar_hp} />
