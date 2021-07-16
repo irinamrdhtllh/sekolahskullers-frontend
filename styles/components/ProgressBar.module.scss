@@ -37,6 +37,42 @@
   }
 }
 
+.health {
+  background-color: $clr-health;
+}
+
+.exp {
+  background-color: $clr-exp;
+}
+
+.kepemimpinan {
+  background-color: $clr-leadership;
+}
+
+.keteknikfisikaan {
+  background-color: $clr-eng-physics;
+}
+
+.kemahasiswaan {
+  background-color: $clr-student;
+}
+
+.solidaritas {
+  background-color: $clr-solidarity;
+}
+
+.kolaboratif {
+  background-color: $clr-collaborative;
+}
+
+.semangat_menjelajah {
+  background-color: $clr-explore;
+}
+
+.semangat_memaknai {
+  background-color: $clr-interpret;
+}
+
 @media (max-width: 520px) {
   .progress_bar {
     flex-direction: column;
