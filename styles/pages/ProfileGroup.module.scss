@@ -13,8 +13,20 @@
       align-items: center;
       margin-bottom: 4rem;
 
-      h1 {
-        font-family: $ff-windlass;
+      .details {
+        width: 60%;
+
+        .bars {
+          margin-top: 1rem;
+
+          .bar:not(:last-child) {
+            margin-bottom: 1rem;
+          }
+        }
+
+        h1 {
+          font-family: $ff-windlass;
+        }
       }
     }
 
@@ -52,6 +64,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      .bars {
+        width: 22rem;
+      }
     }
 
     h1 {

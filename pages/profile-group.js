@@ -27,15 +27,6 @@ export default function Profile() {
     }
   }, [loading]); // eslint-disable-line
 
-  const bar_hp = {
-    background: '#E90909',
-    width: '100%',
-  };
-  const bar_xp = {
-    background: '#46D322',
-    width: '70%',
-  };
-
   return (
     <Layout title="Profil Kelas">
       {loading ? (
@@ -57,8 +48,24 @@ export default function Profile() {
                   level_logo={`/level/kelas/${group.level?.display.toLowerCase()}.png`}
                   level={group.level?.display}
                 />
-                <ProgressBar progress="HP" bar="100%" bar_style={bar_hp} />
-                <ProgressBar progress="XP" bar="70%" bar_style={bar_xp} />
+                <div className={styles.bars}>
+                  <div className={styles.bar}>
+                    <ProgressBar
+                      health
+                      progress="HP"
+                      bar={group.health}
+                      width={{ width: '100%' }}
+                    />
+                  </div>
+                  <div className={styles.bar}>
+                    <ProgressBar
+                      exp
+                      progress="XP"
+                      bar={group.exp}
+                      width={{ width: '70%' }}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div className={styles.groupParticipant}>

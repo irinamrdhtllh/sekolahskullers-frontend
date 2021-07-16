@@ -92,47 +92,39 @@ export default function Profile() {
                   level_logo={`/level/peserta/${student.level?.display.toLowerCase()}.png`}
                   level={student.level?.display}
                 />
-                <ProgressBar progress="HP" bar="100%" bar_style={bar_hp} />
-                <ProgressBar progress="XP" bar="70%" bar_style={bar_xp} />
+                <div className={styles.bars}>
+                  <div className={styles.bar}>
+                    <ProgressBar
+                      health
+                      progress="HP"
+                      bar={student.health}
+                      width={{ width: '100%' }}
+                    />
+                  </div>
+                  <div className={styles.bar}>
+                    <ProgressBar
+                      exp
+                      progress="XP"
+                      bar={student.exp}
+                      width={{ width: '70%' }}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div className={styles.assessment}>
               <h1>Detail Nilai</h1>
-              <ProgressBar
-                progress="Kepemimpinan"
-                bar="50%"
-                bar_style={bar_style1}
-              />
-              <ProgressBar
-                progress="Keteknikfisikaan"
-                bar="70%"
-                bar_style={bar_style2}
-              />
-              <ProgressBar
-                progress="Kemahasiswaan"
-                bar="60%"
-                bar_style={bar_style3}
-              />
-              <ProgressBar
-                progress="Solidaritas"
-                bar="80%"
-                bar_style={bar_style4}
-              />
-              <ProgressBar
-                progress="Kolaboratif"
-                bar="70%"
-                bar_style={bar_style5}
-              />
-              <ProgressBar
-                progress="Semangat Menjelajah"
-                bar="90%"
-                bar_style={bar_style6}
-              />
-              <ProgressBar
-                progress="Semangat Memaknai"
-                bar="80%"
-                bar_style={bar_style7}
-              />
+              {student.assessment?.map((assessment, index) => (
+                <div key={index} className={styles.bar}>
+                  <ProgressBar
+                    key={index}
+                    assessment={assessment.key}
+                    progress={assessment.key}
+                    bar={assessment.value}
+                    width={{ width: '80%' }}
+                  />
+                </div>
+              ))}
             </div>
           </div>
 

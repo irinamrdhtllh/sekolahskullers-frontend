@@ -9,15 +9,6 @@ import image from '../public/images/image.jpg';
 import styles from '../styles/pages/ClassYear.module.scss';
 
 export default function ClassYear({ classYear }) {
-  const bar_style1 = {
-    background: '#E90909',
-    width: '100%',
-  };
-  const bar_style2 = {
-    background: '#46D322',
-    width: '70%',
-  };
-
   return (
     <Layout title="Dashboard Angkatan">
       <div className={styles.container}>
@@ -38,8 +29,24 @@ export default function ClassYear({ classYear }) {
                 width="150"
                 alt={classYear.level?.display}
               />
-              <ProgressBar progress="HP" bar="100%" bar_style={bar_style1} />
-              <ProgressBar progress="XP" bar="70%" bar_style={bar_style2} />
+              <div className={styles.bars}>
+                <div className={styles.bar}>
+                  <ProgressBar
+                    health
+                    progress="HP"
+                    bar={classYear.health}
+                    width={{width: '100%'}}
+                  />
+                </div>
+                <div className={styles.bar}>
+                  <ProgressBar
+                    exp
+                    progress="XP"
+                    bar={classYear.exp}
+                    width={{width: '70%'}}
+                  />
+                </div>
+              </div>
             </div>
           </div>
           <div className={styles.visionMission}>
