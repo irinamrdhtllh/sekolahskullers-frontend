@@ -9,15 +9,6 @@ import igrave from '../public/svg/igrave-black.svg';
 import styles from '../styles/pages/Groups.module.scss';
 
 export default function Groups({ groups }) {
-  const health_style = {
-    background: '#E90909',
-    width: '100%',
-  };
-  const exp_style = {
-    background: '#46D322',
-    width: '70%',
-  };
-
   return (
     <Layout title="Dashboard Kelas">
       <div className={styles.container}>
@@ -32,15 +23,11 @@ export default function Groups({ groups }) {
           {groups.map((group, index) => (
             <ClassItem
               key={index}
+              status={group}
               number={index + 1}
               class_logo={image}
-              class_name={group.name}
-              level_logo={`/level/kelas/${group.level?.display}.png`}
-              level={group.level?.display}
-              health_bar={group.health}
-              health_style={health_style}
-              exp_bar={group.exp}
-              exp_style={exp_style}
+              health="100%"
+              exp="70%"
             />
           ))}
         </div>
