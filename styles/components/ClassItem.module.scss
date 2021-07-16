@@ -5,28 +5,36 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: auto;
-  height: 4rem;
+  width: 75%;
+  height: 6rem;
   background-color: white;
   box-shadow: $box-shadow;
-  margin: 1rem 8rem;
+  margin: 2rem auto;
 
   .class {
     display: flex;
+    width: 35%;
 
     .number {
       background-color: $clr-accent-1;
       color: white;
       text-align: center;
-      width: 4rem;
+      width: 6rem;
+      height: 6rem;
+
+      p {
+        margin: 0;
+        line-height: 6rem;
+      }
     }
 
-    p {
-      margin: 1.5rem 1rem;
-    }
+    .profile {
+      display: flex;
+      align-items: center;
 
-    .class_name {
-      width: 12rem;
+      p {
+        margin-left: 1rem;
+      }
     }
   }
 
@@ -37,11 +45,11 @@
   }
 
   .bars {
-    margin: 0.25rem 1.5rem;
-    width: auto;
+    margin: 0rem 3rem;
+    width: 225px;
 
-    .bar {
-      margin: 0;
+    .bar:first-child {
+      margin-bottom: 0.5rem;
     }
   }
 }

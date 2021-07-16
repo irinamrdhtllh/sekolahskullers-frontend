@@ -14,8 +14,8 @@ export default function ClassItem({ number, class_logo, class_name, level_logo, 
         <div className={styles.number}>
           <p>{number}</p>
         </div>
-        <Image src={class_logo} width={65} height={65} alt="image" className={styles.image}/>
-        <div className={styles.class_name}>
+        <div className={styles.profile}>
+          <Image src={class_logo} width={72} height={72} alt="image" className={styles.image}/>
           <p>{class_name}</p>
         </div>
       </div>
@@ -23,8 +23,12 @@ export default function ClassItem({ number, class_logo, class_name, level_logo, 
         <Level level_logo={level_logo} level={level}/>
       </div>
       <div className={styles.bars}>
-        <ProgressBar progress={health} bar={health_bar} bar_style={health_style}/>
-        <ProgressBar progress={exp} bar={exp_bar} bar_style={exp_style}/>
+        <div className={styles.bar}>
+          <ProgressBar progress={health} bar={health_bar} bar_style={health_style}/>
+        </div>
+        <div className={styles.bar}>
+          <ProgressBar progress={exp} bar={exp_bar} bar_style={exp_style}/>
+        </div>
       </div>
     </div>
   );
