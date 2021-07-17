@@ -1,5 +1,11 @@
 @use 'variables' as *;
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
   display: flex;
 

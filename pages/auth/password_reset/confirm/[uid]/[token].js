@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useFormik } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { BeatLoader } from 'react-spinners';
 
 import Alert from '../../../../../components/Alert';
 import FormField from '../../../../../components/FormField';
@@ -17,6 +18,7 @@ export default function PasswordResetConfirm() {
   const router = useRouter();
   const { uid, token } = router.query;
   const [success, setSuccess] = useState(false);
+  const [failed, setFailed] = useState(null);
   const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: { newPassword1: '', newPassword1: '' },
@@ -25,17 +27,21 @@ export default function PasswordResetConfirm() {
   });
 
   async function onSubmit({ newPassword1, newPassword2 }) {
+    setSuccess(false);
+    setFailed(null);
     setLoading(true);
+
     try {
       await axios.post(`auth/password_reset/confirm/${uid}/${token}/`, {
         new_password1: newPassword1,
         new_password2: newPassword2,
       });
-      setLoading(false);
       setSuccess(true);
     } catch (error) {
-      console.error(error);
+      setFailed({ type: Object.keys(error.response.data)[0], status: true });
     }
+
+    setLoading(false);
   }
 
   return (
@@ -43,14 +49,12 @@ export default function PasswordResetConfirm() {
       <div className={styles.container}>
         <div className={styles.leftContent}>
           <h1>Reset Password</h1>
-          {loading && <p style={{ textAlign: 'center' }}>Tunggu...</p>}
-          {success && (
-            <Alert
-              msg="Password berhasil diubah."
-              success
-              link="/auth/login"
-              linkTitle="Login"
-            />
+          {success && <Alert page="confirm" success />}
+          {failed?.status && <Alert page="confirm" type={failed.type} />}
+          {loading && (
+            <div className={styles.loader}>
+              <BeatLoader loading={loading} color="#244c4c" />
+            </div>
           )}
           <p>Masukkan password baru.</p>
           <form onSubmit={formik.handleSubmit}>
@@ -83,12 +87,7 @@ export default function PasswordResetConfirm() {
         </div>
         <div className={styles.rightContent}>
           <h1>Sekolah Skullers</h1>
-          <Image
-            src={image}
-            width="600"
-            height="450"
-            alt="svg"
-          />
+          <Image src={image} width="600" height="450" alt="svg" />
         </div>
       </div>
     </Layout>
