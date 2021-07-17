@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { capitalCase } from 'capital-case';
+import { capitalCase } from 'change-case';
 import Image from 'next/image';
 
 import Level from '../components/Level.js';
