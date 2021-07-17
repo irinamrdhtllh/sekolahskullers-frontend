@@ -4,13 +4,7 @@ import styles from '../styles/components/ClassItem.module.scss';
 import Level from './Level.js';
 import ProgressBar from './ProgressBar.js';
 
-export default function ClassItem({
-  number,
-  status,
-  class_logo,
-  health,
-  exp,
-}) {
+export default function ClassItem({ number, status, class_logo, health, exp }) {
   return (
     <div className={styles.classitem}>
       <div className={styles.class}>
@@ -30,7 +24,7 @@ export default function ClassItem({
       </div>
       <div className={styles.level}>
         <Level
-          level_logo={`/level/kelas/${status.level?.display}.png`}
+          level_logo={`/level/kelas/${status.level?.display.toLowerCase()}.png`}
           level={status.level?.display}
         />
       </div>
