@@ -2,14 +2,40 @@
 
 .card {
   display: inline-block;
-  width: 130px;
-  height: 170px;
   background-color: white;
   box-shadow: $box-shadow;
-  margin-right: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin: auto;
 
   .student {
     text-align: center;
+  }
+}
+
+.leaderboard {
+  width: 200px;
+  height: 240px;
+}
+
+.group {
+  width: 140px;
+  height: 180px;
+}
+
+@media (max-width: 750px) {
+  .leaderboard {
+    width: 160px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 540px) {
+  .leaderboard {
+    width: 115px;
+    height: 155px;
+  }
+
+  .group {
+    width: 115px;
+    height: 155px;
   }
 }

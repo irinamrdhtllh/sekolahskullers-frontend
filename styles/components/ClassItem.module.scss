@@ -19,6 +19,7 @@
       background-color: $clr-accent-1;
       color: white;
       text-align: center;
+      min-width: 3rem;
       width: 6rem;
       height: 6rem;
 
@@ -31,25 +32,59 @@
     .profile {
       display: flex;
       align-items: center;
+      flex-shrink: 0;
 
       p {
+        min-width: 6rem;
+        flex-shrink: 0;
         margin-left: 1rem;
       }
     }
   }
 
   .level {
+    flex-shrink: 0;
+
     p {
-      margin: auto 1rem;
+      //margin: auto 1rem;
     }
   }
 
   .bars {
-    margin: 0rem 3rem;
+    margin-right: 3rem;
     width: 225px;
 
     .bar:first-child {
       margin-bottom: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .classitem {
+    width: 85%;
+
+    .bars {
+      width: 200px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .classitem {
+    width: 95%;
+  }
+}
+
+@media (max-width: 750px) {
+  .classitem {
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+    border-bottom: 2px solid $clr-gray;
+
+    .bars {
+      width: 150px;
     }
   }
 }
