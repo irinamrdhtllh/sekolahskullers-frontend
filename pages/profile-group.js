@@ -73,13 +73,19 @@ export default function Profile() {
             </div>
             <div className={styles.groupParticipant}>
               <h1>Anggota Kelas</h1>
-              {group.students?.map((student, index) => (
-                <StudentItem
-                  key={index}
-                  src={image}
-                  student={student.first_name}
-                />
-              ))}
+              <ul className={styles.studentItem}>
+                {group.students?.map((student, index) => (
+                  <li key={index}>
+                    <StudentItem
+                      group
+                      src={image}
+                      width="150"
+                      height="150"
+                      student={student.first_name}
+                    />
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 

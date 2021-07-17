@@ -33,6 +33,25 @@
     }
 }
 
-@media (max-width: 970px) {
+@media (max-width: 750px) {
+    .container {
+        .classItem {
+            padding: 3rem;
+        }
+    }
+}
 
+@media (max-width: 650px) {
+    .container {
+        .leaderboard {
+            height: 28rem;
+
+            .ship {
+                display: none;
+            }
+        }
+        .classItem {
+            padding: 3rem 0 0 0;
+        }
+    }
 }

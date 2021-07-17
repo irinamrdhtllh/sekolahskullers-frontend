@@ -44,6 +44,18 @@
         text-underline-offset: 0.5rem;
         margin-bottom: 3rem;
       }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding-inline-start: 0;
+
+        li {
+          list-style: none;
+          height: 30vh;
+          flex-grow: 1;
+        }
+      }
     }
   }
 
@@ -93,6 +105,15 @@
 
     .rightContent {
       width: 100%;
+    }
+  }
+}
+
+
+@media (max-width: 540px) {
+  .groupParticipant {
+    ul li {
+      height: 25vh !important;
     }
   }
 }
