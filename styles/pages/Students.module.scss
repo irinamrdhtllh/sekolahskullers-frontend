@@ -1,0 +1,58 @@
+@use 'variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  .leaderboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 32rem;
+    background-image: linear-gradient($clr-light, white);
+    padding-top: 3rem;
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-family: $ff-windlass;
+      text-decoration: underline $clr-accent-3 solid;
+      text-decoration-thickness: 4px;
+      text-underline-offset: 0.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .ship {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5rem;
+
+    li {
+      list-style: none;
+      height: 40vh;
+      flex-grow: 1;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .container {
+    ul li {
+      height: 32vh;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    ul li {
+      height: 25vh;
+    }
+  }
+}
