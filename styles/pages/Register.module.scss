@@ -1,5 +1,9 @@
 @use 'variables' as *;
 
+.loader {
+  margin-bottom: 3rem;
+}
+
 .container {
   display: flex;
   background-color: white;
@@ -107,8 +111,8 @@
       gap: 2rem !important;
 
       .row {
-          flex-direction: column;
-          gap: 0 !important;
+        flex-direction: column;
+        gap: 0 !important;
       }
     }
 

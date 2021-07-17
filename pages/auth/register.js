@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { BeatLoader } from 'react-spinners';
 
 import Alert from '../../components/Alert';
 import FormField from '../../components/FormField';
@@ -29,17 +30,21 @@ export default function Login() {
   });
   const { registerUser } = useAuth();
   const router = useRouter();
-  const [error, setError] = useState(null);
+  const [failed, setFailed] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   async function onRegister(values) {
-    setError(null);
+    setFailed(null);
+    setLoading(true);
+
     try {
       await registerUser(values);
       router.push('/');
     } catch (error) {
-      console.error(error.response.data);
-      setError(error.response.data);
+      setFailed({ type: Object.keys(error.response.data)[0], status: true });
     }
+
+    setLoading(false);
   }
 
   return (
@@ -47,7 +52,12 @@ export default function Login() {
       <div className={styles.container}>
         <div className={styles.leftContent}>
           <h1>Register</h1>
-          {error && <Alert msg={error} danger />}
+          {failed?.status && <Alert page="register" type={failed.type} />}
+          {loading && (
+            <div className={styles.loader}>
+              <BeatLoader loading={loading} color="#244c4c" />
+            </div>
+          )}
           <form onSubmit={formik.handleSubmit}>
             <div className={styles.form}>
               <div className={styles.row}>
@@ -137,12 +147,7 @@ export default function Login() {
         </div>
         <div className={styles.rightContent}>
           <h1>Sekolah Skullers</h1>
-          <Image
-            src={image}
-            width="700"
-            height="550"
-            alt="svg"
-          />
+          <Image src={image} width="700" height="550" alt="svg" />
         </div>
       </div>
     </Layout>

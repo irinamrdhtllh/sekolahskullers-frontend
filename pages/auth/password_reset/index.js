@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import Image from 'next/image';
+import { BeatLoader } from 'react-spinners';
 
 import Alert from '../../../components/Alert';
 import FormField from '../../../components/FormField';
@@ -14,6 +15,7 @@ import { validateReset } from '../../../utils/validateForm';
 
 export default function PasswordReset() {
   const [success, setSuccess] = useState(false);
+  const [failed, setFailed] = useState(false);
   const [loading, setLoading] = useState(false);
   const formik = useFormik({
     initialValues: { email: '' },
@@ -22,14 +24,18 @@ export default function PasswordReset() {
   });
 
   async function onSubmit({ email }) {
+    setSuccess(false);
+    setFailed(false);
     setLoading(true);
+
     try {
       await axios.post('auth/password_reset/', { email });
       setSuccess(true);
-      setLoading(false);
     } catch (error) {
-      console.error(error);
+      setFailed(true);
     }
+
+    setLoading(false);
   }
 
   return (
@@ -37,21 +43,16 @@ export default function PasswordReset() {
       <div className={styles.container}>
         <div className={styles.leftContent}>
           <h1>Sekolah Skullers</h1>
-          <Image
-            src={image}
-            width="600"
-            height="450"
-            alt="svg"
-          />
+          <Image src={image} width="600" height="450" alt="svg" />
         </div>
         <div className={styles.rightContent}>
           <h1>Reset Password</h1>
-          {loading && <p style={{ textAlign: 'center' }}>Tunggu...</p>}
-          {success && (
-            <Alert
-              msg="Email reset password telah dikirim. Jika tidak muncul dalam beberapa menit, cek folder spam"
-              success
-            />
+          {success && <Alert page="reset" success />}
+          {failed && <Alert page="reset" />}
+          {loading && (
+            <div className={styles.loader}>
+              <BeatLoader loading={loading} color="#244c4c" />
+            </div>
           )}
           <p>
             Masukkan email yang terdaftar di akunmu agar memperoleh link reset

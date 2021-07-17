@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { BeatLoader } from 'react-spinners';
 
 import Alert from '../../components/Alert';
 import FormField from '../../components/FormField';
@@ -22,17 +23,21 @@ export default function Login() {
   });
   const { login } = useAuth();
   const router = useRouter();
-  const [error, setError] = useState(null);
+  const [failed, setFailed] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   async function onLogin({ username, password }) {
-    setError(null);
+    setFailed(null);
+    setLoading(true);
+
     try {
       await login(username, password);
       router.push('/');
     } catch (error) {
-      console.log(error.response.data);
-      setError(error.response.data);
+      setFailed({ type: Object.keys(error.response.data)[0], status: true });
     }
+
+    setLoading(false);
   }
 
   return (
@@ -44,7 +49,12 @@ export default function Login() {
         </div>
         <div className={styles.rightContent}>
           <h1>Login</h1>
-          {error && <Alert msg={error} danger />}
+          {failed?.status && <Alert page="login" type={failed.type} />}
+          {loading && (
+            <div className={styles.loader}>
+              <BeatLoader loading={loading} color="#244c4c" />
+            </div>
+          )}
           <form onSubmit={formik.handleSubmit}>
             <div className={styles.formField}>
               <FormField

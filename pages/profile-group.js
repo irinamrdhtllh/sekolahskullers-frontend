@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
+import { ClipLoader } from 'react-spinners';
 
 import Level from '../components/Level.js';
 import ProgressBar from '../components/ProgressBar';
@@ -30,7 +31,9 @@ export default function Profile() {
   return (
     <Layout title="Profil Kelas">
       {loading ? (
-        <p>Loading</p>
+        <div className={styles.loading}>
+          <ClipLoader loading={loading} size={50} color="#244c4c" />
+        </div>
       ) : (
         <div className={styles.container}>
           <div className={styles.leftContent}>

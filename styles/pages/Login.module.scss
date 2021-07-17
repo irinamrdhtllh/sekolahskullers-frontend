@@ -1,5 +1,9 @@
 @use 'variables' as *;
 
+.loader {
+  margin-bottom: 3rem;
+}
+
 .container {
   display: flex;
   height: 100vh;
