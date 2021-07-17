@@ -1,5 +1,16 @@
 @use '../variables' as *;
 
-.main > div {
-  min-height: 70vh;
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  margin: auto;
+  width: 100%;
+}
+
+.footer {
+  flex: 1 0 auto;
 }

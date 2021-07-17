@@ -6,14 +6,14 @@ import Header from './Header';
 
 export default function Layout({ children, title, plain }) {
   return (
-    <>
+    <div className={styles.container}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title} - Sekolah Skullers</title>
       </Head>
       {!plain && <Header />}
       <main className={styles.main}>{children}</main>
-      {!plain && <Footer />}
-    </>
+      {!plain && <Footer class={styles.footer} />}
+    </div>
   );
 }
