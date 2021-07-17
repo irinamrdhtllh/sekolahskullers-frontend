@@ -31,28 +31,13 @@
   ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     padding: 5rem;
 
     li {
+      flex-grow: 0;
       list-style: none;
-      height: 40vh;
-      flex-grow: 1;
-    }
-  }
-}
-
-@media (max-width: 750px) {
-  .container {
-    ul li {
-      height: 32vh;
-    }
-  }
-}
-
-@media (max-width: 540px) {
-  .container {
-    ul li {
-      height: 25vh;
+      margin-bottom: 2rem;
     }
   }
 }

@@ -28,6 +28,13 @@
   }
 }
 
+@media (max-width: 620px) {
+  .leaderboard {
+    width: 140px;
+    height: 180px;
+  }
+}
+
 @media (max-width: 540px) {
   .leaderboard {
     width: 115px;
