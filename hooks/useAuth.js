@@ -1,11 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from 'react';
 
-import axios from 'axios';
-
 import { fetchRegister, fetchLogin, fetchRefresh } from '../utils/fetch';
 import authReducer from '../utils/reducer';
-
-axios.defaults.baseURL = process.env.API_HOST;
 
 const AuthContext = createContext({});
 
@@ -13,6 +9,10 @@ export function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(authReducer, {
     loading: true,
     isAuthenticated: false,
+    user: {
+      username: null,
+      group: null,
+    },
     token: '',
     expiry: null,
   });
@@ -144,6 +144,7 @@ export function AuthProvider({ children }) {
   };
 
   const value = {
+    user: state.user,
     isAuthenticated: state.isAuthenticated,
     loading: state.loading,
     registerUser,
