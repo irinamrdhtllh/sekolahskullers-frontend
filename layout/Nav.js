@@ -3,6 +3,7 @@ import { Popover } from '@headlessui/react';
 
 import Button from '../components/Button';
 import NavLink from '../components/NavLink';
+import { useAuth } from '../hooks/useAuth';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import styles from '../styles/layout/Nav.module.scss';
 
@@ -20,6 +21,9 @@ export default function Nav({ children }) {
 
 export function AuthNav({ toggleOpen }) {
   const { width } = useWindowDimensions();
+  const {
+    user: { group },
+  } = useAuth();
 
   const user = (
     <FontAwesomeIcon className={styles.icons} icon="user" size="lg" />
@@ -36,7 +40,9 @@ export function AuthNav({ toggleOpen }) {
             {((toggleOpen && width <= 640) || open) && (
               <Popover.Panel static as="div" className={styles.dropdown}>
                 <NavLink name="Profil" href="/profile" custom />
-                <NavLink name="Profil Kelas" href="/profile-group" custom />
+                {group() && (
+                  <NavLink name="Profil Kelas" href="/profile-group" custom />
+                )}
               </Popover.Panel>
             )}
           </>

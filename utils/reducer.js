@@ -1,3 +1,5 @@
+import jwt from 'jsonwebtoken';
+
 export default function authReducer(state, action) {
   switch (action.type) {
     case 'init':
@@ -21,10 +23,21 @@ export default function authReducer(state, action) {
       };
 
     case 'updateToken':
+      const newToken = action.payload.access;
       return {
         ...state,
-        token: action.payload.access,
+        token: newToken,
         expiry: action.payload.access_expires * 1000,
+        user: {
+          username: jwt.decode(newToken).username,
+          group: () => {
+            try {
+              return jwt.decode(newToken).group;
+            } catch (err) {
+              return null;
+            }
+          },
+        },
         isAuthenticated: true,
         loading: false,
       };
@@ -34,6 +47,10 @@ export default function authReducer(state, action) {
         ...state,
         token: '',
         expiry: null,
+        user: {
+          username: null,
+          group: null,
+        },
         isAuthenticated: false,
         loading: false,
       };
