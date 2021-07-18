@@ -1,19 +1,25 @@
 @use 'variables' as *;
 
 .card {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   background-color: white;
   box-shadow: $box-shadow;
-  margin: auto;
 
   .student {
-    text-align: center;
+    margin: auto;
+
+    p {
+      text-align: center;
+      margin: 0;
+      padding: 1rem;
+    }
   }
 }
 
 .leaderboard {
-  width: 200px;
-  height: 240px;
+  width: 180px;
+  height: 230px;
 }
 
 .group {
@@ -22,6 +28,10 @@
 }
 
 @media (max-width: 750px) {
+  .card .student p {
+    font-size: 10px;
+  }
+
   .leaderboard {
     width: 160px;
     height: 200px;
@@ -29,6 +39,10 @@
 }
 
 @media (max-width: 620px) {
+  .card .student p {
+    font-size: 8px;
+  }
+
   .leaderboard {
     width: 140px;
     height: 180px;
