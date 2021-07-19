@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = process.env.API_HOST;
+axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_HOST;
 
 export const fetchRegister = (values) => {
   return axios.post('auth/register/', values);
