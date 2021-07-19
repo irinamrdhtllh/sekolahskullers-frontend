@@ -2,7 +2,7 @@
 
 .level {
   display: flex;
-  width: auto;
+  max-width: auto;
   font-family: $ff-montserrat;
   font-size: 1.1rem;
   font-weight: 600;
@@ -12,5 +12,18 @@
     margin: auto 1rem;
     padding: 0.5rem 0.75rem;
     border-radius: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .classitem {
+    .image {
+      width: 25px;
+    }
+
+    p {
+      font-size: 0.8rem;
+      margin: auto 0.5rem;
+    }
   }
 }
