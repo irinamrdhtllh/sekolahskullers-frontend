@@ -1,27 +1,63 @@
 @use 'variables' as *;
 
 .footer {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  text-align: center;
-  background-color: $clr-accent-1;
-  padding: 3rem 0;
   color: white;
 
-  .sosmed {
-    margin-bottom: 1.5rem;
+  .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #295757;
+    padding: 2rem 4rem;
 
-    .icon {
-      color: white;
+    .sosmed {
+      display: flex;
+      gap: 5rem;
+
+      .instagram,
+      .twitter,
+      .website {
+        display: flex;
+        align-items: center;
+
+        ul {
+          padding-left: 2rem;
+
+          li {
+            list-style: none;
+            a {
+              color: white;
+              text-decoration: none;
+              line-height: 2rem;
+              font-family: $ff-montserrat;
+              font-size: 1.1rem;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
     }
   }
 
-  .sosmed a {
-    color: white;
-    padding: 1rem;
-    text-decoration: none;
-  }
+  .copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: $clr-accent-1;
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem 2rem;
+    font-size: 0.9rem;
 
-  p {
-    margin-bottom: 0;
+    span {
+        font-size: 1.25rem;
+    }
   }
 }
