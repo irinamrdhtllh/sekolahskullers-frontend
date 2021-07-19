@@ -78,6 +78,7 @@ export default function Profile() {
               {student.assessment?.map((assessment, index) => (
                 <div key={index} className={styles.bar}>
                   <ProgressBar
+                    profile
                     key={index}
                     assessment={assessment.key}
                     progress={capitalCase(assessment.key)}
