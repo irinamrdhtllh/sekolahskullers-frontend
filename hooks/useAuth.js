@@ -104,6 +104,9 @@ export function AuthProvider({ children }) {
       const resp = await fetchRegister(values);
       const tokenData = resp.data;
 
+      localStorage.setItem('refresh', tokenData.refresh);
+      localStorage.setItem('refresh_expires', tokenData.refresh_expires);
+
       dispatch({ type: 'updateToken', payload: tokenData });
 
       return Promise.resolve(resp);
