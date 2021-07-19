@@ -16,7 +16,7 @@ export default function ProgressBar({
           <div
             className={`${styles.bar} ${health && styles.health} ${
               exp && styles.exp
-            } ${{assessment} && styles[assessment]}`}
+            } ${{ assessment } && styles[assessment]}`}
             style={width}
           >
             {bar}

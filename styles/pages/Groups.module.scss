@@ -1,57 +1,57 @@
 @use 'variables' as *;
 
 .container {
+  display: flex;
+  flex-direction: column;
+
+  .leaderboard {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 32rem;
+    background-image: linear-gradient($clr-light, white);
+    padding-top: 3rem;
 
-    .leaderboard {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 32rem;
-        background-image: linear-gradient($clr-light, white);
-        padding-top: 3rem;
-
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            font-family: $ff-windlass;
-            text-decoration: underline $clr-accent-3 solid;
-            text-decoration-thickness: 4px;
-            text-underline-offset: 0.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .ship {
-            display: flex;
-            justify-content: space-between;
-        }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-family: $ff-windlass;
+      text-decoration: underline $clr-accent-3 solid;
+      text-decoration-thickness: 4px;
+      text-underline-offset: 0.5rem;
+      margin-bottom: 3rem;
     }
 
-    .classItem {
-        padding: 3rem 5rem;
+    .ship {
+      display: flex;
+      justify-content: space-between;
     }
+  }
+
+  .classItem {
+    padding: 3rem 5rem;
+  }
 }
 
 @media (max-width: 750px) {
-    .container {
-        .classItem {
-            padding: 3rem;
-        }
+  .container {
+    .classItem {
+      padding: 3rem;
     }
+  }
 }
 
 @media (max-width: 650px) {
-    .container {
-        .leaderboard {
-            height: 28rem;
+  .container {
+    .leaderboard {
+      height: 28rem;
 
-            .ship {
-                display: none;
-            }
-        }
-        .classItem {
-            padding: 3rem 0 0 0;
-        }
+      .ship {
+        display: none;
+      }
     }
+    .classItem {
+      padding: 3rem 0 0 0;
+    }
+  }
 }

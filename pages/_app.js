@@ -1,9 +1,18 @@
 import React from 'react';
 
 import '../styles/main.scss';
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faGlobe, faBars, faUser, faSchool } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  fab,
+  faInstagram,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
+import {
+  faGlobe,
+  faBars,
+  faUser,
+  faSchool,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { AuthProvider } from '../hooks/useAuth';
 

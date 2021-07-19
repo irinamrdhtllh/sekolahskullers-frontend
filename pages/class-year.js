@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Image from 'next/image';
 
-import Level from '../components/Level.js';
 import ProgressBar from '../components/ProgressBar';
 import TaskCard from '../components/TaskCard';
 import Layout from '../layout/Layout';
@@ -35,7 +34,7 @@ export default function ClassYear({ classYear }) {
                     health
                     progress="HP"
                     bar={classYear.health}
-                    width={{width: '100%'}}
+                    width={{ width: '100%' }}
                   />
                 </div>
                 <div className={styles.bar}>
@@ -43,7 +42,7 @@ export default function ClassYear({ classYear }) {
                     exp
                     progress="XP"
                     bar={classYear.exp}
-                    width={{width: '70%'}}
+                    width={{ width: '70%' }}
                   />
                 </div>
               </div>
