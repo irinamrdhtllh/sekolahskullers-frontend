@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { capitalCase } from 'change-case';
 import Image from 'next/image';
@@ -44,10 +45,18 @@ export default function Students({ students, page }) {
               onClick={() => router.push(`/students/?page=${page - 1}`)}
               disabled={page <= 1}
             >
-              Prev
+              <FontAwesomeIcon
+                className={styles.icons}
+                icon="less-than"
+                size="lg"
+              />
             </button>
             <button onClick={() => router.push(`/students/?page=${page + 1}`)}>
-              Next
+              <FontAwesomeIcon
+                className={styles.icons}
+                icon="greater-than"
+                size="lg"
+              />
             </button>
           </div>
         </div>

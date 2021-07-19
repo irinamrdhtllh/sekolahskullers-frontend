@@ -12,11 +12,23 @@ import {
   faBars,
   faUser,
   faSchool,
+  faLessThan,
+  faGreaterThan,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { AuthProvider } from '../hooks/useAuth';
 
-library.add(fab, faInstagram, faTwitter, faGlobe, faBars, faUser, faSchool);
+library.add(
+  fab,
+  faInstagram,
+  faTwitter,
+  faGlobe,
+  faBars,
+  faUser,
+  faSchool,
+  faLessThan,
+  faGreaterThan
+);
 
 function MyApp({ Component, pageProps }) {
   return (
