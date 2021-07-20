@@ -4,7 +4,15 @@ import styles from '../styles/components/ClassItem.module.scss';
 import Level from './Level.js';
 import ProgressBar from './ProgressBar.js';
 
-export default function ClassItem({ number, status, class_logo, health, exp }) {
+export default function ClassItem({
+  student,
+  weekly,
+  number,
+  status,
+  class_logo,
+  health,
+  exp,
+}) {
   return (
     <div className={styles.container}>
       <div className={styles.class}>
@@ -16,12 +24,18 @@ export default function ClassItem({ number, status, class_logo, health, exp }) {
         </div>
       </div>
       <div className={styles.wrapper}>
-        <p className={styles.name}>{status.name}</p>
+        <p className={styles.name}>
+          {student ? `${status.first_name} ${status.last_name}` : status.name}
+        </p>
         <div className={styles.profile}>
           <div className={styles.level}>
             <Level
               classitem
-              level_logo={`/level/kelas/${status.level?.display.toLowerCase()}.png`}
+              level_logo={
+                student
+                  ? `/level/peserta/${status.level?.display.toLowerCase()}.png`
+                  : `/level/kelas/${status.level?.display.toLowerCase()}.png`
+              }
               level={status.level?.display}
             />
           </div>
@@ -40,7 +54,7 @@ export default function ClassItem({ number, status, class_logo, health, exp }) {
                 classitem
                 exp
                 progress="XP"
-                bar={status.exp}
+                bar={weekly ? status.weekly_exp : status.exp}
                 width={{ width: `${exp}` }}
               />
             </div>

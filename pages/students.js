@@ -93,6 +93,8 @@ export default function Students({ students, page }) {
           <div className={styles.weekly}>
             {students.map((student, index) => (
               <ClassItem
+                student
+                weekly
                 key={index}
                 status={student}
                 number={index + 1}

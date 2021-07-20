@@ -60,9 +60,9 @@ export default function Groups({ groups }) {
         )}
         {weekly && (
           <div className={styles.classItem}>
-            <p>Weekly Leaderboard</p>
             {groups.map((group, index) => (
               <ClassItem
+                weekly
                 key={index}
                 status={group}
                 number={index + 1}
