@@ -3,60 +3,125 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  align-items: center;
   box-shadow: $box-shadow;
 
   .student {
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
 
-    p {
+    .name {
       text-align: center;
       margin: 0;
-      padding: 1rem;
+      height: 2.5rem;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+
+      .level {
+        max-width: 10rem;
+        margin: 0;
+      }
+
+      .level p {
+        font-size: 0.9rem;
+      }
+
+      .bars {
+        min-width: 11rem;
+
+        .bar:first-child {
+          margin-bottom: 0.25rem;
+        }
+
+        .bar p {
+          font-size: 1rem;
+        }
+      }
     }
   }
 }
 
 .leaderboard {
   width: 180px;
-  height: 230px;
+  height: auto;
 }
 
 .group {
-  width: 140px;
-  height: 180px;
+  width: 150px;
+  height: auto;
 }
 
-@media (max-width: 750px) {
-  .card .student p {
-    font-size: 10px;
-  }
+@media (max-width: 500px) {
+  .card {
+    .student {
+      .name {
+        font-size: 10px;
+        height: 2rem;
+      }
 
-  .leaderboard {
-    width: 160px;
-    height: 200px;
-  }
-}
+      .info {
+        .level {
+          max-width: 8rem;
+        }
 
-@media (max-width: 620px) {
-  .card .student p {
-    font-size: 8px;
+        .level p {
+          font-size: 0.65rem;
+        }
+
+        .bars {
+          min-width: 9rem;
+
+          .bar p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
   }
 
   .leaderboard {
     width: 140px;
-    height: 180px;
+    height: auto;
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 425px) {
+  .card {
+    .student {
+      .name {
+        font-size: 8px;
+        height: 2rem;
+      }
+
+      .info {
+        .bars {
+          min-width: 7.5rem;
+
+          .bar p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
   .leaderboard {
     width: 115px;
-    height: 155px;
+    height: auto;
   }
 
   .group {
     width: 115px;
-    height: 155px;
+    height: auto;
   }
 }

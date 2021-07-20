@@ -1,3 +1,4 @@
+import { capitalCase } from 'change-case';
 import Image from 'next/image';
 
 import styles from '../styles/components/ClassItem.module.scss';
@@ -25,7 +26,7 @@ export default function ClassItem({
       </div>
       <div className={styles.wrapper}>
         <p className={styles.name}>
-          {student ? `${status.first_name} ${status.last_name}` : status.name}
+          {student ? capitalCase(`${status.first_name} ${status.last_name}`) : status.name}
         </p>
         <div className={styles.profile}>
           <div className={styles.level}>
