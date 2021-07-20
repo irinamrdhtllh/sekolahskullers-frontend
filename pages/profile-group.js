@@ -39,7 +39,6 @@ export default function Profile() {
           <div className={styles.leftContent}>
             <div className={styles.profile}>
               <Image
-                className={styles.image}
                 src={image}
                 height="160"
                 width="160"
@@ -78,10 +77,10 @@ export default function Profile() {
                   <li key={index}>
                     <StudentItem
                       group
+                      status={student}
                       src={image}
                       width="150"
                       height="150"
-                      student={student.first_name}
                     />
                   </li>
                 ))}

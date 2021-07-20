@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import { capitalCase } from 'change-case';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
@@ -56,12 +55,10 @@ export default function Students({ students, page }) {
                 <li key={index}>
                   <StudentItem
                     leaderboard
+                    status={student}
                     src={image}
                     width="200"
                     height="200"
-                    student={capitalCase(
-                      `${student.first_name} ${student.last_name}`
-                    )}
                   />
                 </li>
               ))}
