@@ -1,9 +1,12 @@
+import { useState } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { capitalCase } from 'change-case';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
+import ClassItem from '../components/ClassItem';
 import StudentItem from '../components/StudentItem';
 import Layout from '../layout/Layout';
 import image from '../public/images/image.jpg';
@@ -13,53 +16,93 @@ import styles from '../styles/pages/Students.module.scss';
 
 export default function Students({ students, page }) {
   const router = useRouter();
+  const [allTime, setAllTime] = useState(true);
+  const [weekly, setWeekly] = useState(false);
 
   return (
     <Layout title="Dashboard Peserta">
       <div className={styles.container}>
         <div className={styles.leaderboard}>
           <h1>Leaderboard</h1>
+          <div className={styles.tabs}>
+            <button
+              className={`${styles.button} ${allTime && styles.active}`}
+              onClick={() => {
+                setAllTime(true);
+                setWeekly(false);
+              }}
+            >
+              All Time
+            </button>
+            <button
+              className={`${styles.button} ${weekly && styles.active}`}
+              onClick={() => {
+                setWeekly(true);
+                setAllTime(false);
+              }}
+            >
+              Weekly
+            </button>
+          </div>
           <div className={styles.ship}>
             <Image src={acute} width="400" height="250" alt="svg" />
             <Image src={igrave} width="400" height="250" alt="svg" />
           </div>
         </div>
-        <div className={styles.studentItem}>
-          <ul>
-            {students?.map((student, index) => (
-              <li key={index}>
-                <StudentItem
-                  leaderboard
-                  src={image}
-                  width="200"
-                  height="200"
-                  student={capitalCase(
-                    `${student.first_name} ${student.last_name}`
-                  )}
+        {allTime && (
+          <div className={styles.studentItem}>
+            <ul>
+              {students?.map((student, index) => (
+                <li key={index}>
+                  <StudentItem
+                    leaderboard
+                    src={image}
+                    width="200"
+                    height="200"
+                    student={capitalCase(
+                      `${student.first_name} ${student.last_name}`
+                    )}
+                  />
+                </li>
+              ))}
+            </ul>
+            <div className={styles.pagination}>
+              <button
+                onClick={() => router.push(`/students/?page=${page - 1}`)}
+                disabled={page <= 1}
+              >
+                <FontAwesomeIcon
+                  className={styles.icons}
+                  icon="less-than"
+                  size="lg"
                 />
-              </li>
-            ))}
-          </ul>
-          <div className={styles.pagination}>
-            <button
-              onClick={() => router.push(`/students/?page=${page - 1}`)}
-              disabled={page <= 1}
-            >
-              <FontAwesomeIcon
-                className={styles.icons}
-                icon="less-than"
-                size="lg"
-              />
-            </button>
-            <button onClick={() => router.push(`/students/?page=${page + 1}`)}>
-              <FontAwesomeIcon
-                className={styles.icons}
-                icon="greater-than"
-                size="lg"
-              />
-            </button>
+              </button>
+              <button
+                onClick={() => router.push(`/students/?page=${page + 1}`)}
+              >
+                <FontAwesomeIcon
+                  className={styles.icons}
+                  icon="greater-than"
+                  size="lg"
+                />
+              </button>
+            </div>
           </div>
-        </div>
+        )}
+        {weekly && (
+          <div className={styles.weekly}>
+            {students.map((student, index) => (
+              <ClassItem
+                key={index}
+                status={student}
+                number={index + 1}
+                class_logo={image}
+                health="100%"
+                exp="70%"
+              />
+            ))}
+          </div>
+        )}
       </div>
     </Layout>
   );

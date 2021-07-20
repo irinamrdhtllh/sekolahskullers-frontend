@@ -11,7 +11,8 @@ import igrave from '../public/svg/igrave-black.svg';
 import styles from '../styles/pages/Groups.module.scss';
 
 export default function Groups({ groups }) {
-  const [show, setShow] = useState(true);
+  const [allTime, setAllTime] = useState(true);
+  const [weekly, setWeekly] = useState(false);
 
   return (
     <Layout title="Dashboard Kelas">
@@ -19,15 +20,31 @@ export default function Groups({ groups }) {
         <div className={styles.leaderboard}>
           <h1>Leaderboard</h1>
           <div className={styles.tabs}>
-            <button onClick={() => setShow(true)}>All Time</button>
-            <button onClick={() => setShow(false)}>Weekly</button>
+            <button
+              className={`${styles.button} ${allTime && styles.active}`}
+              onClick={() => {
+                setAllTime(true);
+                setWeekly(false);
+              }}
+            >
+              All Time
+            </button>
+            <button
+              className={`${styles.button} ${weekly && styles.active}`}
+              onClick={() => {
+                setWeekly(true);
+                setAllTime(false);
+              }}
+            >
+              Weekly
+            </button>
           </div>
           <div className={styles.ship}>
             <Image src={acute} width="400" height="250" alt="svg" />
             <Image src={igrave} width="400" height="250" alt="svg" />
           </div>
         </div>
-        {show && (
+        {allTime && (
           <div className={styles.classItem}>
             {groups.map((group, index) => (
               <ClassItem
@@ -41,7 +58,7 @@ export default function Groups({ groups }) {
             ))}
           </div>
         )}
-        {!show && (
+        {weekly && (
           <div className={styles.classItem}>
             <p>Weekly Leaderboard</p>
             {groups.map((group, index) => (

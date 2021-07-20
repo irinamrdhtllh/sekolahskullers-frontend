@@ -27,19 +27,19 @@
       display: flex;
       gap: 2rem;
 
-      button {
+      .button {
         width: 12ch;
         padding: 1rem 0;
         background-color: transparent;
         color: $clr-accent-1;
         border: 2px solid $clr-accent-1;
         cursor: pointer;
+      }
 
-        &:focus {
-          background-color: $clr-accent-1;
-          color: white;
-          cursor: default;
-        }
+      .active {
+        background-color: $clr-accent-1;
+        color: white;
+        cursor: default;
       }
     }
 
