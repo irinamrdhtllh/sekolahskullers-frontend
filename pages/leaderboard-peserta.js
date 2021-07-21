@@ -65,7 +65,7 @@ export default function Students({ students, page }) {
             </ul>
             <div className={styles.pagination}>
               <button
-                onClick={() => router.push(`/students/?page=${page - 1}`)}
+                onClick={() => router.push(`/leaderboard-peserta/?page=${page - 1}`)}
                 disabled={page <= 1}
               >
                 <FontAwesomeIcon
@@ -75,7 +75,7 @@ export default function Students({ students, page }) {
                 />
               </button>
               <button
-                onClick={() => router.push(`/students/?page=${page + 1}`)}
+                onClick={() => router.push(`/leaderboard-peserta/?page=${page + 1}`)}
               >
                 <FontAwesomeIcon
                   className={styles.icons}

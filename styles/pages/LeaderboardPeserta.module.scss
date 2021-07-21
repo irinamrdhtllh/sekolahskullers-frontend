@@ -70,27 +70,22 @@
     .pagination {
       button {
         display: inline-block;
-        background-color: white;
-        color: $clr-accent-1;
+        background-color: transparent;
+        border: 2px solid white;
+        color: white;
         text-align: center;
         width: 10ch;
         height: 3rem;
-        border: none;
         cursor: pointer;
         margin: 1rem;
 
         &:disabled {
-          background-color: transparent;
-          border: 2px solid white;
-          color: white;
-
-          &:hover {
-            cursor: default;
-          }
+          display: none;
         }
 
         &:hover:not(:disabled) {
-          background-color: rgba(white, 0.95);
+          background-color: white;
+          color: $clr-accent-1;
         }
       }
     }
