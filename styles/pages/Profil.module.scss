@@ -1,5 +1,11 @@
 @use 'variables' as *;
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
   display: flex;
 
@@ -12,6 +18,10 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 4rem;
+
+      .image {
+        border-radius: 100;
+      }
 
       .details {
         width: 60%;
@@ -26,60 +36,49 @@
 
         h1 {
           font-family: $ff-windlass;
+          color: white;
         }
       }
     }
 
-    .visionMission {
-      p,
-      ul {
-        font-family: $ff-montserrat;
-        font-size: 1.2rem;
-        font-weight: 500;
-      }
-    }
-
-    .vision {
-      margin-bottom: 3rem;
-
+    .assessment {
       h1 {
         font-family: $ff-windlass;
-        text-decoration: underline $clr-accent-3 solid;
+        text-decoration: underline white solid;
         text-decoration-thickness: 4px;
         text-underline-offset: 0.5rem;
-        margin-bottom: 3rem;
-      }
-    }
-
-    .mission {
-      margin-bottom: 4rem;
-
-      h1 {
-        font-family: $ff-windlass;
-        text-decoration: underline $clr-accent-3 solid;
-        text-decoration-thickness: 4px;
-        text-underline-offset: 0.5rem;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
       }
 
-      ul li {
-        list-style-type: square;
+      .bar {
         margin-bottom: 1rem;
       }
     }
   }
 
   .rightContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 50%;
-    padding: 3rem 5rem;
-    background-color: $clr-light;
+    background-color: rgba($clr-accent-1, 0.4);
 
-    h1 {
-      font-family: $ff-windlass;
-      text-decoration: underline $clr-accent-3 solid;
-      text-decoration-thickness: 4px;
-      text-underline-offset: 0.5rem;
-      margin-bottom: 3rem;
+    .tasks {
+      padding: 3rem 5rem;
+
+      h1 {
+        font-family: $ff-windlass;
+        text-decoration: underline white solid;
+        text-decoration-thickness: 4px;
+        text-underline-offset: 0.5rem;
+        margin-bottom: 3rem;
+        color: white;
+      }
+    }
+
+    .image {
+      display: flex;
+      justify-content: flex-end;
     }
   }
 }
@@ -92,7 +91,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 100%;
+      width: 100% !important;
 
       .bars {
         width: 20rem;
@@ -105,7 +104,7 @@
   }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1100px) {
   .container {
     flex-direction: column;
 

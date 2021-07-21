@@ -12,8 +12,6 @@ export default function StudentItem({
   height,
   leaderboard,
   group,
-  health,
-  exp,
 }) {
   return (
     <div
@@ -42,7 +40,7 @@ export default function StudentItem({
                   health
                   progress="HP"
                   bar={status.health}
-                  width={{ width: `${health}` }}
+                  width={{ width: `${status.health}%` }}
                 />
               </div>
               <div className={styles.bar}>
@@ -51,7 +49,7 @@ export default function StudentItem({
                   exp
                   progress="XP"
                   bar={status.exp}
-                  width={{ width: `${exp}` }}
+                  width={{ width: `${status.relative_exp}%` }}
                 />
               </div>
             </div>

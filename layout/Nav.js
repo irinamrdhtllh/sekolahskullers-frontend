@@ -11,9 +11,9 @@ export default function Nav({ children }) {
   return (
     <Popover.Panel static as="nav" className={styles.nav}>
       <NavLink name="Home" href="/" />
-      <NavLink name="Angkatan" href="/class-year" />
-      <NavLink name="Kelas" href="/groups" />
-      <NavLink name="Peserta" href="/students" />
+      <NavLink name="Angkatan" href="/dashboard-angkatan" />
+      <NavLink name="Kelas" href="/leaderboard-kelas" />
+      <NavLink name="Peserta" href="/leaderboard-peserta" />
       {children}
     </Popover.Panel>
   );
@@ -39,9 +39,9 @@ export function AuthNav({ toggleOpen }) {
             </Popover.Button>
             {((toggleOpen && width <= 640) || open) && (
               <Popover.Panel static as="div" className={styles.dropdown}>
-                <NavLink name="Profil" href="/profile" custom />
+                <NavLink name="Profil" href="/profil" custom />
                 {group() && (
-                  <NavLink name="Profil Kelas" href="/profile-group" custom />
+                  <NavLink name="Profil Kelas" href="/profil-kelas" custom />
                 )}
               </Popover.Panel>
             )}

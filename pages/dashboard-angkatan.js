@@ -5,7 +5,8 @@ import ProgressBar from '../components/ProgressBar';
 import TaskCard from '../components/TaskCard';
 import Layout from '../layout/Layout';
 import image from '../public/images/image.jpg';
-import styles from '../styles/pages/ClassYear.module.scss';
+import igrave from '../public/svg/igrave-black.svg';
+import styles from '../styles/pages/DashboardAngkatan.module.scss';
 
 export default function ClassYear({ classYear }) {
   return (
@@ -24,8 +25,8 @@ export default function ClassYear({ classYear }) {
               <h1>{classYear.name}</h1>
               <Image
                 src={`/level/angkatan/${classYear.level?.display.toLowerCase()}.png`}
-                height="50"
-                width="150"
+                height="25"
+                width="100"
                 alt={classYear.level?.display}
               />
               <div className={styles.bars}>
@@ -65,10 +66,15 @@ export default function ClassYear({ classYear }) {
         </div>
 
         <div className={styles.rightContent}>
-          <h1>Tugas Angkatan</h1>
-          {classYear.tasks?.map((task, index) => (
-            <TaskCard key={index} status={task} />
-          ))}
+          <div className={styles.tasks}>
+            <h1>Tugas Angkatan</h1>
+            {classYear.tasks?.map((task, index) => (
+              <TaskCard key={index} status={task} />
+            ))}
+          </div>
+          <div className={styles.image}>
+            <Image src={igrave} width="400" height="250" alt="svg" />
+          </div>
         </div>
       </div>
     </Layout>

@@ -11,7 +11,7 @@ import Layout from '../layout/Layout';
 import image from '../public/images/image.jpg';
 import acute from '../public/svg/acute-black.svg';
 import igrave from '../public/svg/igrave-black.svg';
-import styles from '../styles/pages/Students.module.scss';
+import styles from '../styles/pages/LeaderboardPeserta.module.scss';
 
 export default function Students({ students, page }) {
   const router = useRouter();
@@ -96,8 +96,6 @@ export default function Students({ students, page }) {
                 status={student}
                 number={index + 1}
                 class_logo={image}
-                health="100%"
-                exp="70%"
               />
             ))}
           </div>

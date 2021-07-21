@@ -10,7 +10,8 @@ import TaskCard from '../components/TaskCard';
 import useFetch from '../hooks/useFetch';
 import Layout from '../layout/Layout';
 import image from '../public/images/image.jpg';
-import styles from '../styles/pages/Profile.module.scss';
+import igrave from '../public/svg/igrave-black.svg';
+import styles from '../styles/pages/Profil.module.scss';
 
 export default function Profile() {
   const { response, loading } = useFetch(
@@ -32,7 +33,7 @@ export default function Profile() {
     <Layout title="Profil">
       {loading ? (
         <div className={styles.loading}>
-          <ClipLoader loading={loading} size={50} color="#244c4c" />
+          <ClipLoader loading={loading} size={50} color="#EBBA78" />
         </div>
       ) : (
         <div className={styles.container}>
@@ -59,7 +60,7 @@ export default function Profile() {
                       health
                       progress="HP"
                       bar={student.health}
-                      width={{ width: '100%' }}
+                      width={{ width: `${student.health}%` }}
                     />
                   </div>
                   <div className={styles.bar}>
@@ -67,7 +68,7 @@ export default function Profile() {
                       exp
                       progress="XP"
                       bar={student.exp}
-                      width={{ width: '70%' }}
+                      width={{ width: `${student.relative_exp}%` }}
                     />
                   </div>
                 </div>
@@ -91,10 +92,15 @@ export default function Profile() {
           </div>
 
           <div className={styles.rightContent}>
-            <h1>Tugas Peserta</h1>
-            {student.task_statuses?.map((task_status, index) => (
-              <TaskCard key={index} status={task_status} />
-            ))}
+            <div className={styles.tasks}>
+              <h1>Tugas Peserta</h1>
+              {student.task_statuses?.map((task_status, index) => (
+                <TaskCard key={index} status={task_status} />
+              ))}
+            </div>
+            <div className={styles.image}>
+              <Image src={igrave} width="400" height="250" alt="svg" />
+            </div>
           </div>
         </div>
       )}

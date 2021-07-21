@@ -32,6 +32,7 @@
 
         h1 {
           font-family: $ff-windlass;
+          color: white;
         }
       }
     }
@@ -39,7 +40,7 @@
     .groupParticipant {
       h1 {
         font-family: $ff-windlass;
-        text-decoration: underline $clr-accent-3 solid;
+        text-decoration: underline white solid;
         text-decoration-thickness: 4px;
         text-underline-offset: 0.5rem;
         margin-bottom: 3rem;
@@ -61,16 +62,28 @@
   }
 
   .rightContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 50%;
-    padding: 3rem 5rem;
-    background-color: $clr-light;
+    background-color: rgba($clr-accent-1, 0.4);
 
-    h1 {
-      font-family: $ff-windlass;
-      text-decoration: underline $clr-accent-3 solid;
-      text-decoration-thickness: 4px;
-      text-underline-offset: 0.5rem;
-      margin-bottom: 3rem;
+    .tasks {
+      padding: 3rem 5rem;
+
+      h1 {
+        font-family: $ff-windlass;
+        text-decoration: underline white solid;
+        text-decoration-thickness: 4px;
+        text-underline-offset: 0.5rem;
+        margin-bottom: 3rem;
+        color: white;
+      }
+    }
+
+    .image {
+      display: flex;
+      justify-content: flex-end;
     }
   }
 }

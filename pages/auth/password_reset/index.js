@@ -51,7 +51,7 @@ export default function PasswordReset() {
           {failed && <Alert page="reset" />}
           {loading && (
             <div className={styles.loader}>
-              <BeatLoader loading={loading} color="#244c4c" />
+              <BeatLoader loading={loading} color="#EBBA78" />
             </div>
           )}
           <p>

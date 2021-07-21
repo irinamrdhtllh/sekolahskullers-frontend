@@ -5,6 +5,7 @@
   flex-direction: column;
   width: 100%;
   color: white;
+  box-shadow: $box-shadow;
 
   .contact {
     display: flex;
@@ -37,6 +38,7 @@
 
               &:hover {
                 text-decoration: underline;
+                color: white;
               }
             }
           }
@@ -55,6 +57,7 @@
     margin: 0;
     padding: 0.5rem 2rem;
     font-size: 0.9rem;
+    color: white;
 
     span {
       font-size: 1.25rem;

@@ -11,8 +11,6 @@ export default function ClassItem({
   number,
   status,
   class_logo,
-  health,
-  exp,
 }) {
   return (
     <div className={styles.container}>
@@ -47,7 +45,7 @@ export default function ClassItem({
                 health
                 progress="HP"
                 bar={status.health}
-                width={{ width: `${health}` }}
+                width={{ width: `${status.health}%` }}
               />
             </div>
             <div className={styles.bar}>
@@ -56,7 +54,7 @@ export default function ClassItem({
                 exp
                 progress="XP"
                 bar={weekly ? status.weekly_exp : status.exp}
-                width={{ width: `${exp}` }}
+                width={{ width: `${status.relative_exp}%` }}
               />
             </div>
           </div>

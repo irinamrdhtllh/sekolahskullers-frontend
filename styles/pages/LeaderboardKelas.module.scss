@@ -10,16 +10,13 @@
     justify-content: space-between;
     align-items: center;
     height: 35rem;
-    background-image: linear-gradient($clr-light, white);
+    background-image: linear-gradient($clr-dark, $clr-accent-1);
     padding-top: 3rem;
 
     h1 {
       text-align: center;
       font-size: 2.5rem;
       font-family: $ff-windlass;
-      text-decoration: underline $clr-accent-3 solid;
-      text-decoration-thickness: 4px;
-      text-underline-offset: 0.5rem;
       margin-bottom: 2rem;
     }
 
@@ -31,14 +28,14 @@
         width: 12ch;
         padding: 1rem 0;
         background-color: transparent;
-        color: $clr-accent-1;
-        border: 2px solid $clr-accent-1;
+        color: white;
+        border: 2px solid white;
         cursor: pointer;
       }
 
       .active {
-        background-color: $clr-accent-1;
-        color: white;
+        background-color: white;
+        color: $clr-accent-1;
         cursor: default;
       }
     }

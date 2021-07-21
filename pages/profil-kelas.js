@@ -10,7 +10,8 @@ import TaskCard from '../components/TaskCard';
 import useFetch from '../hooks/useFetch';
 import Layout from '../layout/Layout';
 import image from '../public/images/image.jpg';
-import styles from '../styles/pages/ProfileGroup.module.scss';
+import igrave from '../public/svg/igrave-black.svg';
+import styles from '../styles/pages/ProfilKelas.module.scss';
 
 export default function Profile() {
   const { response, loading } = useFetch(
@@ -32,18 +33,13 @@ export default function Profile() {
     <Layout title="Profil Kelas">
       {loading ? (
         <div className={styles.loading}>
-          <ClipLoader loading={loading} size={50} color="#244c4c" />
+          <ClipLoader loading={loading} size={50} color="#EBBA78" />
         </div>
       ) : (
         <div className={styles.container}>
           <div className={styles.leftContent}>
             <div className={styles.profile}>
-              <Image
-                src={image}
-                height="160"
-                width="160"
-                alt="image"
-              />
+              <Image src={image} height="160" width="160" alt="image" />
               <div className={styles.details}>
                 <h1>{group.name}</h1>
                 <Level
@@ -89,10 +85,15 @@ export default function Profile() {
           </div>
 
           <div className={styles.rightContent}>
-            <h1>Tugas Kelas</h1>
-            {group.task_statuses?.map((task_status, index) => (
-              <TaskCard key={index} status={task_status} />
-            ))}
+            <div className={styles.tasks}>
+              <h1>Tugas Kelas</h1>
+              {group.task_statuses?.map((task_status, index) => (
+                <TaskCard key={index} status={task_status} />
+              ))}
+            </div>
+            <div className={styles.image}>
+              <Image src={igrave} width="400" height="250" alt="svg" />
+            </div>
           </div>
         </div>
       )}

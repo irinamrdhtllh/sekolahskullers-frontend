@@ -1,0 +1,12 @@
+@use 'variables' as *;
+
+.container {
+  margin: 5rem auto;
+
+  h1 {
+    text-align: center;
+    font-family: $ff-windlass;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+}

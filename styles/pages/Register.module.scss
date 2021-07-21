@@ -6,7 +6,6 @@
 
 .container {
   display: flex;
-  background-color: white;
   height: 100vh;
 
   .leftContent {
@@ -15,11 +14,16 @@
     justify-content: center;
     align-items: center;
     width: 40%;
+    height: 100vh;
     margin: auto 0;
+    background-color: rgba($clr-accent-1, 0.4);
 
     h1 {
       font-family: $ff-windlass;
-      color: $clr-accent-1;
+      text-decoration: underline white solid;
+      text-decoration-thickness: 4px;
+      text-underline-offset: 1rem;
+      color: white;
       font-size: 3rem;
       text-align: center;
       margin-bottom: 5rem;
@@ -55,7 +59,7 @@
 
       a {
         text-decoration: none;
-        color: $clr-accent-1;
+        color: white;
 
         &:hover {
           text-decoration: underline;
@@ -69,7 +73,6 @@
     flex-direction: column;
     justify-content: space-between;
     width: 60%;
-    background-color: $clr-accent-1;
 
     h1 {
       font-family: $ff-windlass;
