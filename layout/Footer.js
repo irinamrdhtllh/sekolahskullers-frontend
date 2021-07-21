@@ -110,7 +110,6 @@ export default function FooterTest() {
       </div>
       <div className={styles.copyright}>
         <p><span>&copy;</span> HMFT-ITB 2021</p>
-        <p>Powered by Tim Website Sekolah Skullers 2021</p>
       </div>
     </div>
   );
