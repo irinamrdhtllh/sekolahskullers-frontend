@@ -26,6 +26,18 @@
       .details {
         width: 60%;
 
+        .attr {
+          display: flex;
+          gap: 3rem;
+          
+          .gold, 
+          .potion {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+          }
+        }
+
         .bars {
           margin-top: 1rem;
 

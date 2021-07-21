@@ -39,13 +39,7 @@ export default function Profile() {
         <div className={styles.container}>
           <div className={styles.leftContent}>
             <div className={styles.profile}>
-              <Image
-                className={styles.image}
-                src={image}
-                height="160"
-                width="160"
-                alt="image"
-              />
+              <Image src={image} height="160" width="160" alt="image" />
               <div className={styles.details}>
                 <h1>
                   {student.first_name} {student.last_name}
@@ -54,6 +48,26 @@ export default function Profile() {
                   level_logo={`/level/peserta/${student.level?.display.toLowerCase()}.png`}
                   level={student.level?.display}
                 />
+                <div className={styles.attr}>
+                  <div className={styles.gold}>
+                    <Image
+                      src="/icon/gold-point.png"
+                      height="25"
+                      width="25"
+                      alt="gold"
+                    />
+                    <p>{student.gold} GP</p>
+                  </div>
+                  <div className={styles.potion}>
+                    <Image
+                      src="/icon/health-potion.png"
+                      height="30"
+                      width="30"
+                      alt="gold"
+                    />
+                    <p>{student.potion} Potion</p>
+                  </div>
+                </div>
                 <div className={styles.bars}>
                   <div className={styles.bar}>
                     <ProgressBar
@@ -84,7 +98,7 @@ export default function Profile() {
                     assessment={assessment.key}
                     progress={capitalCase(assessment.key)}
                     bar={assessment.value}
-                    width={{ width: '80%' }}
+                    width={{ width: `${assessment.value}%` }}
                   />
                 </div>
               ))}
