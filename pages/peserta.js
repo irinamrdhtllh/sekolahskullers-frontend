@@ -18,6 +18,8 @@ export default function Students({ students, page }) {
   const [allTime, setAllTime] = useState(true);
   const [weekly, setWeekly] = useState(false);
 
+  students.sort((firstitem, seconditem) => seconditem.exp - firstitem.exp);
+
   return (
     <Layout title="Dashboard Peserta">
       <div className={styles.container}>
