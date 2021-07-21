@@ -35,7 +35,7 @@ export default function ClassYear({ classYear }) {
                     health
                     progress="HP"
                     bar={classYear.health}
-                    width={{ width: '100%' }}
+                    width={{ width: `${classYear.health}%` }}
                   />
                 </div>
                 <div className={styles.bar}>
@@ -43,7 +43,7 @@ export default function ClassYear({ classYear }) {
                     exp
                     progress="XP"
                     bar={classYear.exp}
-                    width={{ width: '70%' }}
+                    width={{ width: `${classYear.relative_exp}%` }}
                   />
                 </div>
               </div>
