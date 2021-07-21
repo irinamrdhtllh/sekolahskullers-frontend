@@ -33,7 +33,7 @@ export default function Profile() {
     <Layout title="Profil">
       {loading ? (
         <div className={styles.loading}>
-          <ClipLoader loading={loading} size={50} color="#EBBA78" />
+          <ClipLoader loading={loading} size={50} color="white" />
         </div>
       ) : (
         <div className={styles.container}>

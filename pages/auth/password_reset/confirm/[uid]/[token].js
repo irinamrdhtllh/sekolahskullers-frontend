@@ -53,7 +53,7 @@ export default function PasswordResetConfirm() {
           {failed?.status && <Alert page="confirm" type={failed.type} />}
           {loading && (
             <div className={styles.loader}>
-              <BeatLoader loading={loading} color="#244c4c" />
+              <BeatLoader loading={loading} color="white" />
             </div>
           )}
           <p>Masukkan password baru.</p>

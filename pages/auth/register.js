@@ -55,7 +55,7 @@ export default function Login() {
           {failed?.status && <Alert page="register" type={failed.type} />}
           {loading && (
             <div className={styles.loader}>
-              <BeatLoader loading={loading} color="#244c4c" />
+              <BeatLoader loading={loading} color="white" />
             </div>
           )}
           <form onSubmit={formik.handleSubmit}>
