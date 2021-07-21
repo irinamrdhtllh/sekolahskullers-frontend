@@ -8,7 +8,7 @@ import Layout from '../layout/Layout';
 import image from '../public/images/image.jpg';
 import acute from '../public/svg/acute-black.svg';
 import igrave from '../public/svg/igrave-black.svg';
-import styles from '../styles/pages/LeaderboardKelas.module.scss';
+import styles from '../styles/pages/Kelas.module.scss';
 
 export default function Groups({ groups }) {
   const [allTime, setAllTime] = useState(true);

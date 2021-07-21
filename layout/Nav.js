@@ -11,9 +11,9 @@ export default function Nav({ children }) {
   return (
     <Popover.Panel static as="nav" className={styles.nav}>
       <NavLink name="Home" href="/" />
-      <NavLink name="Angkatan" href="/dashboard-angkatan" />
-      <NavLink name="Kelas" href="/leaderboard-kelas" />
-      <NavLink name="Peserta" href="/leaderboard-peserta" />
+      <NavLink name="Angkatan" href="/angkatan" />
+      <NavLink name="Kelas" href="/kelas" />
+      <NavLink name="Peserta" href="/peserta" />
       {children}
     </Popover.Panel>
   );

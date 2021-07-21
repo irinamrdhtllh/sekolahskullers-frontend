@@ -6,7 +6,7 @@ import TaskCard from '../components/TaskCard';
 import Layout from '../layout/Layout';
 import image from '../public/images/image.jpg';
 import igrave from '../public/svg/igrave-black.svg';
-import styles from '../styles/pages/DashboardAngkatan.module.scss';
+import styles from '../styles/pages/Angkatan.module.scss';
 
 export default function ClassYear({ classYear }) {
   return (
@@ -15,7 +15,6 @@ export default function ClassYear({ classYear }) {
         <div className={styles.leftContent}>
           <div className={styles.profile}>
             <Image
-              className={styles.image}
               src={image}
               height="160"
               width="160"

@@ -11,7 +11,7 @@ import Layout from '../layout/Layout';
 import image from '../public/images/image.jpg';
 import acute from '../public/svg/acute-black.svg';
 import igrave from '../public/svg/igrave-black.svg';
-import styles from '../styles/pages/LeaderboardPeserta.module.scss';
+import styles from '../styles/pages/Peserta.module.scss';
 
 export default function Students({ students, page }) {
   const router = useRouter();
@@ -65,7 +65,7 @@ export default function Students({ students, page }) {
             </ul>
             <div className={styles.pagination}>
               <button
-                onClick={() => router.push(`/leaderboard-peserta/?page=${page - 1}`)}
+                onClick={() => router.push(`/peserta/?page=${page - 1}`)}
                 disabled={page <= 1}
               >
                 <FontAwesomeIcon
@@ -75,7 +75,7 @@ export default function Students({ students, page }) {
                 />
               </button>
               <button
-                onClick={() => router.push(`/leaderboard-peserta/?page=${page + 1}`)}
+                onClick={() => router.push(`/peserta/?page=${page + 1}`)}
               >
                 <FontAwesomeIcon
                   className={styles.icons}
