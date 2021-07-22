@@ -64,7 +64,7 @@
 }
 
 @media (max-width: 500px) {
-  .card {
+  .group {
     .student {
       .name {
         font-size: 10px;
@@ -90,15 +90,13 @@
       }
     }
   }
-
-  .leaderboard {
-    width: 140px;
-    height: auto;
-  }
 }
 
 @media (max-width: 425px) {
-  .card {
+  .group {
+    width: 115px;
+    height: auto;
+
     .student {
       .name {
         font-size: 8px;
@@ -115,15 +113,5 @@
         }
       }
     }
-  }
-
-  .leaderboard {
-    width: 115px;
-    height: auto;
-  }
-
-  .group {
-    width: 115px;
-    height: auto;
   }
 }
