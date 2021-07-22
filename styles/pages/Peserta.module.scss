@@ -5,45 +5,41 @@
   flex-direction: column;
 
   .leaderboard {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 35rem;
+    height: auto;
     background-image: linear-gradient($clr-dark, $clr-accent-1);
     padding-top: 3rem;
 
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      font-family: $ff-windlass;
-      margin-bottom: 2rem;
-    }
-
-    .tabs {
+    a {
       display: flex;
-      gap: 2rem;
+      justify-content: flex-end;
+      text-decoration: none;
+      font-size: 1.1rem;
+      color: white;
+      margin-right: 3rem;
 
-      .button {
-        width: 12ch;
-        padding: 1rem 0;
-        background-color: transparent;
-        color: white;
-        border: 2px solid white;
-        cursor: pointer;
-      }
-
-      .active {
-        background-color: white;
-        color: $clr-accent-1;
-        cursor: default;
+      &:hover {
+        text-decoration: underline;
       }
     }
 
-    .ship {
-      width: 100%;
+    .wrapper {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
+      align-items: center;
+
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-family: $ff-windlass;
+        margin-bottom: 2rem;
+      }
+
+      .ship {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 
@@ -89,10 +85,6 @@
         }
       }
     }
-  }
-
-  .weekly {
-    padding: 3rem 5rem;
   }
 }
 

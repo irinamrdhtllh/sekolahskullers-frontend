@@ -1,0 +1,77 @@
+@use 'variables' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  .leaderboard {
+    height: auto;
+    background-image: linear-gradient($clr-dark, $clr-accent-1);
+    padding-top: 3rem;
+
+    a {
+      text-decoration: none;
+      font-size: 1.1rem;
+      color: white;
+      margin-left: 3rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-family: $ff-windlass;
+        margin-bottom: 2rem;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 2rem;
+
+        .button {
+          width: 12ch;
+          padding: 1rem 0;
+          background-color: transparent;
+          color: white;
+          border: 2px solid white;
+          cursor: pointer;
+        }
+
+        .active {
+          background-color: white;
+          color: $clr-accent-1;
+          cursor: default;
+        }
+      }
+
+      .ship {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .studentList {
+    padding: 3rem 5rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .container {
+    .leaderboard {
+      .ship {
+        display: none;
+      }
+    }
+  }
+}

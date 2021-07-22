@@ -14,7 +14,13 @@ export default function Groups({ groups }) {
   const [allTime, setAllTime] = useState(true);
   const [weekly, setWeekly] = useState(false);
 
-  groups.sort((firstitem, seconditem) => seconditem.exp - firstitem.exp);
+  if (allTime) {
+    groups.sort((firstitem, seconditem) => seconditem.exp - firstitem.exp);
+  } else if (weekly) {
+    groups.sort(
+      (firstitem, seconditem) => seconditem.weekly_exp - firstitem.weekly_exp
+    );
+  }
 
   return (
     <Layout title="Dashboard Kelas">

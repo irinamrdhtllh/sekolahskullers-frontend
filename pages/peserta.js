@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import ClassItem from '../components/ClassItem';
@@ -15,93 +16,54 @@ import styles from '../styles/pages/Peserta.module.scss';
 
 export default function Students({ students, page }) {
   const router = useRouter();
-  const [allTime, setAllTime] = useState(true);
-  const [weekly, setWeekly] = useState(false);
-
-  students.sort((firstitem, seconditem) => seconditem.exp - firstitem.exp);
 
   return (
     <Layout title="Dashboard Peserta">
       <div className={styles.container}>
         <div className={styles.leaderboard}>
-          <h1>Leaderboard</h1>
-          <div className={styles.tabs}>
-            <button
-              className={`${styles.button} ${allTime && styles.active}`}
-              onClick={() => {
-                setAllTime(true);
-                setWeekly(false);
-              }}
-            >
-              All Time
-            </button>
-            <button
-              className={`${styles.button} ${weekly && styles.active}`}
-              onClick={() => {
-                setWeekly(true);
-                setAllTime(false);
-              }}
-            >
-              Weekly
-            </button>
-          </div>
-          <div className={styles.ship}>
-            <Image src={acute} width="400" height="250" alt="svg" />
-            <Image src={igrave} width="400" height="250" alt="svg" />
-          </div>
-        </div>
-        {allTime && (
-          <div className={styles.studentItem}>
-            <ul>
-              {students?.map((student, index) => (
-                <li key={index}>
-                  <StudentItem
-                    leaderboard
-                    status={student}
-                    src={image}
-                    width="200"
-                    height="200"
-                  />
-                </li>
-              ))}
-            </ul>
-            <div className={styles.pagination}>
-              <button
-                onClick={() => router.push(`/peserta/?page=${page - 1}`)}
-                disabled={page <= 1}
-              >
-                <FontAwesomeIcon
-                  className={styles.icons}
-                  icon="less-than"
-                  size="lg"
-                />
-              </button>
-              <button
-                onClick={() => router.push(`/peserta/?page=${page + 1}`)}
-              >
-                <FontAwesomeIcon
-                  className={styles.icons}
-                  icon="greater-than"
-                  size="lg"
-                />
-              </button>
+          <Link href="/leaderboard-peserta">Leaderboard Peserta &rarr;</Link>
+          <div className={styles.wrapper}>
+            <h1>Daftar Peserta</h1>
+            <div className={styles.ship}>
+              <Image src={acute} width="400" height="250" alt="svg" />
+              <Image src={igrave} width="400" height="250" alt="svg" />
             </div>
           </div>
-        )}
-        {weekly && (
-          <div className={styles.weekly}>
-            {students.map((student, index) => (
-              <ClassItem
-                student
-                weekly
-                key={index}
-                status={student}
-                number={index + 1}
-                class_logo={image}
-              />
+        </div>
+        <div className={styles.studentItem}>
+          <ul>
+            {students?.map((student, index) => (
+              <li key={index}>
+                <StudentItem
+                  leaderboard
+                  status={student}
+                  src={image}
+                  width="200"
+                  height="200"
+                />
+              </li>
             ))}
+          </ul>
+          <div className={styles.pagination}>
+            <button
+              onClick={() => router.push(`/peserta/?page=${page - 1}`)}
+              disabled={page <= 1}
+            >
+              <FontAwesomeIcon
+                className={styles.icons}
+                icon="less-than"
+                size="lg"
+              />
+            </button>
+            <button onClick={() => router.push(`/peserta/?page=${page + 1}`)}>
+              <FontAwesomeIcon
+                className={styles.icons}
+                icon="greater-than"
+                size="lg"
+              />
+            </button>
           </div>
-        )}
+        </div>
       </div>
     </Layout>
   );
