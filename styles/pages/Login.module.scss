@@ -95,6 +95,7 @@
 
     .leftContent {
       width: 100%;
+      height: auto;
       flex-direction: row;
       align-items: center;
       padding: 0 2rem;
@@ -107,6 +108,7 @@
 
     .rightContent {
       width: 100%;
+      height: auto;
       padding: 5rem 0;
     }
   }

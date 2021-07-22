@@ -90,14 +90,9 @@
 
 @media (max-width: 650px) {
   .container {
-    .leaderboard {
-      .ship {
-        display: none;
-      }
-    }
 
     .studentItem ul {
-      gap: 0 !important;
+      justify-content: center;
     }
   }
 }
