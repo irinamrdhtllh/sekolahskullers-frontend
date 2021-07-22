@@ -2,6 +2,7 @@
 
 .level {
   display: flex;
+  align-items: center;
   max-width: auto;
   font-family: $ff-montserrat;
   font-size: 1.1rem;
@@ -11,8 +12,9 @@
     background-color: $clr-accent-2;
     color: $clr-dark;
     margin: auto 0 auto 1rem;
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem;
     border-radius: 15px;
+    text-align: center;
   }
 }
 
@@ -20,6 +22,19 @@
   .classitem {
     .image {
       width: 25px;
+    }
+
+    p {
+      font-size: 0.8rem;
+      margin: auto 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .classitem {
+    .image {
+      width: 30px;
     }
 
     p {
