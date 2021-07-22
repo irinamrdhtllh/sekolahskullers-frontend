@@ -38,6 +38,10 @@ export default function ClassItem({
               level={status.level?.display}
             />
           </div>
+          <div className={styles.exp}>
+            <p>HP: <span>{status.health}</span></p>
+            <p>XP: <span>{weekly ? status.weekly_exp : status.exp}</span></p>
+          </div>
           <div className={styles.bars}>
             <div className={styles.bar}>
               <ProgressBar
