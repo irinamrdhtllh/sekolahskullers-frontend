@@ -15,13 +15,13 @@
 
 body {
   background-color: $clr-accent-1;
-  background-image: url("../public/background_ss_21.png");
+  background-image: url('../public/bg/background_ss_21.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   font-family: $ff-pragroman;
   color: white;
-  
+
   /*
   &::-webkit-scrollbar {
     width: auto;
