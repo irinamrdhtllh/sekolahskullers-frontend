@@ -11,7 +11,7 @@ import FormField from '../../components/FormField';
 import SubmitButton from '../../components/SubmitButton';
 import { useAuth } from '../../hooks/useAuth';
 import Layout from '../../layout/Layout';
-import image from '../../public/svg/igrave.svg';
+import image from '../../public/images/igrave.svg';
 import styles from '../../styles/pages/Login.module.scss';
 import { validateLogin } from '../../utils/validateForm';
 

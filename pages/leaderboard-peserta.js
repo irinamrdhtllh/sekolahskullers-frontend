@@ -6,9 +6,8 @@ import Link from 'next/link';
 
 import ClassItem from '../components/ClassItem';
 import Layout from '../layout/Layout';
-import image from '../public/images/image.jpg';
-import acute from '../public/svg/acute-black.svg';
-import igrave from '../public/svg/igrave-black.svg';
+import acute from '../public/images/acute-black.svg';
+import igrave from '../public/images/igrave-black.svg';
 import styles from '../styles/pages/LeaderboardPeserta.module.scss';
 
 export default function Students({ students }) {

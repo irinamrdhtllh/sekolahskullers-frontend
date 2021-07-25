@@ -9,7 +9,7 @@ import ProgressBar from '../components/ProgressBar';
 import TaskCard from '../components/TaskCard';
 import useFetch from '../hooks/useFetch';
 import Layout from '../layout/Layout';
-import igrave from '../public/svg/igrave-black.svg';
+import igrave from '../public/images/igrave-black.svg';
 import styles from '../styles/pages/Profil.module.scss';
 
 export default function Profile() {

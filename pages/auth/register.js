@@ -11,7 +11,7 @@ import FormField from '../../components/FormField';
 import SubmitButton from '../../components/SubmitButton';
 import { useAuth } from '../../hooks/useAuth';
 import Layout from '../../layout/Layout';
-import image from '../../public/svg/acute.svg';
+import image from '../../public/images/acute.svg';
 import styles from '../../styles/pages/Register.module.scss';
 import { validateRegister } from '../../utils/validateForm';
 

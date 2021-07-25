@@ -9,7 +9,7 @@ import Alert from '../../../components/Alert';
 import FormField from '../../../components/FormField';
 import SubmitButton from '../../../components/SubmitButton';
 import Layout from '../../../layout/Layout';
-import image from '../../../public/svg/icircumflex.svg';
+import image from '../../../public/images/icircumflex.svg';
 import styles from '../../../styles/pages/PasswordReset.module.scss';
 import { validateReset } from '../../../utils/validateForm';
 

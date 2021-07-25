@@ -10,7 +10,7 @@ import Alert from '../../../../../components/Alert';
 import FormField from '../../../../../components/FormField';
 import SubmitButton from '../../../../../components/SubmitButton';
 import Layout from '../../../../../layout/Layout';
-import image from '../../../../../public/svg/eth.svg';
+import image from '../../../../../public/images/eth.svg';
 import styles from '../../../../../styles/pages/PasswordResetConfirm.module.scss';
 import { validateConfirm } from '../../../../../utils/validateForm';
 

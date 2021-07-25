@@ -8,8 +8,8 @@ import { useRouter } from 'next/router';
 
 import StudentItem from '../components/StudentItem';
 import Layout from '../layout/Layout';
-import acute from '../public/svg/acute-black.svg';
-import igrave from '../public/svg/igrave-black.svg';
+import acute from '../public/images/acute-black.svg';
+import igrave from '../public/images/igrave-black.svg';
 import styles from '../styles/pages/Peserta.module.scss';
 
 export default function Students({ students, page }) {
