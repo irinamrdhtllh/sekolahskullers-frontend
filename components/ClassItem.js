@@ -18,9 +18,7 @@ export default function ClassItem({
         <div className={styles.number}>
           <p>{number}</p>
         </div>
-        <div className={styles.photo}>
-          <Image src={class_logo} width={72} height={72} alt="image" />
-        </div>
+        <Image src={class_logo} width={72} height={72} alt="image" />
       </div>
       <div className={styles.wrapper}>
         <p className={styles.name}>
