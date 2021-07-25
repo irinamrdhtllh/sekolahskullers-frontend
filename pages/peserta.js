@@ -6,10 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import ClassItem from '../components/ClassItem';
 import StudentItem from '../components/StudentItem';
 import Layout from '../layout/Layout';
-import image from '../public/images/image.jpg';
 import acute from '../public/svg/acute-black.svg';
 import igrave from '../public/svg/igrave-black.svg';
 import styles from '../styles/pages/Peserta.module.scss';
@@ -37,7 +35,7 @@ export default function Students({ students, page }) {
                 <StudentItem
                   leaderboard
                   status={student}
-                  src={image}
+                  src={`/tf20/${student.username}.jpg`}
                   width="200"
                   height="200"
                 />

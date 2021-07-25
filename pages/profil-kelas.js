@@ -9,7 +9,7 @@ import StudentItem from '../components/StudentItem';
 import TaskCard from '../components/TaskCard';
 import useFetch from '../hooks/useFetch';
 import Layout from '../layout/Layout';
-import image from '../public/images/image.jpg';
+import image from '../public/logo/sekolahskullers.png';
 import igrave from '../public/svg/igrave-black.svg';
 import styles from '../styles/pages/ProfilKelas.module.scss';
 
@@ -74,7 +74,7 @@ export default function Profile() {
                     <StudentItem
                       group
                       status={student}
-                      src={image}
+                      src={`/tf20/${student.username}.jpg`}
                       width="150"
                       height="150"
                     />

@@ -68,7 +68,7 @@ export default function Students({ students }) {
                 key={index}
                 status={student}
                 number={index + 1}
-                class_logo={image}
+                class_logo={`/tf20/${student.username}.jpg`}
               />
             ))}
           </div>

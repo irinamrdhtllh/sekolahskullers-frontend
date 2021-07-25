@@ -4,7 +4,7 @@ import Image from 'next/image';
 import ProgressBar from '../components/ProgressBar';
 import TaskCard from '../components/TaskCard';
 import Layout from '../layout/Layout';
-import image from '../public/images/image.jpg';
+import image from '../public/logo/sekolahskullers.png';
 import igrave from '../public/svg/igrave-black.svg';
 import styles from '../styles/pages/Angkatan.module.scss';
 

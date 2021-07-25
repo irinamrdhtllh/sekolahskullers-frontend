@@ -9,7 +9,6 @@ import ProgressBar from '../components/ProgressBar';
 import TaskCard from '../components/TaskCard';
 import useFetch from '../hooks/useFetch';
 import Layout from '../layout/Layout';
-import image from '../public/images/image.jpg';
 import igrave from '../public/svg/igrave-black.svg';
 import styles from '../styles/pages/Profil.module.scss';
 
@@ -39,7 +38,7 @@ export default function Profile() {
         <div className={styles.container}>
           <div className={styles.leftContent}>
             <div className={styles.profile}>
-              <Image src={image} height="160" width="160" alt="image" />
+              <Image src={`/tf20/${student.username}.jpg`} height="160" width="160" alt="image" />
               <div className={styles.details}>
                 <h1>
                   {student.first_name} {student.last_name}

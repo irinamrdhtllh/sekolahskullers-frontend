@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import ClassItem from '../components/ClassItem';
 import Layout from '../layout/Layout';
-import image from '../public/images/image.jpg';
+import image from '../public/logo/sekolahskullers.png';
 import acute from '../public/svg/acute-black.svg';
 import igrave from '../public/svg/igrave-black.svg';
 import styles from '../styles/pages/Kelas.module.scss';
