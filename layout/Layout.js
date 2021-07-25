@@ -9,6 +9,7 @@ export default function Layout({ children, title, plain }) {
     <div className={styles.container}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
         <title>{title} - Sekolah Skullers</title>
       </Head>
       {!plain && <Header />}
