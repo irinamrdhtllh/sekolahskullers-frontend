@@ -4,8 +4,8 @@ import Image from 'next/image';
 import ProgressBar from '../components/ProgressBar';
 import TaskCard from '../components/TaskCard';
 import Layout from '../layout/Layout';
-import image from '../public/logo/sekolahskullers.png';
 import igrave from '../public/images/igrave-black.svg';
+import image from '../public/logo/sekolahskullers.png';
 import styles from '../styles/pages/Angkatan.module.scss';
 
 export default function ClassYear({ classYear }) {
