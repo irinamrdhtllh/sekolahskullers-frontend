@@ -48,7 +48,7 @@ export default function ClassYear({ classYear }) {
               </div>
             </div>
           </div>
-          <div className={styles.visionMission}>
+          {/* <div className={styles.visionMission}>
             <div className={styles.vision}>
               <h1>Visi</h1>
               <p>{classYear.vision}</p>
@@ -61,7 +61,7 @@ export default function ClassYear({ classYear }) {
                 ))}
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className={styles.rightContent}>
