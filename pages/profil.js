@@ -38,7 +38,7 @@ export default function Profile() {
         <div className={styles.container}>
           <div className={styles.leftContent}>
             <div className={styles.profile}>
-              <Image src={`/tf20/${student.username}.jpg`} height="160" width="160" alt="image" />
+              <Image src={`/peserta/${student.username}.jpg`} height="160" width="160" alt="image" />
               <div className={styles.details}>
                 <h1>
                   {student.first_name} {student.last_name}

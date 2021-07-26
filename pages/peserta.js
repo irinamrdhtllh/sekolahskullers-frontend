@@ -35,7 +35,7 @@ export default function Students({ students, page }) {
                 <StudentItem
                   leaderboard
                   status={student}
-                  src={`/tf20/${student.username}.jpg`}
+                  src={`/peserta/${student.username}.jpg`}
                   width="200"
                   height="200"
                 />

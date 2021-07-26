@@ -74,7 +74,7 @@ export default function Profile() {
                     <StudentItem
                       group
                       status={student}
-                      src={`/tf20/${student.username}.jpg`}
+                      src={`/peserta/${student.username}.jpg`}
                       width="150"
                       height="150"
                     />
