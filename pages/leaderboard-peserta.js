@@ -81,7 +81,7 @@ export default function Students({ students }) {
                 key={index}
                 status={student}
                 number={index + 1}
-                class_logo={image}
+                class_logo={`/peserta/${student.username}.jpg`}
               />
             ))}
           </div>
