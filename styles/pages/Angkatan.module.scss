@@ -77,17 +77,22 @@
     width: 50%;
     background-color: rgba($clr-accent-1, 0.4);
 
-    .tasks {
-      padding: 3rem 5rem;
+    h1 {
+      padding: 3rem 5rem 0 5rem;
+      margin-bottom: 3rem;
+      font-family: $ff-windlass;
+      text-decoration: underline white solid;
+      text-decoration-thickness: 4px;
+      text-underline-offset: 0.5rem;
+      color: white;
+    }
 
-      h1 {
-        font-family: $ff-windlass;
-        text-decoration: underline white solid;
-        text-decoration-thickness: 4px;
-        text-underline-offset: 0.5rem;
-        margin-bottom: 3rem;
-        color: white;
-      }
+    .tasks {
+      margin: 0 5rem;
+      padding-right: 1rem;
+      max-height: 50vh;
+      overflow-y: auto;
+      @include scrollbar;
     }
 
     .image {

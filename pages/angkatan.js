@@ -14,12 +14,7 @@ export default function ClassYear({ classYear }) {
       <div className={styles.container}>
         <div className={styles.leftContent}>
           <div className={styles.profile}>
-            <Image
-              src={image}
-              height="160"
-              width="160"
-              alt="image"
-            />
+            <Image src={image} height="160" width="160" alt="image" />
             <div className={styles.details}>
               <h1>{classYear.name}</h1>
               <Image
@@ -65,8 +60,8 @@ export default function ClassYear({ classYear }) {
         </div>
 
         <div className={styles.rightContent}>
+          <h1>Tugas Angkatan</h1>
           <div className={styles.tasks}>
-            <h1>Tugas Angkatan</h1>
             {classYear.tasks?.map((task, index) => (
               <TaskCard key={index} status={task} />
             ))}
