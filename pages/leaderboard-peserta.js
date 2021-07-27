@@ -10,20 +10,16 @@ import acute from '../public/images/acute-black.svg';
 import igrave from '../public/images/igrave-black.svg';
 import styles from '../styles/pages/LeaderboardPeserta.module.scss';
 
-export default function Students({ students }) {
+export default function Students({ allStudents }) {
   const [allTime, setAllTime] = useState(true);
   const [weekly, setWeekly] = useState(false);
 
   if (allTime) {
-    students
-      .sort((firstitem, seconditem) => seconditem.exp - firstitem.exp)
-      .slice(10);
+    allStudents.sort((firstitem, seconditem) => seconditem.exp - firstitem.exp);
   } else if (weekly) {
-    students
-      .sort(
-        (firstitem, seconditem) => seconditem.weekly_exp - firstitem.weekly_exp
-      )
-      .slice(10);
+    allStudents.sort(
+      (firstitem, seconditem) => seconditem.weekly_exp - firstitem.weekly_exp
+    );
   }
 
   return (
@@ -61,7 +57,7 @@ export default function Students({ students }) {
         </div>
         {allTime && (
           <div className={styles.studentList}>
-            {students?.map((student, index) => (
+            {allStudents?.slice(0, 10).map((student, index) => (
               <ClassItem
                 student
                 key={index}
@@ -74,7 +70,7 @@ export default function Students({ students }) {
         )}
         {weekly && (
           <div className={styles.studentList}>
-            {students.map((student, index) => (
+            {allStudents?.slice(0, 10).map((student, index) => (
               <ClassItem
                 student
                 weekly
@@ -91,18 +87,22 @@ export default function Students({ students }) {
   );
 }
 
-Students.getInitialProps = async ({ query: { page = 1 } }) => {
-  const response = await axios.get(`api/students/?page=${page}`);
-  const students = response.data.results;
+export async function getStaticProps() {
+  let allStudents = [];
+  let pagesAvailable = true;
+  let currentPage = 0;
 
-  if (!students) {
-    return {
-      notFound: true,
-    };
+  while (pagesAvailable) {
+    currentPage = currentPage + 1;
+    const response = await axios.get(`api/students/?page=${currentPage}`);
+    const students = response.data.results;
+    students.forEach((e) => allStudents.unshift(e));
+    pagesAvailable = currentPage < 9;
   }
 
   return {
-    students,
-    page: parseInt(page, 10),
+    props: {
+      allStudents,
+    },
   };
-};
+}
