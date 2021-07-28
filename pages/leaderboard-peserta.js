@@ -89,16 +89,16 @@ export default function Students({ allStudents }) {
 
 export async function getStaticProps() {
   let allStudents = [];
-  let pagesAvailable = true;
-  let currentPage = 0;
+  let pagesAvailable = null;
+  let currentPage = 1;
 
-  while (pagesAvailable) {
-    currentPage = currentPage + 1;
+  do {
     const response = await axios.get(`api/students/?page=${currentPage}`);
     const students = response.data.results;
+    pagesAvailable = response.data.next;
     students.forEach((e) => allStudents.unshift(e));
-    pagesAvailable = currentPage < 9;
-  }
+    currentPage = currentPage + 1;
+  } while (pagesAvailable);
 
   return {
     props: {
