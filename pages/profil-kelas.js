@@ -10,7 +10,6 @@ import TaskCard from '../components/TaskCard';
 import useFetch from '../hooks/useFetch';
 import Layout from '../layout/Layout';
 import igrave from '../public/images/igrave-black.svg';
-import image from '../public/logo/sekolahskullers.png';
 import styles from '../styles/pages/ProfilKelas.module.scss';
 
 export default function Profile() {
@@ -39,7 +38,7 @@ export default function Profile() {
         <div className={styles.container}>
           <div className={styles.leftContent}>
             <div className={styles.profile}>
-              <Image src={image} height="160" width="160" alt="image" />
+              <Image src={`/kelas/${group.name}.jpg`} height="160" width="160" alt="image" />
               <div className={styles.details}>
                 <h1>{group.name}</h1>
                 <Level

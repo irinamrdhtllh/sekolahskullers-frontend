@@ -7,7 +7,6 @@ import ClassItem from '../components/ClassItem';
 import Layout from '../layout/Layout';
 import acute from '../public/images/acute-black.svg';
 import igrave from '../public/images/igrave-black.svg';
-import image from '../public/logo/sekolahskullers.png';
 import styles from '../styles/pages/Kelas.module.scss';
 
 export default function Groups({ groups }) {
@@ -59,7 +58,7 @@ export default function Groups({ groups }) {
                 key={index}
                 status={group}
                 number={index + 1}
-                class_logo={image}
+                class_logo={`/kelas/${group.name}.jpg`}
               />
             ))}
           </div>
@@ -72,7 +71,7 @@ export default function Groups({ groups }) {
                 key={index}
                 status={group}
                 number={index + 1}
-                class_logo={image}
+                class_logo={`/kelas/${group.name}.jpg`}
               />
             ))}
           </div>
