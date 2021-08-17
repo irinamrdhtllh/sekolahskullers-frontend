@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import Image from 'next/image';
@@ -12,7 +10,7 @@ import acute from '../public/images/acute-black.svg';
 import igrave from '../public/images/igrave-black.svg';
 import styles from '../styles/pages/Peserta.module.scss';
 
-export default function Students({ students, page }) {
+export default function Students({ students, pagesAvailable, page }) {
   const router = useRouter();
 
   return (
@@ -53,7 +51,10 @@ export default function Students({ students, page }) {
                 size="lg"
               />
             </button>
-            <button onClick={() => router.push(`/peserta/?page=${page + 1}`)}>
+            <button
+              onClick={() => router.push(`/peserta/?page=${page + 1}`)}
+              disabled={pagesAvailable == null}
+            >
               <FontAwesomeIcon
                 className={styles.icons}
                 icon="greater-than"
@@ -70,6 +71,7 @@ export default function Students({ students, page }) {
 Students.getInitialProps = async ({ query: { page = 1 } }) => {
   const response = await axios.get(`api/students/?page=${page}`);
   const students = response.data.results;
+  const pagesAvailable = response.data.next;
 
   if (!students) {
     return {
@@ -79,6 +81,7 @@ Students.getInitialProps = async ({ query: { page = 1 } }) => {
 
   return {
     students,
+    pagesAvailable,
     page: parseInt(page, 10),
   };
 };
