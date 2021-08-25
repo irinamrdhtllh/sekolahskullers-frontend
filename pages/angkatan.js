@@ -5,7 +5,6 @@ import ProgressBar from '../components/ProgressBar';
 import TaskCard from '../components/TaskCard';
 import Layout from '../layout/Layout';
 import igrave from '../public/images/igrave-black.svg';
-import image from '../public/logo/sekolahskullers.png';
 import styles from '../styles/pages/Angkatan.module.scss';
 
 export default function ClassYear({ classYear }) {
@@ -14,7 +13,12 @@ export default function ClassYear({ classYear }) {
       <div className={styles.container}>
         <div className={styles.leftContent}>
           <div className={styles.profile}>
-            <Image src={image} height="160" width="160" alt="image" />
+            <Image
+              src="/angkatan/morpha.png"
+              height="160"
+              width="160"
+              alt="image"
+            />
             <div className={styles.details}>
               <h1>{classYear.name}</h1>
               <Image
@@ -43,20 +47,20 @@ export default function ClassYear({ classYear }) {
               </div>
             </div>
           </div>
-          {/* <div className={styles.visionMission}>
-            <div className={styles.vision}>
-              <h1>Visi</h1>
-              <p>{classYear.vision}</p>
-            </div>
-            <div className={styles.mission}>
-              <h1>Misi</h1>
-              <ul>
+          {
+            <div className={styles.visionMission}>
+              <div className={styles.vision}>
+                <h1>Visi</h1>
+                <p>{classYear.vision}</p>
+              </div>
+              <div className={styles.mission}>
+                <h1>Makna Logo</h1>
                 {classYear.missions?.map((mission, index) => (
-                  <li key={index}>{mission}</li>
+                  <p key={index}>{mission}</p>
                 ))}
-              </ul>
+              </div>
             </div>
-          </div> */}
+          }
         </div>
 
         <div className={styles.rightContent}>
